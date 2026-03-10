@@ -55,3 +55,10 @@ next-env.d.ts
 Thumbs.db
 
 IMPLEMENTATION_PLAN.md
+
+# Documentation and planning files (internal use only)
+*_PLAN.md
+*_SUMMARY.md
+*_FIX*.md
+*_REPORT.md
+HANDOVER.md
