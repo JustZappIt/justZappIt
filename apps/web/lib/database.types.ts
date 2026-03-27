@@ -39,6 +39,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      facilitator_interests: {
+        Row: {
+          id: string
+          email: string
+          payment_systems: string[]
+          other_payment_system: string | null
+          source: string
+          created_at: string
+          notified: boolean
+          notified_at: string | null
+        }
+        Insert: {
+          id?: string
+          email: string
+          payment_systems?: string[]
+          other_payment_system?: string | null
+          source?: string
+          created_at?: string
+          notified?: boolean
+          notified_at?: string | null
+        }
+        Update: {
+          id?: string
+          email?: string
+          payment_systems?: string[]
+          other_payment_system?: string | null
+          source?: string
+          created_at?: string
+          notified?: boolean
+          notified_at?: string | null
+        }
+        Relationships: []
+      }
       rate_limits: {
         Row: {
           action_count: number
@@ -75,6 +108,7 @@ export type Database = {
           phone: string | null
           source: string
           street_address: string | null
+          submitter_hash: string | null
           updated_at: string
           verification_status: Database["public"]["Enums"]["verification_status"]
           website: string | null
@@ -96,6 +130,7 @@ export type Database = {
           phone?: string | null
           source?: string
           street_address?: string | null
+          submitter_hash?: string | null
           updated_at?: string
           verification_status?: Database["public"]["Enums"]["verification_status"]
           website?: string | null
@@ -117,6 +152,7 @@ export type Database = {
           phone?: string | null
           source?: string
           street_address?: string | null
+          submitter_hash?: string | null
           updated_at?: string
           verification_status?: Database["public"]["Enums"]["verification_status"]
           website?: string | null
@@ -201,7 +237,25 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      leaderboard_weekly: {
+        Row: {
+          submitter_hash: string | null
+          stores_week: number | null
+          stores_all_time: number | null
+          rank_weekly: number | null
+          rank_all_time: number | null
+        }
+        Relationships: []
+      }
+      confirmations_leaderboard: {
+        Row: {
+          confirmer_hash: string | null
+          confirms_week: number | null
+          confirms_all_time: number | null
+          rank_weekly: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       check_rate_limit: {
@@ -366,3 +420,4 @@ export const Constants = {
   },
 } as const
 export type Store = Database["public"]["Tables"]["stores"]["Row"];
+export type FacilitatorInterest = Database["public"]["Tables"]["facilitator_interests"]["Row"];

@@ -4,6 +4,7 @@ import AppHero from "@/components/AppHero";
 import FeatureBlock from "@/components/FeatureBlock";
 import StatsBar from "@/components/StatsBar";
 import RoadmapSection from "@/components/RoadmapSection";
+import FacilitatorBlock from "@/components/FacilitatorBlock";
 import CommunityBlock from "@/components/CommunityBlock";
 
 export const metadata: Metadata = {
@@ -49,6 +50,7 @@ export default function HomePage() {
       <FeatureBlock />
       <StatsBar />
       <RoadmapSection />
+      <FacilitatorBlock />
       <CommunityBlock />
     </>
   );

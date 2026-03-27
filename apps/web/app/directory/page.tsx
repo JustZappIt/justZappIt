@@ -68,6 +68,13 @@ export default async function DirectoryPage() {
           <Link href="/add" className="text-primary hover:underline font-medium">
             Add your store →
           </Link>
+          {" · "}
+          <Link
+            href="/#become-a-facilitator"
+            className="text-primary hover:underline font-medium"
+          >
+            I Want to Become a Facilitator →
+          </Link>
         </p>
       </div>
 

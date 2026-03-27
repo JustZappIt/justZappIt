@@ -8,7 +8,6 @@ import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import StorePageClient from "./StorePageClient";
 
-export const revalidate = 3600;
 export const dynamic = "force-dynamic";
 
 async function getStore(id: string): Promise<Store | null> {

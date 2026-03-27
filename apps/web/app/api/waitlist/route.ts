@@ -5,31 +5,13 @@ import { getServiceClient } from "@/lib/supabase";
 import { hashIp, getClientIp } from "@/lib/ipHash";
 import { checkRateLimit } from "@/lib/rateLimit";
 import { sendWelcomeEmail } from "@/lib/email";
-
-const HCAPTCHA_SECRET = process.env.HCAPTCHA_SECRET_KEY;
-
-async function verifyHcaptcha(token: string): Promise<boolean> {
-  if (process.env.NODE_ENV !== "production" && token.startsWith("10000000-")) {
-    return true;
-  }
-  if (!HCAPTCHA_SECRET || HCAPTCHA_SECRET === "REPLACE_WITH_HCAPTCHA_SECRET_KEY") {
-    console.warn("[hCaptcha] Secret not configured — skipping verification in dev");
-    return true;
-  }
-  const res = await fetch("https://hcaptcha.com/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `secret=${HCAPTCHA_SECRET}&response=${token}`,
-  });
-  const data = (await res.json()) as { success: boolean; "error-codes"?: string[] };
-  return data.success;
-}
+import { verifyHcaptcha } from "@/lib/hcaptcha";
 
 const waitlistSchema = z.object({
   email: z.string().email("Invalid email address").max(254),
   captchaToken: z.string().min(1, "Captcha token required"),
   source: z
-    .enum(["app-page", "sticky-bar", "x-link", "directory-page", "footer"])
+    .enum(["app-page", "sticky-bar", "x-link", "directory-page", "footer", "facilitator-block"])
     .default("app-page"),
 });
 

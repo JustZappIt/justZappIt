@@ -65,7 +65,6 @@ export default function EnhancedFooter() {
                 { href: "/faq", label: "FAQ" },
                 { href: "/about", label: "About Us" },
                 { href: "/leaderboard", label: "Leaderboard" },
-                { href: "/press", label: "Press" },
                 { href: "/contact", label: "Contact" },
                 { href: "/verification", label: "Safety Guide" },
               ].map(({ href, label }) => (
