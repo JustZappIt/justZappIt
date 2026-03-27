@@ -20,7 +20,7 @@ export function getServiceClient(): SupabaseClient {
     if (!serviceKey) {
       throw new Error("Missing required environment variable: SUPABASE_SERVICE_ROLE_KEY");
     }
-    _serviceClient = createClient(supabaseUrl, serviceKey);
+    _serviceClient = createClient(supabaseUrl!, serviceKey);
   }
   return _serviceClient;
 }
