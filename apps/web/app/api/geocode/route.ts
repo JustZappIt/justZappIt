@@ -36,6 +36,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Missing query" }, { status: 400 });
   }
 
+  if (q.length > 200) {
+    return NextResponse.json({ error: "Query too long" }, { status: 400 });
+  }
+
   try {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=1`;
     const res = await fetch(url, {

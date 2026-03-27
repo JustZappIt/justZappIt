@@ -2,8 +2,8 @@
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "About Us — JustZappIt",
-  description: "Learn about JustZappIt's mission to create a comprehensive, community-driven directory of physical cryptocurrency exchanges worldwide.",
+  title: "About Us",
+  description: "Learn about JustZappIt — a private messaging app and a community-driven directory of physical cryptocurrency exchanges worldwide.",
 };
 
 export default function AboutPage() {
@@ -12,25 +12,41 @@ export default function AboutPage() {
   return (
     <>
       <h1 className="text-[var(--color-text-primary)]">About JustZappIt</h1>
-      <p className="text-[var(--color-text-secondary)] mb-8">Last updated: February 28, 2026</p>
+      <p className="text-[var(--color-text-secondary)] mb-8">Last updated: March 2026</p>
 
-      <h2 className="text-[var(--color-text-primary)] mt-8">Our Mission</h2>
+      <h2 className="text-[var(--color-text-primary)] mt-8">The App</h2>
       <p>
-        JustZappIt is a community-driven, open-source project dedicated to creating the most comprehensive and reliable directory of physical cryptocurrency exchanges worldwide. We believe in the fundamental right to access cryptocurrency services safely and transparently, whether online or in person.
+        JustZappIt is a private, encrypted messaging application for iOS and Android. In-chat Zcash (ZEC) payments are coming soon — users will send ZEC to contacts using an external wallet like Zodl, directly within conversation threads, without KYC. Shielded transactions are the default: amount and recipient are not visible on a public ledger.
       </p>
       <p>
-        In an era where digital assets are becoming increasingly mainstream, finding trustworthy physical locations to trade cryptocurrency remains challenging. JustZappIt solves this problem by crowdsourcing and verifying real-world crypto exchange locations, making it easier for people to buy, sell, and trade cryptocurrencies with confidence.
+        The core design decision is simple: messaging and payments are one interaction. Open a conversation. Tap the payment icon. Enter an amount and send. The ZEC arrives in the contact&apos;s wallet without leaving the chat.
       </p>
+
+      <h2 className="text-[var(--color-text-primary)] mt-8">The Facilitator Network</h2>
+      <p>
+        We operate an open-source, community-maintained directory of physical cryptocurrency exchange shops worldwide. Separately, we are building an entirely new facilitator network — a community of people willing to facilitate ZEC-to-fiat conversions via QR codes at any shop counter, with no crypto infrastructure required at the point of sale.
+      </p>
+      <p>
+        The directory is free to use, requires no account, and is verified entirely by the community.
+      </p>
+
+      <h2 className="text-[var(--color-text-primary)] mt-8">Roadmap</h2>
+      <ul>
+        <li><strong>Live now:</strong> Private P2P messaging — iOS and Android</li>
+        <li><strong>Live now:</strong> Community-verified directory of physical crypto exchange shops</li>
+        <li><strong>In progress:</strong> Building the facilitator network — recruiting people willing to facilitate ZEC-to-fiat conversions via QR codes</li>
+        <li><strong>Roadmap:</strong> QR-code shop payments via fiat facilitator — pay at any shop in fiat, settled in ZEC inside the conversation thread. No merchant crypto adoption required.</li>
+      </ul>
 
       <h2 className="text-[var(--color-text-primary)] mt-8">What We Do</h2>
       <p>
         JustZappIt provides a free, open platform where:
       </p>
       <ul>
+        <li><strong>App users</strong> can send and receive ZEC privately inside conversations</li>
         <li><strong>Community members</strong> can submit and verify physical crypto exchange locations</li>
-        <li><strong>Store operators</strong> can claim their listings and provide accurate information</li>
-        <li><strong>Users</strong> can find trusted locations to trade cryptocurrency near them</li>
-        <li><strong>Everyone</strong> contributes to building a more transparent crypto ecosystem</li>
+        <li><strong>Store operators</strong> can list their business and join the facilitator network</li>
+        <li><strong>Everyone</strong> contributes to building a more accessible crypto payment ecosystem</li>
       </ul>
 
       <h2 className="text-[var(--color-text-primary)] mt-8">Our Values</h2>

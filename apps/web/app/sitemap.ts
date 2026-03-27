@@ -17,6 +17,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // City pages — deduplicated by slug
+  const { data: cities } = await supabase
+    .from("stores")
+    .select("city, country")
+    .not("city", "is", null)
+    .not("country", "is", null)
+    .neq("verification_status", "closed");
+
+  const seenSlugs = new Set<string>();
+  const cityUrls: MetadataRoute.Sitemap = [];
+  for (const row of cities ?? []) {
+    const slug = `${row.city}-${row.country}`
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/[\s]+/g, "-");
+    if (!seenSlugs.has(slug)) {
+      seenSlugs.add(slug);
+      cityUrls.push({
+        url: `${appUrl}/city/${slug}`,
+        changeFrequency: "daily",
+        priority: 0.6,
+      });
+    }
+  }
+
   return [
     {
       url: appUrl,
@@ -25,12 +53,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
+      url: `${appUrl}/app`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${appUrl}/directory`,
+      lastModified: new Date(),
+      changeFrequency: "hourly",
+      priority: 0.8,
+    },
+    {
       url: `${appUrl}/add`,
       lastModified: new Date(),
       changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${appUrl}/leaderboard`,
+      lastModified: new Date(),
+      changeFrequency: "hourly",
       priority: 0.5,
     },
-    ...storeUrls,
+...storeUrls,
+    ...cityUrls,
     ...[
       { url: `${appUrl}/legal/privacy`, changeFrequency: "monthly" as const, priority: 0.3 },
       { url: `${appUrl}/legal/terms`, changeFrequency: "monthly" as const, priority: 0.3 },

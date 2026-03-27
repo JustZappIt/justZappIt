@@ -3,46 +3,33 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase";
 import { hashIp, getClientIp } from "@/lib/ipHash";
 import { checkRateLimit } from "@/lib/rateLimit";
+import { verifyHcaptcha } from "@/lib/hcaptcha";
 import { z } from "zod";
 
-const HCAPTCHA_SECRET = process.env.HCAPTCHA_SECRET_KEY;
 const MIN_SUBMIT_MS = 3000;
 
 const newStoreSchema = z.object({
-  operator_name: z.string().min(1).max(100),
-  street_address: z.string().max(200).nullable().optional(),
-  city: z.string().min(1).max(100),
-  country: z.string().min(1).max(100),
+  operator_name: z.string().trim().min(1).max(100),
+  street_address: z.string().trim().max(200).nullable().optional(),
+  city: z.string().trim().min(1).max(100),
+  country: z.string().trim().min(1).max(100),
   lat: z.number().min(-90).max(90),
   lng: z.number().min(-180).max(180),
   is_approximate: z.boolean().default(false),
-  website: z.string().url().max(200).nullable().optional().or(z.literal("")),
-  opening_hours: z.string().max(100).nullable().optional(),
-  phone: z.string().max(50).nullable().optional(),
-  email: z.string().email().max(100).nullable().optional().or(z.literal("")),
+  website: z.string().trim().url().max(200).nullable().optional().or(z.literal("")),
+  opening_hours: z.string().trim().max(100).nullable().optional(),
+  phone: z.string().trim().max(50).nullable().optional(),
+  email: z.string().trim().email().max(100).nullable().optional().or(z.literal("")),
   accepts_crypto: z.array(z.string().max(20)).max(20).default([]),
 });
 
 const editStoreSchema = z.object({
-  website: z.string().url().max(200).nullable().optional().or(z.literal("")),
-  opening_hours: z.string().max(100).nullable().optional(),
-  phone: z.string().max(50).nullable().optional(),
-  email: z.string().email().max(100).nullable().optional().or(z.literal("")),
+  website: z.string().trim().url().max(200).nullable().optional().or(z.literal("")),
+  opening_hours: z.string().trim().max(100).nullable().optional(),
+  phone: z.string().trim().max(50).nullable().optional(),
+  email: z.string().trim().email().max(100).nullable().optional().or(z.literal("")),
 });
 
-async function verifyHcaptcha(token: string): Promise<boolean> {
-  if (!HCAPTCHA_SECRET || HCAPTCHA_SECRET === "REPLACE_WITH_HCAPTCHA_SECRET_KEY") {
-    console.warn("hCaptcha secret not configured — skipping verification in dev");
-    return true;
-  }
-  const res = await fetch("https://hcaptcha.com/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `secret=${HCAPTCHA_SECRET}&response=${token}`,
-  });
-  const data = (await res.json()) as { success: boolean };
-  return data.success;
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -147,6 +134,7 @@ export async function POST(request: NextRequest) {
         source: "community",
         confirm_count: 0,
         flag_count: 0,
+        submitter_hash: ipHash,
       });
 
       if (storeError) {
@@ -156,7 +144,11 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true, id: data.id });
-  } catch {
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  } catch (err) {
+    if (err instanceof SyntaxError) {
+      return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+    }
+    console.error("[Submissions API] Unexpected error:", err);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

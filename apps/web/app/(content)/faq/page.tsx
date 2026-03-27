@@ -131,6 +131,31 @@ const faqData = [
         answer: "No, JustZappIt is not responsible for any transactions conducted between users and listed stores. We provide directory information only. All transactions are at your own risk, and we disclaim all liability for any losses or damages."
       }
     ]
+  },
+  {
+    category: "app",
+    questions: [
+      {
+        id: "app-1",
+        question: "What is the JustZappIt mobile app?",
+        answer: "JustZappIt is a private, encrypted messaging application for iOS and Android with in-chat Zcash (ZEC) payments coming soon. You will be able to send ZEC to any contact directly within a conversation thread using an external wallet like Zodl, without KYC. Shielded transactions are the default."
+      },
+      {
+        id: "app-2",
+        question: "How will in-chat ZEC payments work?",
+        answer: "Open a conversation, tap the payment icon, enter an amount, and send from your connected Zodl wallet. The ZEC arrives in your contact's wallet without leaving the chat. Payments use Zcash shielded transactions by default, meaning the amount and recipient are not visible on a public ledger. This feature is coming soon."
+      },
+      {
+        id: "app-3",
+        question: "Do I need a phone number to sign up?",
+        answer: "No. JustZappIt does not require a phone number to create an account. We collect minimal personal information and do not sell user data."
+      },
+      {
+        id: "app-4",
+        question: "What is the QR-code shop payment feature?",
+        answer: "This is a planned roadmap feature — it is not available in the current version of the app. The design is: you generate a QR code at a shop representing a payment amount. A nearby facilitator (a person in the JustZappIt network willing to pay in fiat on your behalf) scans the code and completes the fiat payment to the shop. You then settle with the facilitator in ZEC inside the conversation thread. No crypto infrastructure is required at the point of sale."
+      }
+    ]
   }
 ];
 
@@ -139,7 +164,8 @@ export default function FAQPage() {
 
   const categories = {
     general: "General Questions",
-    verification: "Store Verification", 
+    app: "The Mobile App",
+    verification: "Store Verification",
     safety: "Safety & Security",
     technical: "Technical Questions",
     legal: "Legal & Regulatory"
