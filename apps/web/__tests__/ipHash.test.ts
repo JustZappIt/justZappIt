@@ -35,16 +35,18 @@ describe("hashIp", () => {
     expect(h1).not.toBe(h2);
   });
 
-  it("throws in production without a valid salt", () => {
+  it("returns fallback hash in production without a valid salt", () => {
     vi.stubEnv("NODE_ENV", "production");
     vi.stubEnv("IP_HASH_SALT", "");
-    expect(() => hashIp("192.168.1.1")).toThrow("CRITICAL");
+    const hash = hashIp("192.168.1.1");
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
   });
 
-  it("throws in production with placeholder salt", () => {
+  it("returns fallback hash in production with placeholder salt", () => {
     vi.stubEnv("NODE_ENV", "production");
     vi.stubEnv("IP_HASH_SALT", "default-salt-replace-me");
-    expect(() => hashIp("192.168.1.1")).toThrow("CRITICAL");
+    const hash = hashIp("192.168.1.1");
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
   });
 });
 
