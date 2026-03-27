@@ -17,6 +17,17 @@ const waitlistSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate environment variables early
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error("[Waitlist API] Missing SUPABASE_SERVICE_ROLE_KEY");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
+    if (!process.env.IP_HASH_SALT || process.env.IP_HASH_SALT === "default-salt-replace-me") {
+      console.error("[Waitlist API] Missing or default IP_HASH_SALT");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
     const body = await request.json();
     const result = waitlistSchema.safeParse(body);
 
@@ -36,7 +47,14 @@ export async function POST(request: NextRequest) {
 
     // Rate limiting — reuse existing checkRateLimit (10 actions / 24h per IP)
     const ip = getClientIp(request);
-    const ipHash = hashIp(ip);
+    let ipHash: string;
+    try {
+      ipHash = hashIp(ip);
+    } catch (err) {
+      console.error("[Waitlist API] IP hashing failed:", err);
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
+    }
+
     const { allowed } = await checkRateLimit(ipHash);
     if (!allowed) {
       return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 });
