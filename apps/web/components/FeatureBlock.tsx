@@ -1,20 +1,30 @@
 // SPDX-License-Identifier: AGPL-3.0-only
+"use client";
+
+import { useInView } from "@/lib/useInView";
+
 export default function FeatureBlock() {
+  const { ref, inView } = useInView({ threshold: 0.2 });
+
   return (
-    <section className="bg-[var(--color-bg)] py-20">
+    <section ref={ref as React.RefObject<HTMLElement>} className="bg-[var(--color-bg)] py-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-extrabold text-[var(--color-text-primary)] tracking-tight">
+          <h2 className="text-3xl font-extrabold text-[var(--color-text-primary)] tracking-tight animate-reveal-text">
             Privacy and payments in one place
           </h2>
-          <p className="mt-3 text-[var(--color-text-secondary)] max-w-xl mx-auto">
+          <p className="mt-3 text-[var(--color-text-secondary)] max-w-xl mx-auto animate-fade-up" style={{ animationDelay: "120ms" }}>
             Two features that belong together — finally in the same app.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Feature 1 */}
-          <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-8">
+          {/* Feature 1 — slides in from left */}
+          <div
+            className={`bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-8 ${
+              inView ? "animate-slide-in-left" : "opacity-0"
+            }`}
+          >
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
               <svg viewBox="0 0 24 24" className="w-5 h-5 text-primary fill-none stroke-current stroke-2" aria-hidden="true">
                 <circle cx="12" cy="12" r="10" />
@@ -35,8 +45,13 @@ export default function FeatureBlock() {
             </p>
           </div>
 
-          {/* Feature 2 */}
-          <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-8">
+          {/* Feature 2 — slides in from right */}
+          <div
+            className={`bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-8 ${
+              inView ? "animate-slide-in-right" : "opacity-0"
+            }`}
+            style={{ animationDelay: "80ms" }}
+          >
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
               <svg viewBox="0 0 24 24" className="w-5 h-5 text-primary fill-none stroke-current stroke-2" aria-hidden="true">
                 <rect x="3" y="11" width="18" height="11" rx="2" />

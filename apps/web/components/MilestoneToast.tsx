@@ -64,7 +64,7 @@ export default function MilestoneToast() {
     <div
       role="status"
       aria-live="polite"
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-primary text-white rounded-xl shadow-lg px-6 py-4 flex items-center gap-4 max-w-sm text-sm"
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-primary text-white rounded-xl shadow-lg px-6 py-4 flex items-center gap-4 max-w-sm text-sm animate-toast-in"
     >
       <div>
         <p className="font-bold">🎉 {milestone} facilitators listed!</p>

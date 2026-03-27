@@ -174,8 +174,8 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
           store_id: store.id,
           hcaptchaToken: captchaToken,
           payload: {
-            website: editFields.website,
-            opening_hours: editFields.opening_hours,
+            website: editFields.website.trim() || null,
+            opening_hours: editFields.opening_hours.trim() || null,
             phone: editFields.phone.trim() || null,
             email: editFields.email.trim() || null,
           },
@@ -215,7 +215,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
 
   return (
     <>
-      <div className="flex flex-col h-full bg-[var(--color-bg)]">
+      <div className="flex flex-col h-full bg-[var(--color-bg)] animate-slide-in-right">
         {/* Header */}
         <div className="flex items-start justify-between p-xl border-b border-[var(--color-border)]">
           <div className="flex gap-4 mb-4">

@@ -35,3 +35,33 @@ export const dropdownItem =
 /** Crypto badge */
 export const cryptoBadge =
   "px-2 py-1 bg-primary/10 text-primary text-caption font-semibold rounded-sm border border-primary/20";
+
+// ── Animation helpers ──────────────────────────────────────────────────────
+
+/**
+ * Fade up on scroll entry. Pair with useInView — apply when `inView` is true,
+ * use `opacity-0` as the pre-visible state.
+ * Example: className={`${inView ? animateFadeUp : "opacity-0"}`}
+ */
+export const animateFadeUp = "animate-fade-up";
+
+/**
+ * Clip-path text reveal (left → right). Best on h2 section headings.
+ * Runs immediately — no scroll trigger needed for above-fold content.
+ */
+export const animateRevealText = "animate-reveal-text";
+
+/**
+ * Slide in from the right. Used for panels and drawers.
+ */
+export const animateSlideInRight = "animate-slide-in-right";
+
+/**
+ * Slide in from the left.
+ */
+export const animateSlideInLeft = "animate-slide-in-left";
+
+/**
+ * Drop in from above. Used for realtime feed items.
+ */
+export const animateDropIn = "animate-drop-in";

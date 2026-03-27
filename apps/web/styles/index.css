@@ -1,5 +1,6 @@
 @import "./tokens.css";
 @import "./base.css";
+@import "./animations.css";
 @import "./leaflet.css";
 @import "./marker-cluster.css";
 @import "./error-pages.css";
