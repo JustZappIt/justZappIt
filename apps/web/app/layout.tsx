@@ -6,6 +6,7 @@ import AdSenseScript from "@/components/AdSenseScript";
 import CookieConsent from "@/components/CookieConsent";
 import EnhancedHeader from "@/components/navigation/EnhancedHeader";
 import EnhancedFooter from "@/components/navigation/EnhancedFooter";
+import WaitlistBar from "@/components/WaitlistBar";
 import "@/styles/index.css";
 
 const inter = Inter({
@@ -16,20 +17,20 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "JustZappIt | Find Physical Crypto Exchanges Near You",
-    template: "%s | JustZappIt",
+    default: "JustZappIt — Private Messaging with Zcash Payments",
+    template: "%s — JustZappIt",
   },
   description:
-    "Discover the most comprehensive global directory of physical crypto exchange shops. Safely trade BTC, ETH, USDT, and other cryptocurrencies for cash near you. Community-verified stores.",
+    "A private messaging app for iOS and Android with native Zcash payments. Send ZEC to any contact inside your conversation — no separate wallet, no KYC, no middlemen.",
   keywords: [
+    "zcash payments",
+    "private messaging app",
+    "zec wallet",
+    "crypto messaging",
+    "p2p zcash",
     "crypto exchange near me",
     "buy bitcoin with cash",
-    "sell crypto for cash",
     "physical crypto store",
-    "crypto ATM alternative",
-    "OTC crypto desk",
-    "USDT to fiat",
-    "bitcoin exchange shop",
   ],
   authors: [{ name: "JustZappIt" }],
   creator: "JustZappIt",
@@ -41,29 +42,30 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "JustZappIt | Find Physical Crypto Exchanges Near You",
+    title: "JustZappIt — Private Messaging with Zcash Payments",
     description:
-      "Discover the most comprehensive global directory of physical crypto exchange shops. Safely trade BTC, ETH, USDT, and other cryptocurrencies for cash near you.",
+      "Send ZEC to any contact inside your conversation. Private, encrypted messaging with native Zcash payments. iOS and Android.",
     url: "https://justzappit.xyz",
     siteName: "JustZappIt",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/api/og?type=app",
         width: 1200,
         height: 630,
-        alt: "JustZappIt - Find Crypto Exchanges Near You",
+        alt: "JustZappIt — Private Messaging with Zcash Payments",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JustZappIt | Find Physical Crypto Exchanges Near You",
+    title: "JustZappIt — Private Messaging with Zcash Payments",
     description:
-      "Discover the most comprehensive global directory of physical crypto exchange shops. Safely trade BTC, ETH, USDT, and other cryptocurrencies for cash near you.",
-    images: ["/og-image.jpg"],
-    creator: "@justzappit",
+      "Send ZEC to any contact inside your conversation. Private, encrypted messaging with native Zcash payments.",
+    images: ["/api/og?type=app"],
+    creator: "@JustZappIt",
+    site: "@JustZappIt",
   },
   robots: {
     index: true,
@@ -88,7 +90,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        {/* Smart app banner — uncomment on launch day when App Store ID is known:
+        <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID" />
+        */}
+      </head>
       <body className="font-sans antialiased flex flex-col min-h-screen" suppressHydrationWarning>
+        <WaitlistBar />
         <EnhancedHeader />
         <main className="flex-1">{children}</main>
         <EnhancedFooter />

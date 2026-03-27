@@ -35,6 +35,7 @@
     "seed": "npm run seed --workspace=packages/db"
   },
   "devDependencies": {
-    "dotenv": "^17.3.1"
+    "dotenv": "^17.3.1",
+    "supabase": "^2.84.4"
   }
 }

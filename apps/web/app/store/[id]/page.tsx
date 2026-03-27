@@ -34,6 +34,18 @@ export async function generateMetadata({
   const cryptoAccepted = store.accepts_crypto?.length ? store.accepts_crypto.join(", ") : "BTC, ETH, USDT";
   const description = `Visit ${store.operator_name} in ${store.city}, ${store.country} to buy and sell ${cryptoAccepted} for cash. Verified physical crypto exchange and OTC desk.`;
 
+  const isVerified =
+    store.verification_status === "seed_confirmed" ||
+    store.verification_status === "community_verified";
+  const cryptosParam = (store.accepts_crypto ?? []).join(",");
+  const ogUrl =
+    `/api/og?type=store` +
+    `&name=${encodeURIComponent(store.operator_name)}` +
+    `&city=${encodeURIComponent(store.city)}` +
+    `&country=${encodeURIComponent(store.country)}` +
+    (cryptosParam ? `&cryptos=${encodeURIComponent(cryptosParam)}` : "") +
+    `&verified=${isVerified}`;
+
   return {
     title,
     description,
@@ -49,7 +61,7 @@ export async function generateMetadata({
       locale: "en_US",
       images: [
         {
-          url: "/og-image.jpg",
+          url: ogUrl,
           width: 1200,
           height: 630,
           alt: `${store.operator_name} Crypto Exchange in ${store.city}`,
@@ -60,7 +72,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-image.jpg"],
+      images: [ogUrl],
     },
   };
 }

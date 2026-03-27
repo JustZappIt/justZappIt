@@ -17,6 +17,7 @@ import {
   MessageCircle,
   ChevronDown,
 } from "lucide-react";
+import ShareXButton from "@/components/ShareXButton";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import type { Store } from "@/lib/database.types";
 import { STATUS_CONFIG, DEFAULT_STATUS, type VerificationStatus } from "@/lib/statusColors";
@@ -378,12 +379,16 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
               Directions
             </a>
 
+            <ShareXButton
+              store={store}
+              className="flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button hover:bg-[var(--color-border)] transition-colors"
+            />
             <button
               onClick={shareStore}
               className="flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button"
             >
               <Share2 size={16} className="text-primary" />
-              <span aria-live="polite">{copied ? "Copied!" : "Share"}</span>
+              <span aria-live="polite">{copied ? "Copied!" : "Copy link"}</span>
             </button>
           </div>
 

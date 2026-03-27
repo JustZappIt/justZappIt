@@ -33,7 +33,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://unpkg.com",
       `img-src 'self' data: blob: https://*.tile.openstreetmap.org https://staticmap.openstreetmap.de https://*.hcaptcha.com ${adsenseImgSrc}`,
       "font-src 'self' https://fonts.gstatic.com",
-      `connect-src 'self' https://*.supabase.co https://hcaptcha.com https://*.hcaptcha.com https://nominatim.openstreetmap.org ${adsenseConnectSrc}`,
+      `connect-src 'self' https://*.supabase.co wss://*.supabase.co https://hcaptcha.com https://*.hcaptcha.com https://nominatim.openstreetmap.org ${adsenseConnectSrc}`,
       `frame-src https://hcaptcha.com https://*.hcaptcha.com ${adsenseFrameSrc}`,
       "object-src 'none'",
       "frame-ancestors 'self'",

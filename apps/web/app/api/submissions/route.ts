@@ -147,6 +147,7 @@ export async function POST(request: NextRequest) {
         source: "community",
         confirm_count: 0,
         flag_count: 0,
+        submitter_hash: ipHash,
       });
 
       if (storeError) {
