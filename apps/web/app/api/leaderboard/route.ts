@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase";
 
-export const revalidate = 300; // ISR: rebuild every 5 minutes
+export const dynamic = "force-dynamic";
 
 interface LeaderboardRow {
   submitter_hash: string;
