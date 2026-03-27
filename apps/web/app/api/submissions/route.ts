@@ -78,13 +78,31 @@ export async function POST(request: NextRequest) {
     if (!hcaptchaToken) {
       return NextResponse.json({ error: "hCaptcha required" }, { status: 400 });
     }
+
+    // Validate environment variables before processing
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error("[Submissions API] Missing SUPABASE_SERVICE_ROLE_KEY");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
+    if (!process.env.IP_HASH_SALT || process.env.IP_HASH_SALT === "default-salt-replace-me") {
+      console.error("[Submissions API] Missing or default IP_HASH_SALT");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
     const valid = await verifyHcaptcha(hcaptchaToken);
     if (!valid) {
       return NextResponse.json({ error: "hCaptcha verification failed" }, { status: 400 });
     }
 
     const ip = getClientIp(request);
-    const ipHash = hashIp(ip);
+    let ipHash: string;
+    try {
+      ipHash = hashIp(ip);
+    } catch (err) {
+      console.error("[Submissions API] IP hashing failed:", err);
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
+    }
 
     const { allowed } = await checkRateLimit(ipHash);
     if (!allowed) {

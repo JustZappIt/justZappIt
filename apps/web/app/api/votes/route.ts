@@ -17,6 +17,17 @@ const voteSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate environment variables early
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error("[Votes API] Missing SUPABASE_SERVICE_ROLE_KEY");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
+    if (!process.env.IP_HASH_SALT || process.env.IP_HASH_SALT === "default-salt-replace-me") {
+      console.error("[Votes API] Missing or default IP_HASH_SALT");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
     const body = await request.json();
     const result = voteSchema.safeParse(body);
 
@@ -33,7 +44,13 @@ export async function POST(request: NextRequest) {
     }
 
     const ip = getClientIp(request);
-    const ipHash = hashIp(ip);
+    let ipHash: string;
+    try {
+      ipHash = hashIp(ip);
+    } catch (err) {
+      console.error("[Votes API] IP hashing failed:", err);
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
+    }
 
     const { allowed } = await checkRateLimit(ipHash);
     if (!allowed) {
