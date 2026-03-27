@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { supabase } from "@/lib/supabase";
-import { citySlug, slugify } from "@/lib/slugify";
+import { citySlug } from "@/lib/slugify";
 import type { Store } from "@/lib/database.types";
 import { STATUS_CONFIG, DEFAULT_STATUS } from "@/lib/statusColors";
 

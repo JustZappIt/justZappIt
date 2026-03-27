@@ -36,7 +36,7 @@ export default function AppPage() {
           <span className="text-primary">iOS and Android</span>
         </h1>
         <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed mb-8">
-          End-to-end encrypted conversations. In-chat Zcash payments are coming — you'll use
+          End-to-end encrypted conversations. In-chat Zcash payments are coming — you&apos;ll use
           an external wallet like Zodl to send ZEC directly to contacts without leaving the chat.
           No KYC. No middlemen.
         </p>
@@ -44,7 +44,7 @@ export default function AppPage() {
         {/* Waitlist form */}
         <div className="max-w-lg mx-auto">
           <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
-            Be notified when the app launches and when new features go live:
+            Be notified when the app launches:
           </p>
           <WaitlistForm source="app-page" />
         </div>
@@ -57,7 +57,7 @@ export default function AppPage() {
           <span className="text-sm font-normal text-primary">(coming soon)</span>
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">
-          You'll connect an external Zodl wallet to JustZappIt and send ZEC to contacts directly in the chat.
+          You&apos;ll connect an external Zodl wallet to JustZappIt and send ZEC to contacts directly in the chat.
         </p>
         <div className="space-y-6">
           {[

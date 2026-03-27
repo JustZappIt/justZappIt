@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useInView } from "@/lib/useInView";
 import { useCountUp } from "@/lib/useCountUp";

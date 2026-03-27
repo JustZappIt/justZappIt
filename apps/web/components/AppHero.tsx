@@ -32,7 +32,7 @@ export default function AppHero() {
           style={{ animationDelay: "320ms" }}
         >
           JustZappIt is a private messaging app for iOS and Android. In-chat Zcash (ZEC) sending is
-          coming — you'll use an external wallet like Zodl to send ZEC to contacts directly in conversation.
+          coming — you&apos;ll use an external wallet like Zodl to send ZEC to contacts directly in conversation.
           No KYC. No middlemen.
         </p>
 
