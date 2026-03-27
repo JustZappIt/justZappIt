@@ -57,11 +57,9 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
     text: [
       "You are now on the JustZappIt notification list.",
       "",
-      "We will contact you when new features go live — including QR-code shop payments via the facilitator network.",
+      "We will contact you when the app is ready for download.",
       "",
-      "In the meantime, the app is available on iOS and Android. Private messaging, in-chat ZEC payments, no KYC.",
-      "",
-      "Download: https://justzappit.xyz/app",
+      "In the meantime, hold on tight! Private messaging, in-chat ZEC payments, no KYC coming very soon.",
       "",
       "Follow for updates: https://x.com/JustZappIt",
       "",

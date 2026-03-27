@@ -57,7 +57,7 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
       <div className="bg-green-50 border border-green-200 rounded-lg p-5 text-center">
         <p className="text-green-800 font-semibold mb-1">You&apos;re on the list.</p>
         <p className="text-green-700 text-sm">
-          We&apos;ll contact you when new features go live — including QR-code shop payments.
+          We&apos;ll contact you when the app is ready for download.
         </p>
       </div>
     );
