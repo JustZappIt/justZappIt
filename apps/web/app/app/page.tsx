@@ -4,20 +4,20 @@ import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Mobile App — iOS & Android",
+  title: "Mobile App — Android Beta Live, iOS Coming Soon",
   description:
-    "JustZappIt for iOS and Android. Private P2P messaging with in-chat Zcash payments coming soon. Send ZEC to contacts using an external wallet — no middlemen, no KYC.",
+    "Zapp for Android is live in invite-only beta on Google Play — a non-custodial Zcash wallet with built-in end-to-end encrypted messaging. iOS is in development. In-chat ZEC payments coming soon.",
   alternates: { canonical: "/app" },
   openGraph: {
-    title: "JustZappIt — Mobile App",
+    title: "JustZappIt — Zapp Android Beta Is Live",
     description:
-      "Private P2P messaging with in-chat Zcash payments coming soon. Use an external wallet like Zodl to send ZEC directly in conversations — no KYC.",
+      "A non-custodial Zcash wallet with built-in encrypted P2P messaging. The Android beta is live as invite-only internal testing on Google Play; iOS is in development.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "JustZappIt — Mobile App",
+    title: "JustZappIt — Zapp Android Beta Is Live",
     description:
-      "Private P2P messaging with in-chat Zcash payments coming soon. Use Zodl or any wallet to send ZEC in conversations.",
+      "Zapp for Android: a non-custodial ZEC wallet with built-in encrypted messaging, now in invite-only beta on Google Play. In-chat payments coming soon. iOS in development.",
     images: ["/api/og?type=app"],
   },
 };
@@ -29,24 +29,47 @@ export default function AppPage() {
       {/* Hero */}
       <section className="text-center">
         <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
-          iOS and Android
+          Android beta live · iOS coming soon
         </p>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)] leading-tight tracking-tight mb-4">
-          Private messaging for{" "}
-          <span className="text-primary">iOS and Android</span>
+          The Zapp beta is live on{" "}
+          <span className="text-primary">Android</span>
         </h1>
-        <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed mb-8">
-          End-to-end encrypted conversations. In-chat Zcash payments are coming — you&apos;ll use
-          an external wallet like Zodl to send ZEC directly to contacts without leaving the chat.
-          No KYC. No middlemen.
+        <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed">
+          Zapp is a non-custodial Zcash wallet with end-to-end encrypted messaging built in —
+          no phone number, no KYC, no middlemen. The Android beta is running as invite-only
+          internal testing on Google Play; iOS is on the way.
         </p>
+      </section>
 
-        {/* Waitlist form */}
-        <div className="max-w-lg mx-auto">
-          <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
-            Be notified when the app launches:
+      {/* Platform waitlists */}
+      <section className="space-y-6">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6">
+          <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-3">
+            Android — beta is live
+          </h2>
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
+            Zapp for Android is in invite-only internal testing on Google Play: a full shielded
+            ZEC wallet with end-to-end encrypted chat built in — share photos and your location
+            in conversations, no phone number needed. Enter your email and we&apos;ll send you a
+            tester invite.
           </p>
-          <WaitlistForm source="app-page" />
+          <WaitlistForm source="app-page-android" />
+          <p className="text-xs text-[var(--color-text-secondary)] mt-3">
+            Use the same email as your Google Play account — invites are sent to that address
+            and only work for the matching Google account.
+          </p>
+        </div>
+
+        <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6">
+          <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-3">
+            iOS — coming soon
+          </h2>
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
+            The iOS app is coming soon. Leave your email and we&apos;ll notify you the
+            moment it&apos;s ready to install.
+          </p>
+          <WaitlistForm source="app-page-ios" />
         </div>
       </section>
 
@@ -57,19 +80,20 @@ export default function AppPage() {
           <span className="text-sm font-normal text-primary">(coming soon)</span>
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">
-          You&apos;ll connect an external Zodl wallet to JustZappIt and send ZEC to contacts directly in the chat.
+          Payments will run on the shielded ZEC wallet built into the app — no external wallet
+          to connect.
         </p>
         <div className="space-y-6">
           {[
             {
               step: "1",
               title: "Open a conversation",
-              body: "Start or open a chat with any contact in JustZappIt. Your conversations are end-to-end encrypted.",
+              body: "Start or open a chat with any contact in Zapp. Your conversations are end-to-end encrypted.",
             },
             {
               step: "2",
               title: "Tap the payment icon and select amount",
-              body: "Inside the chat thread, tap the ZEC payment button. Enter the amount you want to send from your connected Zodl wallet.",
+              body: "Inside the chat thread, tap the ZEC payment button. Enter the amount you want to send from the wallet built into the app.",
             },
             {
               step: "3",
@@ -101,7 +125,6 @@ export default function AppPage() {
             "No phone number required to sign up",
             "Shielded ZEC transactions by default — amount and recipient not on a public ledger",
             "No message metadata sold or shared",
-            "Open source codebase — anyone can audit the implementation",
           ].map((item) => (
             <li key={item} className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
               <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
@@ -122,8 +145,8 @@ export default function AppPage() {
           If you are interested in becoming a facilitator, we want your input on how the payment
           rails should work.
         </p>
-        <Link href="/directory" className="text-primary hover:underline text-sm font-medium">
-          View the directory and share feedback →
+        <Link href="/#become-a-facilitator" className="text-primary hover:underline text-sm font-medium">
+          Become a facilitator →
         </Link>
       </section>
 
@@ -140,27 +163,9 @@ export default function AppPage() {
         </p>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
           No crypto terminal at the shop. No merchant adoption required. This is a roadmap item,
-          not a current feature — we are being transparent about that. The directory we are
-          building now is the facilitator layer that makes it possible.
+          not a current feature — we are being transparent about that. The facilitator network
+          we are building now is the layer that makes it possible.
         </p>
-      </section>
-
-      {/* Open source CTA */}
-      <section className="text-center border-t border-[var(--color-border)] pt-12">
-        <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-3">
-          Open source
-        </h2>
-        <p className="text-sm text-[var(--color-text-secondary)] mb-5">
-          The full codebase is available on GitHub. Review it, audit it, contribute to it.
-        </p>
-        <a
-          href="https://github.com/0xVampirot/justZappIt"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 border border-[var(--color-border)] hover:bg-[var(--color-border)] text-[var(--color-text-primary)] font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors"
-        >
-          View on GitHub →
-        </a>
       </section>
 
     </div>

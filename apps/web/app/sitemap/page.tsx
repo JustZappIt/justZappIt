@@ -9,6 +9,8 @@ export const metadata = {
 };
 
 export default function SitemapPage() {
+  const businessEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@justzappit.xyz";
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-[var(--color-text-primary)]">Sitemap</h1>
@@ -36,7 +38,6 @@ export default function SitemapPage() {
             <ul className="space-y-2 text-[var(--color-text-secondary)]">
               <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
@@ -101,8 +102,7 @@ export default function SitemapPage() {
           <div>
             <h3 className="text-[var(--color-text-primary)] font-semibold mb-4">Project Resources</h3>
             <ul className="space-y-2 text-[var(--color-text-secondary)]">
-              <li><a href="https://github.com/0xVampirot/justZappIt" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub Repository</a></li>
-              <li><a href="https://github.com/0xVampirot/justZappIt/issues" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Issue Tracker</a></li>
+              <li><a href="https://x.com/JustZappIt" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">X (Twitter) — @JustZappIt</a></li>
             </ul>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function SitemapPage() {
             Can&apos;t find what you&apos;re looking for? Here&apos;s how to get help:
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link
               href="/faq"
               className="block text-center p-4 border border-[var(--color-border)] rounded-lg hover:border-primary transition-colors"
@@ -138,23 +138,13 @@ export default function SitemapPage() {
               <div className="text-[var(--color-text-primary)] font-semibold">FAQ</div>
               <div className="text-[var(--color-text-secondary)] text-sm mt-1">Find answers</div>
             </Link>
-            
-            <Link
-              href="/contact"
-              className="block text-center p-4 border border-[var(--color-border)] rounded-lg hover:border-primary transition-colors"
-            >
-              <div className="text-[var(--color-text-primary)] font-semibold">Contact Us</div>
-              <div className="text-[var(--color-text-secondary)] text-sm mt-1">Get help</div>
-            </Link>
-            
+
             <a
-              href="https://github.com/0xVampirot/justZappIt/issues"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${businessEmail}`}
               className="block text-center p-4 border border-[var(--color-border)] rounded-lg hover:border-primary transition-colors"
             >
               <div className="text-[var(--color-text-primary)] font-semibold">Report Issue</div>
-              <div className="text-[var(--color-text-secondary)] text-sm mt-1">GitHub</div>
+              <div className="text-[var(--color-text-secondary)] text-sm mt-1">Email us</div>
             </a>
           </div>
         </div>

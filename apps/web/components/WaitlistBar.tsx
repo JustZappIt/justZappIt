@@ -38,13 +38,13 @@ export default function WaitlistBar() {
       className="bg-primary text-white text-sm py-2.5 px-4 flex items-center justify-center gap-4 relative"
     >
       <span>
-        JustZappIt is coming to iOS and Android — private messaging with ZEC payments.
+        Zapp for Android is looking for beta testers — sign up and we&apos;ll contact you. iOS coming soon.
       </span>
       <Link
         href="/app"
         className="font-semibold underline hover:no-underline whitespace-nowrap"
       >
-        Join the notification list
+        Join the beta list
       </Link>
       <button
         onClick={dismiss}

@@ -11,7 +11,7 @@ export function generateStoreTweet(store: Store): string {
 
   return (
     `${status}: ${store.operator_name} in ${store.city}, ${store.country} — accepts ${cryptos} for cash.\n\n` +
-    `Found via @JustZappIt — the free, open-source crypto exchange directory. No sign-up, no tracking.\n`
+    `Found via @JustZappIt — the free, community-driven crypto exchange directory. No sign-up, no tracking.\n`
   );
 }
 
@@ -28,7 +28,7 @@ export function generateMilestoneTweet(count: number): string {
   return (
     `${count} stores now listed on @JustZappIt — physical crypto exchange shops, ` +
     `community-verified, worldwide. The facilitator network is growing.\n\n` +
-    `justzappit.xyz/directory`
+    `justzappit.xyz`
   );
 }
 
@@ -37,7 +37,7 @@ export function generateNewCountryTweet(country: string, storeCount: number): st
   return (
     `@JustZappIt now covers ${country}. ` +
     `${storeCount} ${storeCount === 1 ? "store" : "stores"} listed and verifiable by the community.\n\n` +
-    `Find physical crypto exchange shops near you: justzappit.xyz/directory\n` +
+    `Find physical crypto exchange shops near you: justzappit.xyz\n` +
     `#Crypto #Bitcoin #${tag}`
   );
 }

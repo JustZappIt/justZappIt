@@ -21,15 +21,15 @@ export default function CommunityBlock() {
             Add your store
           </Link>
           <Link
-            href="/directory"
+            href="/app"
             className="inline-flex items-center justify-center gap-2 bg-[var(--color-bg)] hover:bg-[var(--color-border)] text-[var(--color-text-primary)] font-semibold px-7 py-3 rounded-lg border border-[var(--color-border)] transition-colors text-sm"
           >
-            Explore the directory
+            Get the app
           </Link>
         </div>
 
         <p className="mt-8 text-xs text-[var(--color-text-secondary)]">
-          Open source · Community verified · No accounts required
+          Community verified · No accounts required
         </p>
       </div>
     </section>

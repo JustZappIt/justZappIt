@@ -64,7 +64,6 @@ export default function EnhancedHeader() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <NavLink href="/directory">Directory</NavLink>
             <NavLink href="/app">App</NavLink>
 
             {/* Resources Dropdown */}
@@ -88,8 +87,6 @@ export default function EnhancedHeader() {
                   {[
                     { href: "/faq", label: "FAQ" },
                     { href: "/about", label: "About Us" },
-                    { href: "/contact", label: "Contact" },
-                    { href: "/leaderboard", label: "Leaderboard" },
                   ].map(({ href, label }) => (
                     <Link
                       key={href}
@@ -151,13 +148,6 @@ export default function EnhancedHeader() {
           <div className="md:hidden border-t border-[var(--color-border)] py-4 animate-fade-up">
             <nav className="flex flex-col space-y-1">
               <Link
-                href="/directory"
-                className="block px-2 py-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Directory
-              </Link>
-              <Link
                 href="/app"
                 className="block px-2 py-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
@@ -173,8 +163,6 @@ export default function EnhancedHeader() {
                   {[
                     { href: "/faq", label: "FAQ" },
                     { href: "/about", label: "About Us" },
-                    { href: "/contact", label: "Contact" },
-                    { href: "/leaderboard", label: "Leaderboard" },
                   ].map(({ href, label }) => (
                     <Link
                       key={href}

@@ -66,7 +66,8 @@ export default function FeatureBlock() {
               metadata sold or shared. When you delete a conversation, it is gone.
             </p>
             <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mt-3">
-              Open source codebase — anyone can audit how privacy is implemented.
+              Privacy by default — encrypted chat and shielded ZEC in the same thread, with no
+              tracking and no data mining.
             </p>
           </div>
         </div>

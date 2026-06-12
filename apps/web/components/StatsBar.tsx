@@ -76,10 +76,10 @@ export default function StatsBar() {
         </div>
 
         <Link
-          href="/directory"
+          href="/add"
           className="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-sm transition-colors"
         >
-          Browse the directory and join the network →
+          Add your store and join the network →
         </Link>
       </div>
     </section>

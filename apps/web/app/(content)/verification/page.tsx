@@ -282,13 +282,13 @@ export default async function VerificationPage() {
               <div className="text-[var(--color-text-secondary)] text-sm mt-1">Read our FAQ</div>
             </Link>
             
-            <Link
-              href="/contact"
+            <a
+              href="mailto:hello@justzappit.xyz"
               className="block text-center p-4 border border-[var(--color-border)] rounded-lg hover:border-primary transition-colors"
             >
               <div className="text-[var(--color-text-primary)] font-semibold">Contact Us</div>
               <div className="text-[var(--color-text-secondary)] text-sm mt-1">Report issues</div>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

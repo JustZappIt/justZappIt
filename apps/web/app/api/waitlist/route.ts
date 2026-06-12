@@ -11,7 +11,16 @@ const waitlistSchema = z.object({
   email: z.string().email("Invalid email address").max(254),
   captchaToken: z.string().min(1, "Captcha token required"),
   source: z
-    .enum(["app-page", "sticky-bar", "x-link", "directory-page", "footer", "facilitator-block"])
+    .enum([
+      "app-page",
+      "app-page-android",
+      "app-page-ios",
+      "sticky-bar",
+      "x-link",
+      "directory-page",
+      "footer",
+      "facilitator-block",
+    ])
     .default("app-page"),
 });
 
@@ -76,7 +85,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Fire-and-forget welcome email — don't block the response
-    sendWelcomeEmail(email.toLowerCase().trim()).catch((err) =>
+    const platform =
+      source === "app-page-android" ? "android" : source === "app-page-ios" ? "ios" : undefined;
+    sendWelcomeEmail(email.toLowerCase().trim(), platform).catch((err) =>
       console.error("[Waitlist API] Email send failed:", err)
     );
 

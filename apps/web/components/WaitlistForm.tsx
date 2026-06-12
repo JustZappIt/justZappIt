@@ -53,12 +53,14 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
   }
 
   if (state === "success") {
+    const successDetail =
+      source === "app-page-android"
+        ? "Your beta invite email is on its way — check your inbox for the Google Play opt-in steps."
+        : "We'll contact you when the app is ready for download.";
     return (
       <div className="bg-green-50 border border-green-200 rounded-lg p-5 text-center">
         <p className="text-green-800 font-semibold mb-1">You&apos;re on the list.</p>
-        <p className="text-green-700 text-sm">
-          We&apos;ll contact you when the app is ready for download.
-        </p>
+        <p className="text-green-700 text-sm">{successDetail}</p>
       </div>
     );
   }

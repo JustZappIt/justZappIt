@@ -59,22 +59,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${appUrl}/directory`,
-      lastModified: new Date(),
-      changeFrequency: "hourly",
-      priority: 0.8,
-    },
-    {
       url: `${appUrl}/add`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
-    },
-    {
-      url: `${appUrl}/leaderboard`,
-      lastModified: new Date(),
-      changeFrequency: "hourly",
-      priority: 0.5,
     },
 ...storeUrls,
     ...cityUrls,

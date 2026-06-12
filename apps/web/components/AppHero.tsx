@@ -36,7 +36,7 @@ export default function AppHero() {
           No KYC. No middlemen.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/app"
             className="inline-flex items-center gap-2 bg-primary hover:bg-[#d97411] text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-base hover:-translate-y-0.5 hover:shadow-lg animate-scale-in"
@@ -58,16 +58,6 @@ export default function AppHero() {
             Get it on Google Play
           </Link>
         </div>
-
-        <p
-          className="text-sm text-[var(--color-text-secondary)] animate-fade-in"
-          style={{ animationDelay: "580ms" }}
-        >
-          Already using the store directory?{" "}
-          <Link href="/directory" className="text-primary hover:underline font-medium">
-            Browse facilitators →
-          </Link>
-        </p>
       </div>
     </section>
   );

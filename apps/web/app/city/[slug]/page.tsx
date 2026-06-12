@@ -112,8 +112,6 @@ export default async function CityPage({ params }: { params: { slug: string } })
         <nav className="text-sm text-[var(--color-text-secondary)] mb-6" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           {" / "}
-          <Link href="/directory" className="hover:text-primary transition-colors">Directory</Link>
-          {" / "}
           <span className="text-[var(--color-text-primary)]">{city}, {country}</span>
         </nav>
 
@@ -167,12 +165,6 @@ export default async function CityPage({ params }: { params: { slug: string } })
               className="text-sm bg-primary hover:bg-[#d97411] text-white font-semibold px-4 py-2 rounded-lg transition-colors"
             >
               Add a store
-            </Link>
-            <Link
-              href="/directory"
-              className="text-sm border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold px-4 py-2 rounded-lg hover:bg-[var(--color-border)] transition-colors"
-            >
-              Full map
             </Link>
           </div>
         </div>

@@ -24,7 +24,7 @@ export default function AboutPage() {
 
       <h2 className="text-[var(--color-text-primary)] mt-8">The Facilitator Network</h2>
       <p>
-        We operate an open-source, community-maintained directory of physical cryptocurrency exchange shops worldwide. Separately, we are building an entirely new facilitator network — a community of people willing to facilitate ZEC-to-fiat conversions via QR codes at any shop counter, with no crypto infrastructure required at the point of sale.
+        We operate a community-maintained directory of physical cryptocurrency exchange shops worldwide. Separately, we are building an entirely new facilitator network — a community of people willing to facilitate ZEC-to-fiat conversions via QR codes at any shop counter, with no crypto infrastructure required at the point of sale.
       </p>
       <p>
         The directory is free to use, requires no account, and is verified entirely by the community.
@@ -53,7 +53,7 @@ export default function AboutPage() {
       
       <h3 className="text-[var(--color-text-primary)] mt-6">Transparency</h3>
       <p>
-        We believe in complete transparency. All our code is open-source, our data is community-verified, and our processes are publicly documented. Anyone can audit our systems, contribute to our development, or fork the project to create their own version.
+        We believe in transparency. Our directory data is community-verified and our processes are publicly documented, so anyone can see how listings are submitted, confirmed, and moderated.
       </p>
 
       <h3 className="text-[var(--color-text-primary)] mt-6">Privacy First</h3>
@@ -80,7 +80,6 @@ export default function AboutPage() {
         <li><strong>Supabase</strong> for our database and real-time updates</li>
         <li><strong>OpenStreetMap</strong> for privacy-respecting mapping without tracking</li>
         <li><strong>hCaptcha</strong> for privacy-first bot protection</li>
-        <li><strong>Open Source</strong> - everything is transparent and auditable</li>
       </ul>
 
       <h2 className="text-[var(--color-text-primary)] mt-8">Community Guidelines</h2>
@@ -106,7 +105,7 @@ export default function AboutPage() {
         <li><strong>Geographic Coverage:</strong> Countries and cities represented</li>
       </ul>
       <p>
-        These statistics are updated monthly and available in our public repository.
+        These statistics are updated monthly.
       </p>
 
       <h2 className="text-[var(--color-text-primary)] mt-8">Contact Information</h2>
@@ -119,7 +118,6 @@ export default function AboutPage() {
         <ul className="space-y-2">
           <li><strong>Email:</strong> <a href={`mailto:${businessEmail}`} className="text-primary hover:underline">{businessEmail}</a></li>
           <li><strong>X (Twitter):</strong> <a href="https://x.com/JustZappIt" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@JustZappIt</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/0xVampirot/justZappIt" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/0xVampirot/justZappIt</a></li>
         </ul>
       </div>
 
@@ -131,14 +129,8 @@ export default function AboutPage() {
         <li><strong>Add Stores:</strong> Help us build the directory by submitting crypto exchange locations</li>
         <li><strong>Verify Listings:</strong> Confirm stores you&apos;ve visited to help others</li>
         <li><strong>Report Issues:</strong> Flag incorrect or outdated information</li>
-        <li><strong>Contribute Code:</strong> We&apos;re open source - check out our <a href="https://github.com/0xVampirot/justZappIt" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub repository</a></li>
         <li><strong>Spread the Word:</strong> Share JustZappIt with your crypto community</li>
       </ul>
-
-      <h2 className="text-[var(--color-text-primary)] mt-8">License</h2>
-      <p>
-        JustZappIt is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GNU Affero General Public License v3.0</a>. This means you&apos;re free to use, modify, and distribute the software, as long as you share your modifications under the same license.
-      </p>
 
       <h2 className="text-[var(--color-text-primary)] mt-8">Thank You</h2>
       <p>
