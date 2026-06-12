@@ -44,17 +44,16 @@ export default function AppPage() {
           </p>
         </div>
 
-        {/* Real screenshot of the app's first screen */}
-        <div className="hidden md:block w-[220px]">
-          <div className="rounded-[32px] border-[8px] border-[#0f0e0c] ring-1 ring-[var(--color-border-strong)] overflow-hidden shadow-[0_30px_80px_rgba(15,14,12,0.25)]">
-            <Image
-              src="/screens/zapp-wallet.png"
-              alt="Zapp wallet screen showing a shielded ZEC balance and recent activity"
-              width={636}
-              height={1230}
-              priority
-            />
-          </div>
+        {/* Real screenshot framed with official device art (Android Studio frame) */}
+        <div className="hidden md:block w-[240px]">
+          <Image
+            src="/screens/zapp-wallet-framed.png"
+            alt="Zapp wallet screen on a phone showing a shielded ZEC balance and recent activity"
+            width={900}
+            height={1901}
+            priority
+            className="[filter:drop-shadow(0_24px_48px_rgba(15,14,12,0.25))]"
+          />
         </div>
       </section>
 
