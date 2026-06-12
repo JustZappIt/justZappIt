@@ -6,18 +6,18 @@ import WaitlistForm from "@/components/WaitlistForm";
 export const metadata: Metadata = {
   title: "Get the Zapp Android Beta",
   description:
-    "Zapp for Android is live in invite-only beta on Google Play: a peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and no-KYC cash-out built in. iOS coming soon.",
+    "Zapp for Android is live in invite-only beta on Google Play: a peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and a no-KYC offramp built in. iOS coming soon.",
   alternates: { canonical: "/app" },
   openGraph: {
     title: "JustZappIt | Zapp Android Beta Is Live",
     description:
-      "A peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and no-KYC cash-out built in. The Android beta is live as invite-only internal testing on Google Play; iOS coming soon.",
+      "A peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and a no-KYC offramp built in. The Android beta is live as invite-only internal testing on Google Play; iOS coming soon.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
     title: "JustZappIt | Zapp Android Beta Is Live",
     description:
-      "Zapp for Android: a peer-to-peer encrypted messenger with a shielded ZEC wallet, in-chat payments, and no-KYC cash-out built in, now in invite-only beta on Google Play. iOS coming soon.",
+      "Zapp for Android: a peer-to-peer encrypted messenger with a shielded ZEC wallet, in-chat payments, and a no-KYC offramp built in, now in invite-only beta on Google Play. iOS coming soon.",
     images: ["/api/og?type=app"],
   },
 };
@@ -38,7 +38,7 @@ export default function AppPage() {
           </h1>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto md:mx-0 leading-relaxed">
             Zapp is a peer-to-peer encrypted messenger with a shielded, non-custodial Zcash
-            wallet built in: no servers, no phone number, no sign-up, plus no-KYC cash-out to
+            wallet built in: no servers, no phone number, no sign-up, plus a no-KYC offramp to
             local currency in select countries. The Android beta is running as invite-only
             internal testing on Google Play; iOS is on the way.
           </p>
@@ -66,7 +66,7 @@ export default function AppPage() {
           </h2>
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
             Zapp for Android is in invite-only internal testing on Google Play: a full shielded
-            ZEC wallet with end-to-end encrypted chat, in-chat payments, and no-KYC cash-out
+            ZEC wallet with end-to-end encrypted chat, in-chat payments, and a no-KYC offramp
             built in. Share photos and your location in conversations, no phone number needed.
             Enter your email and we&apos;ll send you a tester invite.
           </p>
@@ -143,13 +143,13 @@ export default function AppPage() {
         </ul>
       </section>
 
-      {/* Cash-out */}
+      {/* Offramp */}
       <section>
         <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
           Pay any UPI QR with ZEC
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
-          Cash-out is live in the beta today. Scan any UPI QR code or enter a UPI ID, and Zapp
+          The offramp is live in the beta today. Scan any UPI QR code or enter a UPI ID, and Zapp
           turns shielded ZEC into rupees on the spot: the swap runs through NEAR Intents and a
           verified peer on the P2P.me protocol settles the payment over UPI, secured by on-chain
           escrow.

@@ -29,7 +29,7 @@ const features = [
   },
   {
     index: "03",
-    title: "A way out to cash",
+    title: "A built-in offramp",
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current stroke-2" aria-hidden="true">
         <rect x="3" y="6" width="18" height="12" />

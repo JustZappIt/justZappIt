@@ -135,7 +135,7 @@ export default function AboutPage() {
           without an exchange account.
         </li>
         <li>
-          <strong>A way out to cash.</strong> No-KYC cash-out over UPI in India through the
+          <strong>A built-in offramp.</strong> No-KYC offramp over UPI in India through the
           P2P.me protocol. Scan a shop&apos;s UPI QR or pay out to your own UPI ID, settled by
           verified peers with on-chain escrow. More countries are coming.
         </li>

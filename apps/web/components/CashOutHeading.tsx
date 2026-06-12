@@ -11,7 +11,7 @@ const markets = [
 ];
 
 /**
- * Rotating cash-out headline. Renders India (the live market) on the server
+ * Rotating offramp headline. Renders India (the live market) on the server
  * so no-JS visitors and crawlers see the true current state; the rotation
  * through coming-soon markets only starts client-side.
  */

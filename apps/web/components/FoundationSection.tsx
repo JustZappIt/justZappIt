@@ -11,7 +11,7 @@ const lineage = [
   },
   {
     name: "Zapp",
-    body: "A direct fork of Zodl with everything it inherits, plus peer-to-peer messaging and a way out to cash.",
+    body: "A direct fork of Zodl with everything it inherits, plus peer-to-peer messaging and a built-in offramp.",
   },
 ];
 
@@ -59,8 +59,8 @@ export default function FoundationSection() {
               track upstream and port improvements as they ship.
             </p>
             <p className="text-[var(--color-text-secondary)] leading-relaxed">
-              What we add on top, the messaging, the swaps, the cash-out, follows one rule: it
-              has to work without trusting us.
+              Everything we add on top, messaging, swaps, and the offramp, is built the same
+              way: non-custodial and peer-to-peer, with no servers in the middle.
             </p>
           </div>
 

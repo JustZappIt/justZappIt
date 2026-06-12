@@ -124,7 +124,7 @@ export default function EnhancedFooter() {
           <p className="text-[var(--color-text-secondary)] text-xs leading-relaxed">
             <strong>Important Notice:</strong> JustZappIt builds non-custodial software. You
             control your keys, your recovery phrase, and your transactions; we cannot access or
-            recover them. Swaps and cash-out are executed by third-party protocols under their
+            recover them. Swaps and the offramp are executed by third-party protocols under their
             own terms. Cryptocurrency involves risk, and transactions cannot be reversed. Nothing
             on this site is financial, legal, or investment advice.
           </p>

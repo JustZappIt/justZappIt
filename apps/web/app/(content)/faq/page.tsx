@@ -6,12 +6,12 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers to common questions about Zapp: the non-custodial Zcash wallet with built-in encrypted messaging, the Android beta, payments, privacy, and no-KYC cash-out.",
+    "Answers to common questions about Zapp: the non-custodial Zcash wallet with built-in encrypted messaging, the Android beta, payments, privacy, and the no-KYC offramp.",
   alternates: { canonical: "/faq" },
   openGraph: {
     title: "JustZappIt FAQ | Zapp, Zcash, and Privacy",
     description:
-      "Answers to common questions about Zapp: the Android beta, encrypted messaging, shielded ZEC payments, swaps, and no-KYC cash-out.",
+      "Answers to common questions about Zapp: the Android beta, encrypted messaging, shielded ZEC payments, swaps, and the no-KYC offramp.",
     url: "/faq",
   },
 };
@@ -42,12 +42,12 @@ const faqData: FaqSection[] = [
       {
         id: "general-2",
         question: "What is Zapp?",
-        answer: "Zapp is a mobile app that combines a full Zcash wallet with peer-to-peer encrypted chat. There is no sign-up and no phone number; your chat identity is derived from your wallet. You can message contacts, pay them directly inside the conversation, share photos and (optionally) your location in chat, swap between ZEC and USDC, and cash out via UPI in India with no KYC."
+        answer: "Zapp is a mobile app that combines a full Zcash wallet with peer-to-peer encrypted chat. There is no sign-up and no phone number; your chat identity is derived from your wallet. You can message contacts, pay them directly inside the conversation, share photos and (optionally) your location in chat, swap between ZEC and USDC, and offramp to Indian Rupees over UPI with no KYC."
       },
       {
         id: "general-3",
         question: "Is Zapp free to use?",
-        answer: "Yes. The app is free and there is no account to create. You pay the normal Zcash network fees when sending transactions, and the third-party services behind swaps and cash-out apply their own rates and fees."
+        answer: "Yes. The app is free and there is no account to create. You pay the normal Zcash network fees when sending transactions, and the third-party services behind swaps and the offramp apply their own rates and fees."
       },
       {
         id: "general-4",
@@ -126,8 +126,8 @@ const faqData: FaqSection[] = [
       },
       {
         id: "payments-4",
-        question: "Can I cash out to fiat?",
-        answer: "Yes, with no KYC. Zapp's cash-out pays Indian Rupees directly to a UPI ID through the P2P.me peer-to-peer protocol: no exchange account and no identity checks. Cash-out is currently supported in India, with other countries coming soon."
+        question: "Can I offramp ZEC to fiat?",
+        answer: "Yes, with no KYC. Zapp's offramp pays Indian Rupees directly to a UPI ID through the P2P.me peer-to-peer protocol: no exchange account and no identity checks. The offramp is live in India today, with other countries coming soon."
       }
     ]
   },
@@ -187,7 +187,7 @@ const faqData: FaqSection[] = [
       {
         id: "legal-4",
         question: "Is JustZappIt responsible for my transactions?",
-        answer: "No. Zapp is non-custodial software. You control your keys and your transactions. Swaps and cash-out orders are executed by third-party services. The software is provided as-is, and we disclaim all liability for any losses or damages."
+        answer: "No. Zapp is non-custodial software. You control your keys and your transactions. Swaps and offramp orders are executed by third-party services. The software is provided as-is, and we disclaim all liability for any losses or damages."
       }
     ]
   }

@@ -11,18 +11,18 @@ import ClosingCta from "@/components/ClosingCta";
 export const metadata: Metadata = {
   title: "JustZappIt | Encrypted Messenger with a Shielded Zcash Wallet",
   description:
-    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and cash out to local currency when you need it. Android beta live.",
+    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and offramp to local currency when you need it. Android beta live.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "JustZappIt | Encrypt the Messages and the Money",
     description:
-      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and no-KYC cash-out. Android beta live; iOS coming soon.",
+      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and a no-KYC offramp. Android beta live; iOS coming soon.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
     title: "JustZappIt | Encrypt the Messages and the Money",
     description:
-      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and no-KYC cash-out. Android beta live.",
+      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and a no-KYC offramp. Android beta live.",
     images: ["/api/og?type=app"],
   },
 };
@@ -42,7 +42,7 @@ export default function HomePage() {
         email: contactEmail,
         sameAs: ["https://x.com/JustZappIt"],
         description:
-          "JustZappIt builds Zapp, a peer-to-peer end-to-end encrypted messenger with a shielded Zcash wallet built in, plus private swaps and cash-out to local currency.",
+          "JustZappIt builds Zapp, a peer-to-peer end-to-end encrypted messenger with a shielded Zcash wallet built in, plus private swaps and an offramp to local currency.",
       },
       {
         "@type": "WebSite",
@@ -65,13 +65,13 @@ export default function HomePage() {
         applicationCategory: "FinanceApplication",
         operatingSystem: "Android",
         description:
-          "A peer-to-peer encrypted messenger with a shielded Zcash (ZEC) wallet built in: in-chat payments, ZEC/USDC swaps, and no-KYC cash-out to local currency in select countries.",
+          "A peer-to-peer encrypted messenger with a shielded Zcash (ZEC) wallet built in: in-chat payments, ZEC/USDC swaps, and a no-KYC offramp to local currency in select countries.",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         featureList: [
           "End-to-end encrypted peer-to-peer messaging over Holepunch, no servers",
           "Shielded Zcash (ZEC) wallet with in-chat payments",
           "ZEC to USDC swaps via NEAR Intents",
-          "No-KYC cash-out to Indian Rupees over UPI via P2P.me",
+          "No-KYC offramp to Indian Rupees over UPI via P2P.me",
           "No phone number, email, or sign-up required",
         ],
         author: { "@id": `${appUrl}/#organization` },

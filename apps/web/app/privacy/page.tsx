@@ -68,7 +68,7 @@ export default function ZappAppPrivacyPage() {
         </li>
         <li>
           <strong>Public blockchains:</strong> transactions you send are recorded permanently on the public Zcash
-          network (and, when you use the cash-out feature, the Base network). Shielded Zcash transactions protect
+          network (and, when you use the offramp feature, the Base network). Shielded Zcash transactions protect
           amounts and addresses on-chain by design.
         </li>
         <li>
@@ -94,7 +94,7 @@ export default function ZappAppPrivacyPage() {
           quote and execute the swap are sent to the third-party swap service that fills it.
         </li>
         <li>
-          <strong>Cash-out (optional):</strong> if you use the cash-out feature, your order is executed by the
+          <strong>Offramp (optional):</strong> if you use the offramp feature, your order is executed by the
           third-party P2P.me protocol on the Base network via standard blockchain infrastructure providers. Order
           data lives on the public blockchain; the payment details you exchange with your trade counterparty
           (such as a UPI ID) are transmitted encrypted and are not received by us. Exchange-rate lookups are

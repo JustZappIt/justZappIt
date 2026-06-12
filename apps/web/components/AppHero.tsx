@@ -19,7 +19,7 @@ const stack = [
     note: "No exchange account",
   },
   {
-    label: "Cash-out",
+    label: "Offramp",
     name: "P2P.me",
     note: "On-chain escrow",
   },

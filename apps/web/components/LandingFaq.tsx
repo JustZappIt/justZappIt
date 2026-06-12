@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "Is Zapp free?",
     answer:
-      "Yes. The app is free, with no ads and no subscriptions. You pay normal Zcash network fees when you transact, and the third-party protocols behind swaps and cash-out set their own rates.",
+      "Yes. The app is free, with no ads and no subscriptions. You pay normal Zcash network fees when you transact, and the third-party protocols behind swaps and the offramp set their own rates.",
   },
 ];
 

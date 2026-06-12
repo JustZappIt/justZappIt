@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | JustZappIt",
   },
   description:
-    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and cash out to local currency when you need it. Android beta live.",
+    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and offramp to local currency when you need it. Android beta live.",
   applicationName: "JustZappIt",
   category: "finance",
   keywords: [
@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "zcash payments",
     "crypto messaging app",
     "no kyc crypto cash out",
+    "no kyc crypto offramp",
     "sell zec for upi",
     "crypto to upi india",
     "non-custodial wallet",
