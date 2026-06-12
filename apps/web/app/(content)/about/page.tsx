@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "About Us",
   description:
-    "JustZappIt builds Zapp: a decentralized, end-to-end encrypted messenger with a shielded Zcash wallet and no-KYC cash-out built in. Who we are, what we build on, and the rules we hold ourselves to.",
+    "JustZappIt builds Zapp: a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. Who we are, what we build on, and the rules we hold ourselves to.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About JustZappIt | The Team Behind Zapp",
@@ -85,18 +85,20 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-[var(--color-text-primary)] mb-3">
+      <div className="max-w-3xl">
+      <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-3">
+        The team behind Zapp
+      </p>
+      <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-[var(--color-text-primary)] mb-6">
         About JustZappIt
       </h1>
-      <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-6">
-        Last updated: June 2026
-      </p>
       <Rule className="w-24 mb-10" />
 
-      <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-3xl">
-        JustZappIt is the team behind Zapp: a decentralized, end-to-end encrypted messenger with
-        a shielded Zcash wallet and a no-KYC way out to cash, all in one app. This page is who we
-        are, what we build on, and the rules we hold ourselves to.
+      <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
+        JustZappIt is the small, independent team behind Zapp: a peer-to-peer messenger with a
+        shielded Zcash wallet built in. The whole thesis fits in one line: encrypt the messages
+        and the money. This page is who we are, what we build on, and the rules we hold
+        ourselves to.
       </p>
 
       <SectionHeading>Why we exist</SectionHeading>
@@ -104,6 +106,10 @@ export default function AboutPage() {
         Who you pay and who you talk to says more about you than almost anything else you do.
         Today that record is collected, scored, and sold by platforms, brokers, and anyone with
         an API key. We think it belongs to you.
+      </p>
+      <p className="mt-4 font-extrabold text-[var(--color-text-primary)] leading-relaxed">
+        Your messages, photos, and files are encrypted by default. Your money is not. We treat
+        that as a bug, not a fact of life.
       </p>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
         JustZappIt exists to make private money and private conversation ordinary. Not a premium
@@ -161,11 +167,13 @@ export default function AboutPage() {
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
         Every layer Zapp stands on is an open protocol or open-source software:
       </p>
-      <ul className="mt-4 space-y-3">
-        {stack.map((item) => (
+      <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {stack.map((item, i) => (
           <li
             key={item.name}
-            className="bg-[var(--color-surface)] border border-[var(--color-border)] p-5"
+            className={`bg-[var(--color-surface)] border border-[var(--color-border)] border-t-2 border-t-[var(--color-text-primary)] p-5 ${
+              i === 0 ? "sm:col-span-2" : ""
+            }`}
           >
             <p className="font-extrabold tracking-tight text-[var(--color-text-primary)]">
               {item.name}
@@ -252,6 +260,7 @@ export default function AboutPage() {
             </a>
           </li>
         </ul>
+      </div>
       </div>
     </>
   );

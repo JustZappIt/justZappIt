@@ -1,7 +1,4 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-"use client";
-
-import { useInView } from "@/lib/useInView";
 
 const lineage = [
   {
@@ -37,17 +34,15 @@ const guarantees = [
 ];
 
 export default function FoundationSection() {
-  const { ref, inView } = useInView({ threshold: 0.15 });
 
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
       className="bg-[var(--color-surface)] border-y border-[var(--color-border)] py-24"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-start">
           {/* The fork story */}
-          <div className={inView ? "animate-slide-in-left" : "opacity-0"}>
+          <div>
             <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-3">
               The foundation
             </p>
@@ -71,10 +66,7 @@ export default function FoundationSection() {
 
           {/* Lineage */}
           <ol
-            className={`relative border-l-2 border-[var(--color-border-strong)] pl-7 ml-2 space-y-9 ${
-              inView ? "animate-slide-in-right" : "opacity-0"
-            }`}
-            style={{ animationDelay: "120ms" }}
+            className="relative border-l-2 border-[var(--color-border-strong)] pl-7 ml-2 space-y-9"
           >
             {lineage.map((step, i) => (
               <li key={step.name} className="relative">
@@ -96,14 +88,13 @@ export default function FoundationSection() {
         </div>
 
         {/* What that buys you */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-          {guarantees.map((item, i) => (
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+        >
+          {guarantees.map((item) => (
             <div
               key={item.index}
-              className={`bg-[var(--color-bg)] border border-[var(--color-border)] p-7 ${
-                inView ? "animate-fade-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${200 + i * 80}ms` }}
+              className="bg-[var(--color-bg)] border border-[var(--color-border)] p-7"
             >
               <p className="text-[11px] font-extrabold tracking-[0.2em] text-[var(--color-accent-text)] mb-3">
                 {item.index}

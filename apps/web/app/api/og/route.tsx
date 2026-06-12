@@ -159,8 +159,8 @@ export async function GET(request: NextRequest) {
                 flexDirection: "column",
               }}
             >
-              <span>Private messages.</span>
-              <span style={{ color: "#E8821A" }}>Real money.</span>
+              <span>Encrypt the messages</span>
+              <span style={{ color: "#E8821A" }}>and the money.</span>
             </div>
             <div
               style={{

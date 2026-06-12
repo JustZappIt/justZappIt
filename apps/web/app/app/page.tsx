@@ -6,18 +6,18 @@ import WaitlistForm from "@/components/WaitlistForm";
 export const metadata: Metadata = {
   title: "Get the Zapp Android Beta",
   description:
-    "Zapp for Android is live in invite-only beta on Google Play: a non-custodial Zcash wallet with decentralized encrypted messaging, in-chat payments, and no-KYC cash-out. iOS coming soon.",
+    "Zapp for Android is live in invite-only beta on Google Play: a peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and no-KYC cash-out built in. iOS coming soon.",
   alternates: { canonical: "/app" },
   openGraph: {
     title: "JustZappIt | Zapp Android Beta Is Live",
     description:
-      "A non-custodial Zcash wallet with decentralized encrypted messaging, in-chat payments, and no-KYC cash-out. The Android beta is live as invite-only internal testing on Google Play; iOS coming soon.",
+      "A peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and no-KYC cash-out built in. The Android beta is live as invite-only internal testing on Google Play; iOS coming soon.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
     title: "JustZappIt | Zapp Android Beta Is Live",
     description:
-      "Zapp for Android: a non-custodial ZEC wallet with decentralized encrypted messaging, in-chat payments, and no-KYC cash-out, now in invite-only beta on Google Play. iOS coming soon.",
+      "Zapp for Android: a peer-to-peer encrypted messenger with a shielded ZEC wallet, in-chat payments, and no-KYC cash-out built in, now in invite-only beta on Google Play. iOS coming soon.",
     images: ["/api/og?type=app"],
   },
 };
@@ -37,10 +37,10 @@ export default function AppPage() {
             <span className="text-primary">Android</span>
           </h1>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto md:mx-0 leading-relaxed">
-            Zapp is a non-custodial Zcash wallet with decentralized, end-to-end encrypted
-            messaging built in (peer-to-peer over Holepunch, no servers, no phone number), plus
-            no-KYC cash-out to local currency in select countries. The Android beta is running as
-            invite-only internal testing on Google Play; iOS is on the way.
+            Zapp is a peer-to-peer encrypted messenger with a shielded, non-custodial Zcash
+            wallet built in: no servers, no phone number, no sign-up, plus no-KYC cash-out to
+            local currency in select countries. The Android beta is running as invite-only
+            internal testing on Google Play; iOS is on the way.
           </p>
         </div>
 

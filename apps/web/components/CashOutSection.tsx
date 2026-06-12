@@ -1,7 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-"use client";
-
-import { useInView } from "@/lib/useInView";
+import CashOutHeading from "@/components/CashOutHeading";
 
 const steps = [
   {
@@ -22,31 +20,26 @@ const steps = [
 ];
 
 export default function CashOutSection() {
-  const { ref, inView } = useInView({ threshold: 0.2 });
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="bg-[var(--color-bg)] py-24">
+    <section className="bg-[var(--color-bg)] py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-3">
             ZEC in the real world
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black text-[var(--color-text-primary)] tracking-tight animate-reveal-text">
-            Spend it like money
-          </h2>
-          <p className="mt-4 text-[var(--color-text-secondary)] max-w-xl mx-auto animate-fade-up" style={{ animationDelay: "120ms" }}>
-            Cash-out is live in India today. Pay any UPI QR straight from shielded ZEC, with no
-            exchange account and no identity checks.
+          <CashOutHeading />
+          <p className="mt-4 text-[var(--color-text-secondary)] max-w-xl mx-auto">
+            Pay any UPI QR straight from shielded ZEC, with no exchange account and no identity
+            checks.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {steps.map((step, i) => (
-            <div
-              key={step.label}
-              className={inView ? "animate-fade-up" : "opacity-0"}
-              style={{ animationDelay: `${i * 100}ms` }}
-            >
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-10"
+        >
+          {steps.map((step) => (
+            <div key={step.label}>
               {/* Thick rule — orange as sharp graphic element */}
               <div className="h-[3px] w-full bg-[var(--color-text-primary)] mb-6" aria-hidden="true">
                 <div className="h-full w-1/3 bg-primary" />
@@ -65,8 +58,7 @@ export default function CashOutSection() {
         </div>
 
         <div
-          className={`mt-14 flex flex-col items-center gap-4 ${inView ? "animate-fade-up" : "opacity-0"}`}
-          style={{ animationDelay: "320ms" }}
+          className="mt-14 flex flex-col items-center gap-4"
         >
           <div className="flex flex-wrap justify-center gap-2">
             {["No KYC", "No exchange account", "No paperwork"].map((chip) => (
@@ -79,7 +71,7 @@ export default function CashOutSection() {
             ))}
           </div>
           <p className="text-sm text-[var(--color-text-subtle)]">
-            India today. More countries and payment rails are on the way.
+            Rupees are live in India today. Brazil, Argentina, and Indonesia are on the way.
           </p>
         </div>
       </div>

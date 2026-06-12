@@ -1,18 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-"use client";
-
 import Link from "next/link";
-import { useInView } from "@/lib/useInView";
 
 export default function ClosingCta() {
-  const { ref, inView } = useInView({ threshold: 0.3 });
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="bg-[var(--color-text-primary)] py-24">
+    <section className="bg-[var(--color-text-primary)] py-24">
       <div
-        className={`max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center ${
-          inView ? "animate-fade-up" : "opacity-0"
-        }`}
+        className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
         <p className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-primary mb-6">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
@@ -20,8 +14,9 @@ export default function ClosingCta() {
         </p>
 
         <h2 className="text-4xl sm:text-5xl font-black text-[var(--color-bg)] tracking-tight leading-[1.05] mb-6">
-          Your messages. Your money.{" "}
-          <span className="text-primary">Encrypted.</span>
+          Private by architecture,
+          <br />
+          <span className="text-primary">not by policy.</span>
         </h2>
 
         {/* Thick rule — inverted for the dark band */}
@@ -30,13 +25,14 @@ export default function ClosingCta() {
         </div>
 
         <p className="text-lg text-[var(--color-bg)] opacity-75 max-w-xl mx-auto leading-relaxed mb-10">
-          The beta is free and invite-only on Google Play. Leave your email and we&apos;ll send
-          you an invite. iOS is on the way.
+          No server to breach. No account to mine. No custodian to trust. The beta is free and
+          invite-only on Google Play: leave your email and we&apos;ll send you an invite. iOS is
+          on the way.
         </p>
 
         <Link
           href="/app"
-          className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-8 h-[52px] transition-all duration-200 text-[15px] hover:-translate-y-0.5"
+          className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-8 h-[52px] transition-colors duration-200 text-[15px]"
         >
           Get the Android beta
         </Link>

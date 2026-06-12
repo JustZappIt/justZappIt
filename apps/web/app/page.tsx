@@ -1,26 +1,28 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import type { Metadata } from "next";
 import AppHero from "@/components/AppHero";
+import StatementBand from "@/components/StatementBand";
 import FeatureBlock from "@/components/FeatureBlock";
 import FoundationSection from "@/components/FoundationSection";
 import CashOutSection from "@/components/CashOutSection";
+import LandingFaq from "@/components/LandingFaq";
 import ClosingCta from "@/components/ClosingCta";
 
 export const metadata: Metadata = {
-  title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+  title: "JustZappIt | Encrypted Messenger with a Shielded Zcash Wallet",
   description:
-    "Zapp is a shielded Zcash wallet with decentralized, end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries. Android beta live.",
+    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and cash out to local currency when you need it. Android beta live.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+    title: "JustZappIt | Encrypt the Messages and the Money",
     description:
-      "A shielded Zcash wallet, a serverless peer-to-peer messenger, and no-KYC cash-out, all in one app. Android beta live; iOS coming soon.",
+      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and no-KYC cash-out. Android beta live; iOS coming soon.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+    title: "JustZappIt | Encrypt the Messages and the Money",
     description:
-      "A shielded Zcash wallet, a serverless peer-to-peer messenger, and no-KYC cash-out, all in one app. Android beta live.",
+      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and no-KYC cash-out. Android beta live.",
     images: ["/api/og?type=app"],
   },
 };
@@ -40,7 +42,7 @@ export default function HomePage() {
         email: contactEmail,
         sameAs: ["https://x.com/JustZappIt"],
         description:
-          "JustZappIt builds Zapp, a decentralized end-to-end encrypted messenger with a shielded Zcash wallet and no-KYC cash-out built in.",
+          "JustZappIt builds Zapp, a peer-to-peer end-to-end encrypted messenger with a shielded Zcash wallet built in, plus private swaps and cash-out to local currency.",
       },
       {
         "@type": "WebSite",
@@ -63,7 +65,7 @@ export default function HomePage() {
         applicationCategory: "FinanceApplication",
         operatingSystem: "Android",
         description:
-          "A shielded Zcash wallet with decentralized end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries.",
+          "A peer-to-peer encrypted messenger with a shielded Zcash (ZEC) wallet built in: in-chat payments, ZEC/USDC swaps, and no-KYC cash-out to local currency in select countries.",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         featureList: [
           "End-to-end encrypted peer-to-peer messaging over Holepunch, no servers",
@@ -85,9 +87,11 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <AppHero />
+      <StatementBand />
       <FeatureBlock />
       <FoundationSection />
       <CashOutSection />
+      <LandingFaq />
       <ClosingCta />
     </>
   );

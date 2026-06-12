@@ -17,11 +17,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+    default: "JustZappIt | Encrypted Messenger with a Shielded Zcash Wallet",
     template: "%s | JustZappIt",
   },
   description:
-    "Zapp is a shielded Zcash wallet with decentralized, end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries. Android beta live.",
+    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and cash out to local currency when you need it. Android beta live.",
   applicationName: "JustZappIt",
   category: "finance",
   keywords: [
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+    title: "JustZappIt | Encrypt the Messages and the Money",
     description:
-      "A decentralized messenger with a shielded Zcash wallet and no-KYC cash-out built in. Send ZEC to any contact inside the conversation. Android beta live; iOS coming soon.",
+      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Send ZEC to any contact inside the conversation. Android beta live; iOS coming soon.",
     url: "https://justzappit.xyz",
     siteName: "JustZappIt",
     locale: "en_US",
@@ -61,15 +61,15 @@ export const metadata: Metadata = {
         url: "/api/og?type=app",
         width: 1200,
         height: 630,
-        alt: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+        alt: "JustZappIt | Encrypt the Messages and the Money",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+    title: "JustZappIt | Encrypt the Messages and the Money",
     description:
-      "A decentralized messenger with a shielded Zcash wallet and no-KYC cash-out built in. Android beta live; iOS coming soon.",
+      "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Android beta live; iOS coming soon.",
     images: ["/api/og?type=app"],
     creator: "@JustZappIt",
     site: "@JustZappIt",

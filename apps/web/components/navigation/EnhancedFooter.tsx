@@ -21,9 +21,9 @@ export default function EnhancedFooter() {
           <div>
             <h3 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-4">About JustZappIt</h3>
             <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-              Zapp is a decentralized, end-to-end encrypted messenger with a shielded Zcash
-              wallet and no-KYC cash-out built in. No servers, no phone number, no tracking.
-              Android beta live; iOS coming soon.
+              Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in.
+              No servers, no phone number, no tracking. When you need cash, ZEC pays out to
+              local currency without KYC. Android beta live; iOS coming soon.
             </p>
             <div className="mt-4 flex items-center gap-4">
               <a

@@ -23,12 +23,6 @@
   to   { opacity: 1; }
 }
 
-/* --- Headline: clip-path reveal left → right --- */
-@keyframes revealText {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0% 0 0); }
-}
-
 /* --- Slide in from right (panels, drawers) --- */
 @keyframes slideInRight {
   from {
@@ -86,18 +80,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* --- Scale up from 95% (button entrance) --- */
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
   }
 }
 
