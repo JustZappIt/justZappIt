@@ -48,8 +48,8 @@ export default function AppPage() {
         <div className="hidden md:block w-[220px]">
           <div className="rounded-[32px] border-[8px] border-[#0f0e0c] ring-1 ring-[var(--color-border-strong)] overflow-hidden shadow-[0_30px_80px_rgba(15,14,12,0.25)]">
             <Image
-              src="/screens/zapp-onboarding.png"
-              alt="Zapp onboarding screen reading: Chat privately. Send instantly."
+              src="/screens/zapp-wallet.png"
+              alt="Zapp wallet screen showing a shielded ZEC balance and recent activity"
               width={636}
               height={1230}
               priority

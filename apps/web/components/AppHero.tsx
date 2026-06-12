@@ -38,8 +38,8 @@ export default function AppHero() {
           <div className="hidden lg:block relative w-[290px]">
             <div className="relative rounded-[36px] border-[9px] border-[#0f0e0c] ring-1 ring-[var(--color-border-strong)] overflow-hidden shadow-[0_30px_80px_rgba(15,14,12,0.25)]">
               <Image
-                src="/screens/zapp-wallet.png"
-                alt="Zapp wallet screen showing a shielded ZEC balance and recent activity"
+                src="/screens/zapp-onboarding.png"
+                alt="Zapp onboarding screen reading: Chat privately. Send instantly."
                 width={636}
                 height={1230}
                 priority
