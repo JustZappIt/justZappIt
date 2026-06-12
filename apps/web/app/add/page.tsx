@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description:
     "Submit a new physical crypto exchange shop to the JustZappIt directory. Help the community find safe places to buy and sell cryptocurrency for cash.",
   alternates: { canonical: "/add" },
+  // Legacy directory remnant — kept functional but out of the index
+  robots: { index: false, follow: false },
 };
 
 export const dynamic = "force-dynamic";

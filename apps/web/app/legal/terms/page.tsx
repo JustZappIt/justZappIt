@@ -2,7 +2,9 @@
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Terms of Use | JustZappIt",
+  title: "Terms of Use",
+  description: "The terms that govern your use of the JustZappIt website and the Zapp app.",
+  alternates: { canonical: "/legal/terms" },
 };
 
 export default function TermsPage() {

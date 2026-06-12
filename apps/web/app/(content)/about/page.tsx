@@ -5,6 +5,13 @@ export const metadata = {
   title: "About Us",
   description:
     "JustZappIt builds Zapp: a decentralized, end-to-end encrypted messenger with a shielded Zcash wallet and no-KYC cash-out built in. Who we are, what we build on, and the rules we hold ourselves to.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About JustZappIt | The Team Behind Zapp",
+    description:
+      "Who we are, what Zapp is built on (Zcash, Zodl, Holepunch, NEAR Intents, P2P.me), and the privacy principles we hold ourselves to.",
+    url: "/about",
+  },
 };
 
 // Thick rule — orange as sharp graphic element
@@ -31,6 +38,23 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 export default function AboutPage() {
   const businessEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@justzappit.xyz";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://justzappit.xyz";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About JustZappIt",
+    url: `${appUrl}/about`,
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${appUrl}/#organization`,
+      name: "JustZappIt",
+      url: appUrl,
+      logo: { "@type": "ImageObject", url: `${appUrl}/icon.png` },
+      email: businessEmail,
+      sameAs: ["https://x.com/JustZappIt"],
+    },
+  };
 
   const stack = [
     {
@@ -57,6 +81,10 @@ export default function AboutPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-[var(--color-text-primary)] mb-3">
         About JustZappIt
       </h1>

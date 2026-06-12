@@ -2,7 +2,9 @@
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Disclaimer | JustZappIt",
+  title: "Disclaimer",
+  description: "Important disclaimers about Zapp, non-custodial software, and cryptocurrency risk.",
+  alternates: { canonical: "/legal/disclaimer" },
 };
 
 export default function DisclaimerPage() {

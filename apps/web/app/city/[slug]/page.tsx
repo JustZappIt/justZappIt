@@ -46,10 +46,12 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const stores = await getStoresBySlug(params.slug);
-  if (stores.length === 0) return { title: "Not Found" };
+  if (stores.length === 0) return { title: "Not Found", robots: { index: false, follow: false } };
 
   const { city, country } = stores[0];
   return {
+    // Legacy directory remnant — kept functional but out of the index
+    robots: { index: false, follow: false },
     title: `Crypto Exchange Shops in ${city}, ${country}`,
     description:
       `Find physical cryptocurrency exchange shops in ${city}, ${country}. ` +

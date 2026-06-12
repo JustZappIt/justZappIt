@@ -2,7 +2,9 @@
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Privacy Policy | JustZappIt",
+  title: "Privacy Policy",
+  description: "How the JustZappIt website handles data: what little we collect, why, and your rights.",
+  alternates: { canonical: "/legal/privacy" },
 };
 
 export default function PrivacyPage() {

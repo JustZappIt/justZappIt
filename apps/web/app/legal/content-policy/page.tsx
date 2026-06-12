@@ -2,7 +2,9 @@
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Community Content Policy | JustZappIt",
+  title: "Community Content Policy",
+  description: "The rules for community-submitted content on JustZappIt.",
+  alternates: { canonical: "/legal/content-policy" },
 };
 
 export default function ContentPolicyPage() {

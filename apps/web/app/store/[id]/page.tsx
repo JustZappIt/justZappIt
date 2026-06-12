@@ -27,7 +27,7 @@ export async function generateMetadata({
   params: { id: string };
 }): Promise<Metadata> {
   const store = await getStore(params.id);
-  if (!store) return { title: "Store Not Found | JustZappIt" };
+  if (!store) return { title: "Store Not Found", robots: { index: false, follow: false } };
 
   const title = `${store.operator_name} | Buy & Sell Crypto in ${store.city}`;
   const cryptoAccepted = store.accepts_crypto?.length ? store.accepts_crypto.join(", ") : "BTC, ETH, USDT";
@@ -48,6 +48,8 @@ export async function generateMetadata({
   return {
     title,
     description,
+    // Legacy directory remnant — kept functional but out of the index
+    robots: { index: false, follow: false },
     alternates: {
       canonical: `/store/${store.id}`,
     },

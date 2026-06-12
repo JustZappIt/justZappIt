@@ -4,7 +4,7 @@ import Image from "next/image";
 import WaitlistForm from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Mobile App | Android Beta Live, iOS Coming Soon",
+  title: "Get the Zapp Android Beta",
   description:
     "Zapp for Android is live in invite-only beta on Google Play: a non-custodial Zcash wallet with decentralized encrypted messaging, in-chat payments, and no-KYC cash-out. iOS coming soon.",
   alternates: { canonical: "/app" },

@@ -4,8 +4,10 @@ import { supabase } from "@/lib/supabase";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Store Verification | JustZappIt",
+  title: "Store Verification",
   description: "Learn how JustZappIt's community verification system works, how to verify stores, and our anti-spam measures.",
+  // Legacy directory remnant — kept functional but out of the index
+  robots: { index: false, follow: false },
 };
 
 export default async function VerificationPage() {

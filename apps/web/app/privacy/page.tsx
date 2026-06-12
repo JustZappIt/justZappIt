@@ -2,7 +2,10 @@
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Zapp App Privacy Policy | JustZappIt",
+  title: "Zapp App Privacy Policy",
+  description:
+    "The privacy policy for the Zapp mobile app: no analytics, no tracking, no data collection. Your keys, messages, and transactions stay on your device.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function ZappAppPrivacyPage() {

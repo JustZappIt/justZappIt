@@ -27,16 +27,55 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://justzappit.xyz";
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@justzappit.xyz";
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "JustZappIt",
-    url: appUrl,
-    applicationCategory: "CommunicationApplication",
-    operatingSystem: "iOS, Android",
-    description:
-      "A shielded Zcash wallet with decentralized end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries.",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${appUrl}/#organization`,
+        name: "JustZappIt",
+        url: appUrl,
+        logo: { "@type": "ImageObject", url: `${appUrl}/icon.png` },
+        email: contactEmail,
+        sameAs: ["https://x.com/JustZappIt"],
+        description:
+          "JustZappIt builds Zapp, a decentralized end-to-end encrypted messenger with a shielded Zcash wallet and no-KYC cash-out built in.",
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${appUrl}/#website`,
+        url: appUrl,
+        name: "JustZappIt",
+        publisher: { "@id": `${appUrl}/#organization` },
+        inLanguage: "en",
+      },
+      {
+        "@type": ["SoftwareApplication", "MobileApplication"],
+        "@id": `${appUrl}/#app`,
+        name: "Zapp",
+        url: `${appUrl}/app`,
+        image: `${appUrl}/api/og?type=app`,
+        screenshot: [
+          `${appUrl}/screens/zapp-wallet.png`,
+          `${appUrl}/screens/zapp-onboarding.png`,
+        ],
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Android",
+        description:
+          "A shielded Zcash wallet with decentralized end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries.",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        featureList: [
+          "End-to-end encrypted peer-to-peer messaging over Holepunch, no servers",
+          "Shielded Zcash (ZEC) wallet with in-chat payments",
+          "ZEC to USDC swaps via NEAR Intents",
+          "No-KYC cash-out to Indian Rupees over UPI via P2P.me",
+          "No phone number, email, or sign-up required",
+        ],
+        author: { "@id": `${appUrl}/#organization` },
+        publisher: { "@id": `${appUrl}/#organization` },
+      },
+    ],
   };
 
   return (

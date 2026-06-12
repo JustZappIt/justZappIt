@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import AdSenseScript from "@/components/AdSenseScript";
@@ -22,19 +22,26 @@ export const metadata: Metadata = {
   },
   description:
     "Zapp is a shielded Zcash wallet with decentralized, end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries. Android beta live.",
+  applicationName: "JustZappIt",
+  category: "finance",
   keywords: [
-    "zcash payments",
+    "zcash wallet",
+    "shielded zec wallet",
     "private messaging app",
-    "zec wallet",
-    "crypto messaging",
-    "p2p zcash",
-    "crypto exchange near me",
-    "buy bitcoin with cash",
-    "physical crypto store",
+    "encrypted messenger",
+    "peer-to-peer messaging",
+    "zcash payments",
+    "crypto messaging app",
+    "no kyc crypto cash out",
+    "sell zec for upi",
+    "crypto to upi india",
+    "non-custodial wallet",
+    "holepunch messenger",
   ],
   authors: [{ name: "JustZappIt" }],
   creator: "JustZappIt",
   publisher: "JustZappIt",
+  formatDetection: { telephone: false },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "https://justzappit.xyz"
   ),
@@ -81,6 +88,13 @@ export const metadata: Metadata = {
   ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
     ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
     : {}),
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0e0c" },
+  ],
 };
 
 export default function RootLayout({

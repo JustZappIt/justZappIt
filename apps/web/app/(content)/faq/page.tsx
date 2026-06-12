@@ -4,14 +4,25 @@ import type { ReactNode } from "react";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Frequently Asked Questions | JustZappIt",
-  description: "Find answers to common questions about Zapp, the non-custodial Zcash wallet with built-in encrypted messaging, the Android beta, payments, and privacy.",
+  title: "Frequently Asked Questions",
+  description:
+    "Answers to common questions about Zapp: the non-custodial Zcash wallet with built-in encrypted messaging, the Android beta, payments, privacy, and no-KYC cash-out.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "JustZappIt FAQ | Zapp, Zcash, and Privacy",
+    description:
+      "Answers to common questions about Zapp: the Android beta, encrypted messaging, shielded ZEC payments, swaps, and no-KYC cash-out.",
+    url: "/faq",
+  },
 };
 
 type FaqItem = {
   id: string;
   question: string;
-  answer: ReactNode;
+  /** Plain-text answer — rendered by default and used verbatim in the FAQPage structured data */
+  answer: string;
+  /** Optional rich version with links; must say the same thing as `answer` */
+  render?: ReactNode;
 };
 
 type FaqSection = {
@@ -51,7 +62,8 @@ const faqData: FaqSection[] = [
       {
         id: "app-1",
         question: "Is Zapp available now?",
-        answer: (
+        answer: "Zapp for Android is live in an invite-only beta through Google Play internal testing. The iOS app is in development. You can request an Android invite or join the iOS waitlist on the app page.",
+        render: (
           <>
             Zapp for Android is live in an invite-only beta through Google Play internal testing. The iOS app is in development. You can request an Android invite or join the iOS waitlist on the <a href="/app" className="text-primary hover:underline">app page</a>.
           </>
@@ -60,7 +72,8 @@ const faqData: FaqSection[] = [
       {
         id: "app-2",
         question: "How do I join the Android beta?",
-        answer: (
+        answer: "Enter your email on the app page. Use the same email address as your Google Play account. We send invites with a Google Play opt-in link in batches, and this phase of the beta is limited to 100 testers.",
+        render: (
           <>
             Enter your email on the <a href="/app" className="text-primary hover:underline">app page</a>. Use the same email address as your Google Play account. We send invites with a Google Play opt-in link in batches, and this phase of the beta is limited to 100 testers.
           </>
@@ -69,7 +82,8 @@ const faqData: FaqSection[] = [
       {
         id: "app-3",
         question: "When is the iOS app coming?",
-        answer: (
+        answer: "The iOS app is in development, but we haven't committed to a release date yet. Join the waitlist on the app page and we'll email you when it's ready.",
+        render: (
           <>
             The iOS app is in development, but we haven&apos;t committed to a release date yet. Join the waitlist on the <a href="/app" className="text-primary hover:underline">app page</a> and we&apos;ll email you when it&apos;s ready.
           </>
@@ -123,7 +137,8 @@ const faqData: FaqSection[] = [
       {
         id: "privacy-1",
         question: "Does the app track me or collect analytics?",
-        answer: (
+        answer: "No. The app contains no analytics, no advertising, and no tracking SDKs. We don't collect usage data, and we never sell data. There is essentially nothing to sell. The full details are in the Zapp app privacy policy; the website has its own separate privacy policy.",
+        render: (
           <>
             No. The app contains no analytics, no advertising, and no tracking SDKs. We don&apos;t collect usage data, and we never sell data. There is essentially nothing to sell. The full details are in the <a href="/privacy" className="text-primary hover:underline">Zapp app privacy policy</a>; the website has its own separate <a href="/legal/privacy" className="text-primary hover:underline">privacy policy</a>.
           </>
@@ -181,6 +196,19 @@ const faqData: FaqSection[] = [
 export default function FAQPage() {
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@justzappit.xyz";
 
+  // FAQPage rich-result schema — answers mirror the visible plain-text content
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData.flatMap((section) =>
+      section.questions.map((q) => ({
+        "@type": "Question",
+        name: q.question,
+        acceptedAnswer: { "@type": "Answer", text: q.answer },
+      }))
+    ),
+  };
+
   const categories = {
     general: "General Questions",
     app: "The Zapp App",
@@ -191,6 +219,10 @@ export default function FAQPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-[var(--color-text-primary)] mb-3">Frequently Asked Questions</h1>
       <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-6">Last updated: June 11, 2026</p>
       {/* Thick rule — orange as sharp graphic element */}
@@ -218,7 +250,7 @@ export default function FAQPage() {
                     {item.question}
                   </h3>
                   <div className="text-[var(--color-text-secondary)] leading-relaxed">
-                    {item.answer}
+                    {item.render ?? item.answer}
                   </div>
                 </div>
               ))}
