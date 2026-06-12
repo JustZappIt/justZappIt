@@ -154,8 +154,9 @@ export default function AppPage() {
           escrow.
         </p>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-          No exchange account, no KYC, no paperwork. India today, with more countries and
-          payment rails on the way.
+          No exchange account, no KYC, no paperwork. Every order runs through a fresh wallet, so
+          the payout carries no link to your balance or history. India today, with more
+          countries and payment rails on the way.
         </p>
       </section>
 

@@ -11,7 +11,7 @@ const steps = [
   {
     label: "Step 02",
     title: "ZEC converts privately",
-    body: "Zapp swaps your shielded ZEC through NEAR Intents. No centralized exchange, no account, no custodian in the middle.",
+    body: "Zapp swaps your shielded ZEC through NEAR Intents into a fresh wallet created just for the order. No centralized exchange, no custodian, and nothing that links back to your balance or history.",
   },
   {
     label: "Step 03",
@@ -73,7 +73,7 @@ export default function CashOutSection() {
           className="mt-14 flex flex-col items-center gap-4"
         >
           <div className="flex flex-wrap justify-center gap-2">
-            {["No KYC", "No exchange account", "No paperwork"].map((chip) => (
+            {["No KYC", "No exchange account", "Fresh wallet per order"].map((chip) => (
               <span
                 key={chip}
                 className="bg-[var(--color-chip)] text-[var(--color-text-secondary)] text-[11px] font-extrabold uppercase tracking-[0.1em] px-3 py-1.5"

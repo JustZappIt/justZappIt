@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "How do I turn ZEC into cash?",
     answer:
-      "Swap between ZEC and USDC in-app through NEAR Intents, or pay any UPI QR code in India directly from shielded ZEC: a verified peer on the P2P.me protocol settles the rupees, secured by on-chain escrow. No exchange account, no identity checks. More countries are on the way.",
+      "Swap between ZEC and USDC in-app through NEAR Intents, or pay any UPI QR code in India directly from shielded ZEC: a verified peer on the P2P.me protocol settles the rupees, secured by on-chain escrow. No exchange account, no identity checks. Every order runs through a fresh wallet, so nothing links the payout back to your balance or history. More countries are on the way.",
   },
   {
     question: "What happens if I lose my phone?",

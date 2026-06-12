@@ -127,7 +127,7 @@ const faqData: FaqSection[] = [
       {
         id: "payments-4",
         question: "Can I offramp ZEC to fiat?",
-        answer: "Yes, with no KYC. Zapp's offramp pays Indian Rupees directly to a UPI ID through the P2P.me peer-to-peer protocol: no exchange account and no identity checks. The offramp is live in India today, with other countries coming soon."
+        answer: "Yes, with no KYC. Zapp's offramp pays Indian Rupees directly to a UPI ID through the P2P.me peer-to-peer protocol: no exchange account and no identity checks. Every order runs through a fresh wallet, so nothing links the payout back to your balance or history. The offramp is live in India today, with other countries coming soon."
       }
     ]
   },

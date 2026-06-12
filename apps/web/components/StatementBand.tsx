@@ -14,7 +14,7 @@ export default function StatementBand() {
               <span className="block">Your messages are encrypted.</span>
               <span className="block mt-[0.55em]">Your photos are encrypted.</span>
               <span className="block mt-[0.55em]">Your files are encrypted.</span>
-              <span className="block mt-[0.55em] text-primary">Your money is not.</span>
+              <span className="block mt-[0.55em] text-primary">Encrypt your money.</span>
             </h2>
 
             <div className="h-[3px] w-24 bg-[var(--color-text-primary)] mt-10 mb-8" aria-hidden="true">
