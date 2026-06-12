@@ -34,17 +34,16 @@ export default function AppHero() {
             <HeroCopy />
           </div>
 
-          {/* Real screenshot of the app, framed */}
-          <div className="hidden lg:block relative w-[290px]">
-            <div className="relative rounded-[36px] border-[9px] border-[#0f0e0c] ring-1 ring-[var(--color-border-strong)] overflow-hidden shadow-[0_30px_80px_rgba(15,14,12,0.25)]">
-              <Image
-                src="/screens/zapp-onboarding.png"
-                alt="Zapp onboarding screen reading: Chat privately. Send instantly."
-                width={636}
-                height={1230}
-                priority
-              />
-            </div>
+          {/* Real screenshot framed with official device art (Android Studio frame) */}
+          <div className="hidden lg:block relative w-[320px]">
+            <Image
+              src="/screens/zapp-hero-framed.png"
+              alt="Zapp welcome screen on a phone reading: Your messages and money. Encrypted."
+              width={900}
+              height={1901}
+              priority
+              className="[filter:drop-shadow(0_24px_48px_rgba(15,14,12,0.25))]"
+            />
           </div>
         </div>
 
