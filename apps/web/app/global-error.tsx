@@ -11,9 +11,9 @@ export default function GlobalError({
     <html lang="en">
       <head>
         <style>{`
-          :root { --color-bg: #FFFFFF; --color-text-primary: #0A0A0A; --color-text-secondary: #6B6B6B; }
+          :root { --color-bg: #ffffff; --color-text-primary: #15120d; --color-text-secondary: #6b645a; --color-accent: #ff9417; }
           @media (prefers-color-scheme: dark) {
-            :root { --color-bg: #000000; --color-text-primary: #F5F5F5; --color-text-secondary: #A0A0A0; }
+            :root { --color-bg: #0f0e0c; --color-text-primary: #f6f2ea; --color-text-secondary: #a59c90; }
           }
           .error-page {
             min-height: 100vh;
@@ -26,15 +26,16 @@ export default function GlobalError({
             color: var(--color-text-primary);
           }
           .error-page__content { text-align: center; }
-          .error-page__title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+          .error-page__title { font-size: 1.5rem; font-weight: 900; margin-bottom: 0.75rem; }
           .error-page__message { color: var(--color-text-secondary); margin-bottom: 1.5rem; }
           .error-page__action {
             display: inline-block;
-            background: #FF9417;
+            background: var(--color-accent);
             color: white;
             padding: 0.75rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 600;
+            border-radius: 0;
+            font-weight: 800;
+            font-family: inherit;
             text-decoration: none;
             border: none;
             cursor: pointer;

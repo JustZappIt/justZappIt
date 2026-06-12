@@ -37,12 +37,12 @@ export default function WaitlistBar() {
       role="banner"
       className="bg-primary text-white text-sm py-2.5 px-4 flex items-center justify-center gap-4 relative"
     >
-      <span>
-        Zapp for Android is looking for beta testers — sign up and we&apos;ll contact you. iOS coming soon.
+      <span className="font-extrabold">
+        Zapp for Android is looking for beta testers. Sign up and we&apos;ll contact you. iOS coming soon.
       </span>
       <Link
         href="/app"
-        className="font-semibold underline hover:no-underline whitespace-nowrap"
+        className="text-[11px] font-extrabold uppercase tracking-[0.1em] underline underline-offset-4 hover:no-underline whitespace-nowrap"
       >
         Join the beta list
       </Link>

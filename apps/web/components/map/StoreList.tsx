@@ -4,7 +4,17 @@
 import { useMemo } from "react";
 import { MapPin } from "lucide-react";
 import type { Store } from "@/lib/database.types";
-import { STATUS_CONFIG, type VerificationStatus } from "@/lib/statusColors";
+import type { VerificationStatus } from "@/lib/statusColors";
+
+/** Status dot hues — Zapp tokens, mirrors the map pin mapping. */
+const STATUS_DOT: Record<VerificationStatus, string> = {
+  seed_confirmed: "bg-[var(--color-success)]",
+  community_verified: "bg-[var(--color-success)]",
+  seed_partial: "bg-[var(--color-accent)]",
+  unverified: "bg-[var(--color-accent)]",
+  flagged: "bg-[var(--color-danger)]",
+  closed: "bg-[var(--color-text-subtle)]",
+};
 
 interface StoreListProps {
   stores: Store[];
@@ -50,7 +60,7 @@ export default function StoreList({
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center px-4">
         <MapPin size={32} className="text-[var(--color-text-secondary)] mb-3" />
-        <p className="text-body font-semibold text-[var(--color-text-primary)]">No stores found</p>
+        <p className="text-body font-extrabold tracking-tight text-[var(--color-text-primary)]">No stores found</p>
         <p className="text-caption text-[var(--color-text-secondary)] mt-1">
           Try adjusting your filters or search area.
         </p>
@@ -65,7 +75,7 @@ export default function StoreList({
           ? haversineKm(userLocation.lat, userLocation.lng, store.lat, store.lng)
           : null;
         const isSelected = selectedStore?.id === store.id;
-        const dot = (STATUS_CONFIG[store.verification_status as VerificationStatus]?.dotColor) ?? "bg-gray-400";
+        const dot = STATUS_DOT[store.verification_status as VerificationStatus] ?? "bg-[var(--color-text-subtle)]";
 
         return (
           <button
@@ -78,7 +88,7 @@ export default function StoreList({
             <div className="flex items-start gap-3">
               <div className={`w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0 ${dot}`} />
               <div className="flex-1 min-w-0">
-                <p className="text-body font-semibold text-[var(--color-text-primary)] truncate">
+                <p className="text-body font-extrabold tracking-tight text-[var(--color-text-primary)] truncate">
                   {store.operator_name}
                 </p>
                 <p className="text-caption text-[var(--color-text-secondary)] truncate">

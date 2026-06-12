@@ -25,7 +25,7 @@ export async function sendFacilitatorEmail(
   await getResend().emails.send({
     from: FROM,
     to,
-    subject: "Thanks for your facilitator interest — JustZappIt",
+    subject: "Thanks for your facilitator interest - JustZappIt",
     text: [
       "Thanks for your interest in becoming a JustZappIt facilitator.",
       "",
@@ -39,7 +39,7 @@ export async function sendFacilitatorEmail(
       "",
       "Follow for updates: https://x.com/JustZappIt",
       "",
-      "— JustZappIt",
+      "- JustZappIt",
     ].join("\n"),
   });
 }
@@ -72,7 +72,7 @@ export async function sendWelcomeEmail(
     await getResend().emails.send({
       from: FROM,
       to,
-      subject: "Your Zapp Android beta invite — JustZappIt",
+      subject: "Your Zapp Android beta invite - JustZappIt",
       text: [
         "Thanks for joining the Zapp Android beta.",
         "",
@@ -84,7 +84,7 @@ export async function sendWelcomeEmail(
         "",
         "Follow for updates: https://x.com/JustZappIt",
         "",
-        "— JustZappIt",
+        "- JustZappIt",
       ].join("\n"),
     });
     return;
@@ -94,7 +94,7 @@ export async function sendWelcomeEmail(
     await getResend().emails.send({
       from: FROM,
       to,
-      subject: "You are on the Zapp iOS list — JustZappIt",
+      subject: "You are on the Zapp iOS list - JustZappIt",
       text: [
         "You are now on the notification list for Zapp on iOS.",
         "",
@@ -104,7 +104,7 @@ export async function sendWelcomeEmail(
         "",
         "Follow for updates: https://x.com/JustZappIt",
         "",
-        "— JustZappIt",
+        "- JustZappIt",
       ].join("\n"),
     });
     return;
@@ -123,7 +123,7 @@ export async function sendWelcomeEmail(
       "",
       "Follow for updates: https://x.com/JustZappIt",
       "",
-      "— JustZappIt",
+      "- JustZappIt",
     ].join("\n"),
   });
 }

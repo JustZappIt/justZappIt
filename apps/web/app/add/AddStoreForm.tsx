@@ -5,11 +5,14 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowLeft, MapPin, CheckCircle } from "lucide-react";
-import { inputClass } from "@/lib/classNames";
 
 const HCaptcha = dynamic(() => import("@hcaptcha/react-hcaptcha"), { ssr: false });
 
 const CRYPTO_OPTIONS = ["BTC", "ETH", "USDT", "ZEC", "XMR", "LTC", "Other"];
+
+/** Zapp input idiom — sharp, warm input surface. */
+const inputClass =
+  "w-full px-3 py-2 text-body bg-[var(--color-surface-input)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-subtle)] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary";
 
 interface FormData {
   operator_name: string;
@@ -39,12 +42,12 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-caption font-semibold text-[var(--color-text-secondary)] mb-1">
+      <label className="block text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-1">
         {label}
-        {required && <span className="text-red-500 ml-0.5">*</span>}
+        {required && <span className="text-[var(--color-danger)] ml-0.5">*</span>}
       </label>
       {children}
-      {error && <p className="text-caption text-red-500 mt-1">{error}</p>}
+      {error && <p className="text-caption text-[var(--color-danger)] mt-1">{error}</p>}
     </div>
   );
 }
@@ -264,16 +267,16 @@ export default function AddStoreForm() {
     return (
       <div className="min-h-screen bg-[var(--color-bg)] flex items-center justify-center p-6">
         <div className="max-w-md w-full text-center flex flex-col items-center gap-5">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-            <CheckCircle size={32} className="text-green-600" />
+          <div className="w-16 h-16 bg-[var(--color-success-soft)] rounded-full flex items-center justify-center">
+            <CheckCircle size={32} className="text-[var(--color-success)]" />
           </div>
-          <h1 className="text-title font-bold text-[var(--color-text-primary)]">Store Submitted!</h1>
+          <h1 className="text-3xl font-black tracking-tight text-[var(--color-text-primary)]">Store Submitted!</h1>
           <p className="text-body text-[var(--color-text-secondary)]">
             Your store has been added as <strong>unverified</strong>. 
             Select <strong>&quot;Unverified&quot;</strong> in the Status filter to see it on the map.
             Community confirmations will upgrade its status over time.
           </p>
-          <Link href="/?status=unverified" className="bg-primary text-white px-6 py-3 rounded-md font-semibold text-button">
+          <Link href="/?status=unverified" className="bg-primary hover:bg-[#d97411] text-white px-6 py-3 font-extrabold tracking-wide text-button transition-colors">
             View on Map (Unverified)
           </Link>
         </div>
@@ -285,11 +288,11 @@ export default function AddStoreForm() {
     <div className="min-h-screen bg-[var(--color-bg)]">
       <div className="max-w-xl mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
-          <Link href="/" className="p-2 rounded-md hover:bg-[var(--color-surface)] transition-colors">
+          <Link href="/" className="p-2 hover:bg-[var(--color-surface)] transition-colors">
             <ArrowLeft size={20} className="text-[var(--color-text-secondary)]" />
           </Link>
           <div>
-            <h1 className="text-title font-bold text-[var(--color-text-primary)]">Add a Store</h1>
+            <h1 className="text-3xl font-black tracking-tight text-[var(--color-text-primary)]">Add a Store</h1>
             <p className="text-caption text-[var(--color-text-secondary)]">
               Help the community find crypto exchange shops near them.
             </p>
@@ -310,8 +313,8 @@ export default function AddStoreForm() {
           />
 
           {/* Required */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md p-5 flex flex-col gap-4">
-            <h2 className="text-subtitle font-semibold text-[var(--color-text-primary)]">Required Information</h2>
+          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] p-5 flex flex-col gap-4">
+            <h2 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)]">Required Information</h2>
             <Field label="Operator / Store Name *" required>
               <input type="text" required value={form.operator_name}
                 onChange={(e) => setForm((f) => ({ ...f, operator_name: e.target.value }))}
@@ -340,7 +343,7 @@ export default function AddStoreForm() {
                       setFieldErrors((fe) => ({ ...fe, city: err || undefined }));
                     }}
                     placeholder="Istanbul"
-                    className={`${inputClass} ${fieldErrors.city ? "border-red-400 focus:ring-red-400" : ""}`}
+                    className={`${inputClass} ${fieldErrors.city ? "border-[var(--color-danger)] focus:ring-[var(--color-danger)]" : ""}`}
                   />
                   {validating.city && (
                     <span className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -363,15 +366,15 @@ export default function AddStoreForm() {
                     setFieldErrors((fe) => ({ ...fe, country: err || undefined }));
                   }}
                   placeholder="Turkey"
-                  className={`${inputClass} ${fieldErrors.country ? "border-red-400 focus:ring-red-400" : ""}`}
+                  className={`${inputClass} ${fieldErrors.country ? "border-[var(--color-danger)] focus:ring-[var(--color-danger)]" : ""}`}
                 />
               </Field>
             </div>
           </div>
 
           {/* Optional */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md p-5 flex flex-col gap-4">
-            <h2 className="text-subtitle font-semibold text-[var(--color-text-primary)]">Optional Details</h2>
+          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] p-5 flex flex-col gap-4">
+            <h2 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)]">Optional Details</h2>
             <Field label="Street Address">
               <input type="text" value={form.street_address}
                 onChange={(e) => setForm((f) => ({ ...f, street_address: e.target.value, lat: null, lng: null }))}
@@ -400,13 +403,13 @@ export default function AddStoreForm() {
               </Field>
             </div>
             <div>
-              <label className="block text-caption font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-2">
+              <label className="block text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-2">
                 Accepts Crypto
               </label>
               <div className="flex flex-wrap gap-2">
                 {CRYPTO_OPTIONS.map((c) => (
                   <button key={c} type="button" onClick={() => toggleCrypto(c)}
-                    className={`px-3 py-1.5 rounded-sm text-caption border transition-colors ${
+                    className={`px-3 py-1.5 text-caption font-extrabold border transition-colors ${
                       form.accepts_crypto.includes(c)
                         ? "bg-primary border-primary text-white"
                         : "border-primary text-primary"
@@ -419,12 +422,12 @@ export default function AddStoreForm() {
             <div className="flex items-center gap-3">
               <button type="button" onClick={geocodeAddress}
                 disabled={geocoding || !form.city || !form.country}
-                className="flex items-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] px-3 py-2 rounded-md text-button disabled:opacity-50">
+                className="flex items-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] px-3 py-2 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors disabled:opacity-50">
                 <MapPin size={16} className="text-primary" />
                 {geocoding ? "Locating…" : "Preview Location"}
               </button>
               {form.lat !== null && form.lng !== null && (
-                <span className="text-caption text-green-600 font-semibold">
+                <span className="text-caption text-[var(--color-success)] font-semibold">
                   ✓ Located {form.is_approximate ? "(approximate)" : ""}
                 </span>
               )}
@@ -442,13 +445,13 @@ export default function AddStoreForm() {
           </div>
 
           {error && (
-            <p className="text-body text-red-600 bg-red-50 border border-red-200 rounded-md px-4 py-3">
+            <p className="text-body text-[var(--color-danger)] bg-[var(--color-danger-soft)] border border-[var(--color-danger)] px-4 py-3">
               {error}
             </p>
           )}
 
           <button type="submit" disabled={submitting || geocoding}
-            className="w-full bg-primary text-white py-3 rounded-md font-semibold text-button disabled:opacity-50">
+            className="w-full bg-primary hover:bg-[#d97411] text-white py-3 font-extrabold tracking-wide text-button transition-colors disabled:opacity-50">
             {submitting ? "Submitting…" : "Review & Submit"}
           </button>
 
@@ -461,8 +464,8 @@ export default function AddStoreForm() {
       {/* ── Confirmation modal ── */}
       {showConfirm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-xl shadow-2xl w-full max-w-md flex flex-col gap-5 p-6">
-            <h2 className="text-title font-bold text-[var(--color-text-primary)]">Confirm your submission</h2>
+          <div className="bg-[var(--color-bg)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] w-full max-w-md flex flex-col gap-5 p-6">
+            <h2 className="text-title font-extrabold tracking-tight text-[var(--color-text-primary)]">Confirm your submission</h2>
             <p className="text-caption text-[var(--color-text-secondary)]">
               Please review the details below before submitting. Once submitted the store will appear on the map immediately.
             </p>
@@ -522,7 +525,7 @@ export default function AddStoreForm() {
               <button
                 type="button"
                 onClick={() => setShowConfirm(false)}
-                className="px-4 py-2 border border-[var(--color-border)] rounded-md font-semibold text-button text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-colors"
+                className="px-4 py-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] font-extrabold text-button text-[var(--color-text-primary)] hover:bg-[var(--color-border)] transition-colors"
                 disabled={submitting}
               >
                 Cancel
@@ -530,7 +533,7 @@ export default function AddStoreForm() {
               <button
                 onClick={handleConfirmedSubmit}
                 disabled={submitting}
-                className="px-6 py-2 bg-primary text-white rounded-md font-semibold text-button disabled:opacity-50"
+                className="px-6 py-2 bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide text-button transition-colors disabled:opacity-50"
               >
                 {submitting ? "Submitting..." : "Confirm & Submit"}
               </button>

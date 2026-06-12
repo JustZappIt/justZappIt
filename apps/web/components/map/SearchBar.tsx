@@ -35,7 +35,7 @@ export default function SearchBar({ onSearch, onLocateMe }: SearchBarProps) {
   }
 
   return (
-    <div className="flex items-center gap-2 bg-[var(--color-bg)] border border-[var(--color-border)] rounded-md shadow-md px-3 py-2">
+    <div className="flex items-center gap-2 bg-[var(--color-surface-input)] border border-[var(--color-border)] shadow-[var(--shadow)] px-3 py-2 focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary">
       <Search size={18} className="text-[var(--color-text-secondary)] flex-shrink-0" />
       <input
         ref={inputRef}
@@ -44,7 +44,7 @@ export default function SearchBar({ onSearch, onLocateMe }: SearchBarProps) {
         value={query}
         onChange={(e) => { setQuery(e.target.value); setError(null); }}
         onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-        className="flex-1 bg-transparent text-body text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] focus:outline-none min-w-0"
+        className="flex-1 bg-transparent text-body text-[var(--color-text-primary)] placeholder-[var(--color-text-subtle)] focus:outline-none min-w-0"
       />
       {query && (
         <button onClick={() => { setQuery(""); inputRef.current?.focus(); }}>
@@ -54,19 +54,19 @@ export default function SearchBar({ onSearch, onLocateMe }: SearchBarProps) {
       <button
         onClick={handleSearch}
         disabled={loading || !query.trim()}
-        className="bg-primary text-white px-3 py-1.5 rounded-md text-button font-semibold disabled:opacity-50 flex-shrink-0"
+        className="bg-primary hover:bg-[#d97411] text-white px-3 py-1.5 text-button font-extrabold tracking-wide transition-colors disabled:opacity-50 flex-shrink-0"
       >
         {loading ? "..." : "Go"}
       </button>
       <button
         onClick={onLocateMe}
         title="Find Near Me"
-        className="p-1.5 rounded-md border border-[var(--color-border)] hover:bg-[var(--color-surface)] transition-colors flex-shrink-0"
+        className="p-1.5 border border-[var(--color-border-strong)] hover:bg-[var(--color-chip)] transition-colors flex-shrink-0"
       >
         <LocateFixed size={18} className="text-primary" />
       </button>
       {error && (
-        <p className="absolute top-full mt-1 left-0 right-0 text-caption text-red-500 bg-[var(--color-bg)] border border-[var(--color-border)] rounded-md px-3 py-2 shadow-md">
+        <p className="absolute top-full mt-1 left-0 right-0 text-caption text-[var(--color-danger)] bg-[var(--color-danger-soft)] border border-[var(--color-danger)] px-3 py-2 shadow-[var(--shadow)]">
           {error}
         </p>
       )}

@@ -29,7 +29,8 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://hcaptcha.com https://*.hcaptcha.com ${adsenseScriptSrc}`,
+      // va.vercel-scripts.com serves the Vercel Analytics debug script in dev; prod loads it same-origin
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://hcaptcha.com https://*.hcaptcha.com https://va.vercel-scripts.com ${adsenseScriptSrc}`,
       "style-src 'self' 'unsafe-inline' https://unpkg.com",
       `img-src 'self' data: blob: https://*.tile.openstreetmap.org https://staticmap.openstreetmap.de https://*.hcaptcha.com ${adsenseImgSrc}`,
       "font-src 'self' https://fonts.gstatic.com",
@@ -78,6 +79,11 @@ const nextConfig = {
       },
       {
         source: "/leaderboard",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/sitemap",
         destination: "/",
         permanent: true,
       },

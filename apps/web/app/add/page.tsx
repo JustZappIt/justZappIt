@@ -26,7 +26,7 @@ export default function AddStorePage() {
       {/* Server-rendered intro visible to crawlers */}
       <noscript>
         <div className="max-w-2xl mx-auto px-6 py-12 text-center">
-          <h1 className="text-2xl font-bold mb-4">Add a Crypto Exchange Store</h1>
+          <h1 className="text-2xl font-black tracking-tight mb-4">Add a Crypto Exchange Store</h1>
           <p>
             Know a physical crypto exchange shop that is not yet listed on JustZappIt? Submit it
             here to help the community. You will need to provide the store name, location, and

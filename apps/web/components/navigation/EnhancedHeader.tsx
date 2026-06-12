@@ -19,10 +19,10 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="relative text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors text-sm group"
+      className="relative text-[11px] font-extrabold uppercase tracking-[0.1em] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors group"
     >
       {children}
-      <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-[width] duration-200 ease-out group-hover:w-full" />
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-[width] duration-200 ease-out group-hover:w-full" />
     </Link>
   );
 }
@@ -54,7 +54,7 @@ export default function EnhancedHeader() {
           <div className="flex items-center">
             <Link
               href="/"
-              className={`text-[var(--color-text-primary)] font-bold transition-[font-size,transform] duration-250 ease-out ${
+              className={`text-[var(--color-text-primary)] font-black tracking-tight transition-[font-size,transform] duration-250 ease-out ${
                 scrolled ? "text-lg" : "text-xl"
               }`}
             >
@@ -72,18 +72,18 @@ export default function EnhancedHeader() {
               onMouseEnter={() => setResourcesDropdownOpen(true)}
               onMouseLeave={() => setResourcesDropdownOpen(false)}
             >
-              <button className="relative flex items-center text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-2 text-sm group">
+              <button className="relative flex items-center text-[11px] font-extrabold uppercase tracking-[0.1em] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-2 group">
                 Resources
                 <ChevronDown
-                  className={`ml-1 h-4 w-4 transition-transform duration-200 ${
+                  className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
                     resourcesDropdownOpen ? "rotate-180" : ""
                   }`}
                 />
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-[width] duration-200 ease-out group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-[width] duration-200 ease-out group-hover:w-full" />
               </button>
 
               {resourcesDropdownOpen && (
-                <div className="absolute top-full left-0 w-48 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg shadow-lg py-2 mt-1 animate-fade-up">
+                <div className="absolute top-full left-0 w-48 bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] py-2 mt-1 animate-fade-up">
                   {[
                     { href: "/faq", label: "FAQ" },
                     { href: "/about", label: "About Us" },
@@ -91,7 +91,7 @@ export default function EnhancedHeader() {
                     <Link
                       key={href}
                       href={href}
-                      className="block px-4 py-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-border)] transition-colors"
+                      className="block px-4 py-2 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-chip)] transition-colors"
                     >
                       {label}
                     </Link>
@@ -116,7 +116,7 @@ export default function EnhancedHeader() {
             {/* Download CTA */}
             <Link
               href="/app"
-              className="inline-flex items-center bg-primary hover:bg-[#d97411] text-white font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+              className="inline-flex items-center bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide text-sm px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow)]"
             >
               Download
             </Link>
@@ -149,14 +149,14 @@ export default function EnhancedHeader() {
             <nav className="flex flex-col space-y-1">
               <Link
                 href="/app"
-                className="block px-2 py-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                className="block px-2 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 App
               </Link>
 
               <div className="pt-2">
-                <div className="px-2 text-xs font-bold uppercase tracking-widest text-[var(--color-text-secondary)] mb-1">
+                <div className="px-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-1">
                   Resources
                 </div>
                 <div className="pl-4 space-y-1">
@@ -167,7 +167,7 @@ export default function EnhancedHeader() {
                     <Link
                       key={href}
                       href={href}
-                      className="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors text-sm"
+                      className="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors text-sm font-semibold"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {label}
@@ -178,7 +178,7 @@ export default function EnhancedHeader() {
 
               <Link
                 href="/legal/privacy"
-                className="block px-2 py-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                className="block px-2 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Legal
@@ -187,7 +187,7 @@ export default function EnhancedHeader() {
               <div className="pt-2 px-2">
                 <Link
                   href="/app"
-                  className="inline-flex items-center bg-primary hover:bg-[#d97411] text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
+                  className="inline-flex items-center bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide text-sm px-4 py-2 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Download App

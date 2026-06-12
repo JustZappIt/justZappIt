@@ -1,4 +1,6 @@
-/* Design tokens — single source of truth for colors, typography, spacing */
+/* Design tokens — single source of truth for colors, typography, spacing.
+   Palette mirrors the Zapp app design system (design/Zapp-designs/components/tokens.jsx):
+   warm paper neutrals, #ff9417 orange as the sharp graphic accent, light + dark. */
 
 :root {
   /* Font sizes (responsive) */
@@ -16,12 +18,24 @@
   --space-lg:   clamp(1.25rem, 2.5vw, 1.5rem);
   --space-xl:   clamp(1.5rem, 3vw, 2rem);
 
-  /* Colors (light mode) */
-  --color-bg:           #FFFFFF;
-  --color-surface:      #F9F9F9;
-  --color-text-primary: #0A0A0A;
-  --color-text-secondary: #6B6B6B;
-  --color-border:       #E5E5E5;
+  /* Colors (light mode) — Zapp light palette */
+  --color-bg:             #ffffff;
+  --color-surface:        #f4f2ee;   /* soft warm gray */
+  --color-surface-input:  #f6f4f0;
+  --color-text-primary:   #15120d;
+  --color-text-secondary: #6b645a;
+  --color-text-subtle:    #9a9288;
+  --color-border:         #ebe7e0;
+  --color-border-strong:  #d9d4ca;
+  --color-accent:         #ff9417;   /* brand orange */
+  --color-accent-soft:    #ffe7cc;
+  --color-accent-text:    #a65500;
+  --color-success:        #2f9d6a;
+  --color-success-soft:   #d7f0e3;
+  --color-danger:         #d94545;
+  --color-danger-soft:    #fde2e0;
+  --color-chip:           #efece5;
+  --shadow:               0 6px 24px rgba(20, 18, 14, 0.08);
 
   /* Layout */
   --sidebar-width: 360px;
@@ -29,10 +43,23 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg:             #000000;
-    --color-surface:        #111111;
-    --color-text-primary:   #F5F5F5;
-    --color-text-secondary: #A0A0A0;
-    --color-border:         #2A2A2A;
+    /* Colors (dark mode) — Zapp dark palette */
+    --color-bg:             #0f0e0c;
+    --color-surface:        #171512;
+    --color-surface-input:  #201d19;
+    --color-text-primary:   #f6f2ea;
+    --color-text-secondary: #a59c90;
+    --color-text-subtle:    #726a60;
+    --color-border:         #2a2622;
+    --color-border-strong:  #3a342d;
+    --color-accent:         #ff9417;
+    --color-accent-soft:    #3a2713;
+    --color-accent-text:    #ffb26b;
+    --color-success:        #5fd49c;
+    --color-success-soft:   #1a2e24;
+    --color-danger:         #ef6a5f;
+    --color-danger-soft:    #2e1a18;
+    --color-chip:           #1f1c18;
+    --shadow:               0 10px 30px rgba(0, 0, 0, 0.5);
   }
 }

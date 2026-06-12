@@ -20,6 +20,17 @@ const FLAG_OPTIONS = [
   { value: "flag_no_crypto", label: "No longer accepts crypto" },
 ];
 
+/** Sharp semantic chip variants per verification status — Zapp tokens. */
+const STATUS_CHIP: Record<VerificationStatus, string> = {
+  seed_confirmed: "bg-[var(--color-success-soft)] text-[var(--color-success)]",
+  community_verified: "bg-[var(--color-success-soft)] text-[var(--color-success)]",
+  seed_partial: "bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]",
+  unverified: "bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]",
+  flagged: "bg-[var(--color-danger-soft)] text-[var(--color-danger)]",
+  closed: "bg-[var(--color-chip)] text-[var(--color-text-subtle)]",
+};
+const DEFAULT_STATUS_CHIP = STATUS_CHIP.unverified;
+
 export default function StorePageClient({ store }: { store: Store }) {
   const [voting, setVoting] = useState(false);
   const [voteMsg, setVoteMsg] = useState<string | null>(null);
@@ -32,6 +43,7 @@ export default function StorePageClient({ store }: { store: Store }) {
   const [pendingAction, setPendingAction] = useState<{ type: "vote", payload: { type: string } } | null>(null);
 
   const statusInfo = STATUS_CONFIG[store.verification_status as VerificationStatus] ?? DEFAULT_STATUS;
+  const statusChip = STATUS_CHIP[store.verification_status as VerificationStatus] ?? DEFAULT_STATUS_CHIP;
 
   async function vote(type: string, token?: string) {
     const captchaToken = token ?? hcaptchaToken;
@@ -78,16 +90,18 @@ export default function StorePageClient({ store }: { store: Store }) {
 
   return (
     <>
-      <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-xl flex flex-col gap-5">
+      <div className="bg-[var(--color-surface)] border border-[var(--color-border)] p-xl flex flex-col gap-5">
         {/* Header */}
         <div>
-          <h1 className="text-title font-bold text-[var(--color-text-primary)]">{store.operator_name}</h1>
-          <span className={`text-caption font-semibold ${statusInfo.textColor}`}>{statusInfo.label}</span>
-          {store.is_approximate && (
-            <span className="ml-2 text-caption text-[var(--color-text-secondary)] bg-[var(--color-bg)] px-2 py-0.5 rounded-sm">
-              Approximate location
-            </span>
-          )}
+          <h1 className="text-title font-black tracking-tight text-[var(--color-text-primary)]">{store.operator_name}</h1>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <span className={`inline-flex items-center text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 ${statusChip}`}>{statusInfo.label}</span>
+            {store.is_approximate && (
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 bg-[var(--color-chip)] text-[var(--color-text-secondary)]">
+                Approximate location
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Details */}
@@ -131,7 +145,7 @@ export default function StorePageClient({ store }: { store: Store }) {
         {store.accepts_crypto && store.accepts_crypto.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {store.accepts_crypto.map((c) => (
-              <span key={c} className="px-2 py-1 bg-primary/10 text-primary text-caption font-semibold rounded-sm border border-primary/20">{c}</span>
+              <span key={c} className="text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]">{c}</span>
             ))}
           </div>
         )}
@@ -143,22 +157,22 @@ export default function StorePageClient({ store }: { store: Store }) {
         </div>
 
         {voteMsg && (
-          <p className="text-caption text-[var(--color-text-secondary)] bg-[var(--color-bg)] px-3 py-2 rounded-md border border-[var(--color-border)]">{voteMsg}</p>
+          <p className="text-caption text-[var(--color-text-secondary)] bg-[var(--color-bg)] px-3 py-2 border border-[var(--color-border)]">{voteMsg}</p>
         )}
 
         {/* Actions */}
         <div className="grid grid-cols-2 gap-2">
           <button onClick={() => vote("confirm")} disabled={voting}
-            className="flex items-center justify-center gap-2 bg-primary text-white py-2.5 px-3 rounded-md font-semibold text-button disabled:opacity-50">
+            className="flex items-center justify-center gap-2 bg-primary hover:bg-[#d97411] text-white py-2.5 px-3 font-extrabold tracking-wide text-button transition-colors disabled:opacity-50">
             <CheckCircle size={16} /> I&apos;ve been here
           </button>
           <div className="relative">
             <button onClick={() => setShowFlagMenu((o) => !o)} disabled={voting}
-              className="w-full flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button disabled:opacity-50">
-              <AlertTriangle size={16} className="text-orange-500" /> Report <ChevronDown size={14} />
+              className="w-full flex items-center justify-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] py-2.5 px-3 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors disabled:opacity-50">
+              <AlertTriangle size={16} className="text-[var(--color-danger)]" /> Report <ChevronDown size={14} />
             </button>
             {showFlagMenu && (
-              <div className="absolute bottom-full mb-1 left-0 right-0 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md shadow-lg z-10">
+              <div className="absolute bottom-full mb-1 left-0 right-0 bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] z-10">
                 {FLAG_OPTIONS.map((opt) => (
                   <button key={opt.value} onClick={() => vote(opt.value)}
                     className="w-full text-left px-3 py-2 text-body text-[var(--color-text-primary)] hover:bg-[var(--color-bg)]">
@@ -172,17 +186,17 @@ export default function StorePageClient({ store }: { store: Store }) {
 
         <div className="grid grid-cols-2 gap-2">
           <a href={getDirectionsUrl()} target="_blank" rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button">
+            className="flex items-center justify-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] py-2.5 px-3 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors">
             <Navigation size={16} className="text-primary" /> Directions
           </a>
           <button onClick={share}
-            className="flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button">
+            className="flex items-center justify-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] py-2.5 px-3 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors">
             <Share2 size={16} className="text-primary" /> {copied ? "Copied!" : "Share"}
           </button>
         </div>
 
         <button onClick={() => setShowChatModal(true)}
-          className="w-full flex items-center justify-center gap-2 border border-primary text-primary py-2.5 px-3 rounded-md font-semibold text-button hover:bg-primary hover:text-white transition-colors">
+          className="w-full flex items-center justify-center gap-2 border border-primary text-primary py-2.5 px-3 font-extrabold text-button hover:bg-primary hover:text-white transition-colors">
           <MessageCircle size={16} /> Join Community
         </button>
       </div>

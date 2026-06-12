@@ -21,9 +21,23 @@ import ShareXButton from "@/components/ShareXButton";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import type { Store } from "@/lib/database.types";
 import { STATUS_CONFIG, DEFAULT_STATUS, type VerificationStatus } from "@/lib/statusColors";
-import { inputClass } from "@/lib/classNames";
 import dynamic from "next/dynamic";
 const ChatModal = dynamic(() => import("@/components/ChatModal"), { ssr: false });
+
+/** Zapp input idiom — sharp, warm input surface. */
+const inputClass =
+  "w-full px-3 py-2 text-body bg-[var(--color-surface-input)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-subtle)] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary";
+
+/** Sharp semantic chip variants per verification status — Zapp tokens. */
+const STATUS_CHIP: Record<VerificationStatus, string> = {
+  seed_confirmed: "bg-[var(--color-success-soft)] text-[var(--color-success)]",
+  community_verified: "bg-[var(--color-success-soft)] text-[var(--color-success)]",
+  seed_partial: "bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]",
+  unverified: "bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]",
+  flagged: "bg-[var(--color-danger-soft)] text-[var(--color-danger)]",
+  closed: "bg-[var(--color-chip)] text-[var(--color-text-subtle)]",
+};
+const DEFAULT_STATUS_CHIP = STATUS_CHIP.unverified;
 
 interface StorePanelProps {
   store: Store;
@@ -122,6 +136,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
   }, [showFlagMenu]);
 
   const statusInfo = STATUS_CONFIG[store.verification_status as VerificationStatus] ?? DEFAULT_STATUS;
+  const statusChip = STATUS_CHIP[store.verification_status as VerificationStatus] ?? DEFAULT_STATUS_CHIP;
 
   async function vote(type: string, note?: string, token?: string) {
     const captchaToken = token ?? hcaptchaToken;
@@ -219,26 +234,28 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
         {/* Header */}
         <div className="flex items-start justify-between p-xl border-b border-[var(--color-border)]">
           <div className="flex gap-4 mb-4">
-            <div className="w-16 h-16 rounded-md bg-[var(--color-bg)] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+            <div className="w-16 h-16 bg-[var(--color-chip)] flex items-center justify-center flex-shrink-0" aria-hidden="true">
               <span className="text-2xl text-[var(--color-text-secondary)]">🏪</span>
             </div>
             <div>
-              <h2 className="text-title font-bold text-[var(--color-text-primary)] leading-tight">
+              <h2 className="text-title font-extrabold tracking-tight text-[var(--color-text-primary)] leading-tight">
                 {store.operator_name}
               </h2>
-              <span className={`text-caption font-semibold ${statusInfo.textColor}`}>
-                {statusInfo.label}
-              </span>
-              {store.is_approximate && (
-                <span className="ml-2 text-caption text-[var(--color-text-secondary)] bg-[var(--color-surface)] px-2 py-0.5 rounded-sm">
-                  Approximate location
+              <div className="mt-1.5 flex flex-wrap items-center gap-2">
+                <span className={`inline-flex items-center text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 ${statusChip}`}>
+                  {statusInfo.label}
                 </span>
-              )}
+                {store.is_approximate && (
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 bg-[var(--color-chip)] text-[var(--color-text-secondary)]">
+                    Approximate location
+                  </span>
+                )}
+              </div>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-md hover:bg-[var(--color-surface)] transition-colors flex-shrink-0"
+            className="p-1 hover:bg-[var(--color-surface)] transition-colors flex-shrink-0"
           >
             <X size={20} className="text-[var(--color-text-secondary)]" />
           </button>
@@ -303,7 +320,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
               {store.accepts_crypto.map((c) => (
                 <span
                   key={c}
-                  className="px-2 py-1 bg-primary/10 text-primary text-caption font-semibold rounded-sm border border-primary/20"
+                  className="text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]"
                 >
                   {c}
                 </span>
@@ -320,12 +337,12 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
           {/* Vote feedback */}
           <div aria-live="polite" aria-atomic="true">
             {voteMsg && (
-              <p className="text-caption text-[var(--color-text-secondary)] bg-[var(--color-surface)] px-3 py-2 rounded-md">
+              <p className="text-caption text-[var(--color-text-secondary)] bg-[var(--color-surface)] border border-[var(--color-border)] px-3 py-2">
                 {voteMsg}
               </p>
             )}
             {editMsg && (
-              <p className="text-caption text-[var(--color-text-secondary)] bg-[var(--color-surface)] px-3 py-2 rounded-md">
+              <p className="text-caption text-[var(--color-text-secondary)] bg-[var(--color-surface)] border border-[var(--color-border)] px-3 py-2">
                 {editMsg}
               </p>
             )}
@@ -336,7 +353,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
             <button
               onClick={() => vote("confirm")}
               disabled={voting}
-              className="flex items-center justify-center gap-2 bg-primary text-white py-2.5 px-3 rounded-md font-semibold text-button disabled:opacity-50"
+              className="flex items-center justify-center gap-2 bg-primary hover:bg-[#d97411] text-white py-2.5 px-3 font-extrabold tracking-wide text-button transition-colors disabled:opacity-50"
             >
               <CheckCircle size={16} />
               I&apos;ve been here
@@ -346,14 +363,14 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
               <button
                 onClick={() => setShowFlagMenu((o) => !o)}
                 disabled={voting}
-                className="w-full flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] py-2.5 px-3 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors disabled:opacity-50"
               >
-                <AlertTriangle size={16} className="text-orange-500" />
+                <AlertTriangle size={16} className="text-[var(--color-danger)]" />
                 Report Issue
                 <ChevronDown size={14} />
               </button>
               {showFlagMenu && (
-                <div className="absolute bottom-full mb-1 left-0 right-0 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md shadow-lg z-10">
+                <div className="absolute bottom-full mb-1 left-0 right-0 bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] z-10">
                   {FLAG_OPTIONS.map((opt) => (
                     <button
                       key={opt.value}
@@ -373,7 +390,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
               href={getDirectionsUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button"
+              className="flex items-center justify-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] py-2.5 px-3 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors"
             >
               <Navigation size={16} className="text-primary" />
               Directions
@@ -381,11 +398,11 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
 
             <ShareXButton
               store={store}
-              className="flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button hover:bg-[var(--color-border)] transition-colors"
+              className="flex items-center justify-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] py-2.5 px-3 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors"
             />
             <button
               onClick={shareStore}
-              className="flex items-center justify-center gap-2 border border-[var(--color-border)] text-[var(--color-text-primary)] py-2.5 px-3 rounded-md font-semibold text-button"
+              className="flex items-center justify-center gap-2 bg-[var(--color-chip)] border border-[var(--color-border-strong)] text-[var(--color-text-primary)] py-2.5 px-3 font-extrabold text-button hover:bg-[var(--color-border)] transition-colors"
             >
               <Share2 size={16} className="text-primary" />
               <span aria-live="polite">{copied ? "Copied!" : "Copy link"}</span>
@@ -395,7 +412,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
           {/* Join Community */}
           <button
             onClick={() => setShowChatModal(true)}
-            className="w-full flex items-center justify-center gap-2 border border-primary text-primary py-2.5 px-3 rounded-md font-semibold text-button hover:bg-primary hover:text-white transition-colors"
+            className="w-full flex items-center justify-center gap-2 border border-primary text-primary py-2.5 px-3 font-extrabold text-button hover:bg-primary hover:text-white transition-colors"
           >
             <MessageCircle size={16} />
             Join Community
@@ -412,7 +429,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
 
           {/* Edit form */}
           {showEditForm && (
-            <div className="border border-[var(--color-border)] rounded-md p-4 space-y-3">
+            <div className="border border-[var(--color-border)] p-4 space-y-3">
               <p className="text-caption text-[var(--color-text-secondary)]">
                 Edits are applied automatically after 2 community confirmations.
               </p>
@@ -423,7 +440,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
                 { key: "email", label: "Email", type: "email" },
               ] as { key: keyof typeof editFields; label: string; type: string }[]).map(({ key, label, type }) => (
                 <div key={key}>
-                  <label className="block text-caption font-semibold text-[var(--color-text-secondary)] mb-1">
+                  <label className="block text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-1">
                     {label}
                   </label>
                   <input
@@ -438,7 +455,7 @@ export default function StorePanel({ store, onClose }: StorePanelProps) {
               ))}
               <button
                 onClick={() => submitEdit()}
-                className="w-full bg-primary text-white py-2 rounded-md font-semibold text-button"
+                className="w-full bg-primary hover:bg-[#d97411] text-white py-2 font-extrabold tracking-wide text-button transition-colors"
               >
                 Submit Edit
               </button>

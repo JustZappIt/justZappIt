@@ -10,8 +10,8 @@ export function generateStoreTweet(store: Store): string {
   const cryptos = (store.accepts_crypto ?? []).join(", ") || "crypto";
 
   return (
-    `${status}: ${store.operator_name} in ${store.city}, ${store.country} — accepts ${cryptos} for cash.\n\n` +
-    `Found via @JustZappIt — the free, community-driven crypto exchange directory. No sign-up, no tracking.\n`
+    `${status}: ${store.operator_name} in ${store.city}, ${store.country} · accepts ${cryptos} for cash.\n\n` +
+    `Found via @JustZappIt, the free, community-driven crypto exchange directory. No sign-up, no tracking.\n`
   );
 }
 
@@ -20,13 +20,13 @@ export function generateConfirmTweet(store: Store): string {
   return (
     `Confirmed in person: ${store.operator_name} in ${store.city} is legitimate. ` +
     `Accepts ${cryptos} for cash.\n\n` +
-    `Verified on @JustZappIt — community-driven, no accounts required.`
+    `Verified on @JustZappIt · community-driven, no accounts required.`
   );
 }
 
 export function generateMilestoneTweet(count: number): string {
   return (
-    `${count} stores now listed on @JustZappIt — physical crypto exchange shops, ` +
+    `${count} stores now listed on @JustZappIt · physical crypto exchange shops, ` +
     `community-verified, worldwide. The facilitator network is growing.\n\n` +
     `justzappit.xyz`
   );
@@ -44,7 +44,7 @@ export function generateNewCountryTweet(country: string, storeCount: number): st
 
 export function generateLeaderboardTweet(rank: number, weekCount: number): string {
   return (
-    `I am ranked #${rank} on this week's @JustZappIt leaderboard — ` +
+    `I am ranked #${rank} on this week's @JustZappIt leaderboard · ` +
     `${weekCount} crypto exchange ${weekCount === 1 ? "shop" : "shops"} added to the community directory.\n\n` +
     `Find physical crypto exchanges near you: justzappit.xyz/leaderboard`
   );

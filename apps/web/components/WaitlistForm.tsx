@@ -17,9 +17,18 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
   const captchaRef = useRef<HCaptcha>(null);
   const siteKey = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || "";
 
+  // The Android list grants beta access directly; everything else is a notify-me list.
+  const isAndroidBeta = source === "app-page-android";
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
+    if (!siteKey) {
+      // No captcha configured (e.g. local dev without .env.local): fail visibly instead of hanging
+      setErrorMsg("Sign-ups are unavailable right now. Please email us instead.");
+      setState("error");
+      return;
+    }
     setState("loading");
     captchaRef.current?.execute();
   }
@@ -53,23 +62,29 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
   }
 
   if (state === "success") {
-    const successDetail =
-      source === "app-page-android"
-        ? "Your beta invite email is on its way — check your inbox for the Google Play opt-in steps."
-        : "We'll contact you when the app is ready for download.";
     return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-5 text-center">
-        <p className="text-green-800 font-semibold mb-1">You&apos;re on the list.</p>
-        <p className="text-green-700 text-sm">{successDetail}</p>
+      <div className="bg-[var(--color-success-soft)] border border-[var(--color-success)] p-5 text-center">
+        <p className="text-[var(--color-success)] font-extrabold mb-1">
+          {isAndroidBeta ? "You're in." : "You're on the list."}
+        </p>
+        <p className="text-[var(--color-text-secondary)] text-sm">
+          {isAndroidBeta
+            ? "Your beta invite email is on its way. Check your inbox for the Google Play opt-in steps."
+            : "We'll contact you when the app is ready for download."}
+        </p>
       </div>
     );
   }
 
   if (state === "duplicate") {
     return (
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-5 text-center">
-        <p className="text-blue-800 font-semibold mb-1">Already subscribed.</p>
-        <p className="text-blue-700 text-sm">That email is already on the notification list.</p>
+      <div className="bg-[var(--color-accent-soft)] border border-[var(--color-accent)] p-5 text-center">
+        <p className="text-[var(--color-accent-text)] font-extrabold mb-1">Already signed up.</p>
+        <p className="text-[var(--color-text-secondary)] text-sm">
+          {isAndroidBeta
+            ? "That email is already on the beta access list. Your invite is coming."
+            : "That email is already on the notification list."}
+        </p>
       </div>
     );
   }
@@ -84,31 +99,36 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
           placeholder="your@email.com"
           required
           disabled={state === "loading"}
-          className="flex-1 px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary disabled:opacity-50 text-sm"
+          className="flex-1 px-4 py-3 border border-[var(--color-border)] bg-[var(--color-surface-input)] text-[var(--color-text-primary)] placeholder-[var(--color-text-subtle)] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary disabled:opacity-50 text-sm"
         />
         <button
           type="submit"
           disabled={state === "loading" || !email.trim()}
-          className="bg-primary hover:bg-[#d97411] text-white font-semibold px-6 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
+          className="bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-6 py-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
         >
-          {state === "loading" ? "Joining…" : "Join notification list"}
+          {state === "loading"
+            ? isAndroidBeta ? "Requesting…" : "Joining…"
+            : isAndroidBeta ? "Get beta access" : "Join notification list"}
         </button>
       </div>
 
       {state === "error" && (
-        <p className="mt-2 text-sm text-red-600">{errorMsg}</p>
+        <p className="mt-2 text-sm text-[var(--color-danger)]">{errorMsg}</p>
       )}
 
-      <HCaptcha
-        ref={captchaRef}
-        sitekey={siteKey}
-        size="invisible"
-        onVerify={handleVerify}
-        onExpire={() => {
-          setState("idle");
-          captchaRef.current?.resetCaptcha();
-        }}
-      />
+      {/* Mounting HCaptcha with an empty sitekey logs console errors, so skip it entirely */}
+      {siteKey && (
+        <HCaptcha
+          ref={captchaRef}
+          sitekey={siteKey}
+          size="invisible"
+          onVerify={handleVerify}
+          onExpire={() => {
+            setState("idle");
+            captchaRef.current?.resetCaptcha();
+          }}
+        />
+      )}
     </form>
   );
 }

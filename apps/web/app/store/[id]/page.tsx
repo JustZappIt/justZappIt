@@ -27,7 +27,7 @@ export async function generateMetadata({
   params: { id: string };
 }): Promise<Metadata> {
   const store = await getStore(params.id);
-  if (!store) return { title: "Store Not Found — JustZappIt" };
+  if (!store) return { title: "Store Not Found | JustZappIt" };
 
   const title = `${store.operator_name} | Buy & Sell Crypto in ${store.city}`;
   const cryptoAccepted = store.accepts_crypto?.length ? store.accepts_crypto.join(", ") : "BTC, ETH, USDT";
@@ -143,7 +143,7 @@ export default async function StorePage({
         <div className="flex items-center gap-3 mb-6">
           <Link
             href="/"
-            className="p-2 rounded-md hover:bg-[var(--color-surface)] transition-colors"
+            className="p-2 hover:bg-[var(--color-surface)] transition-colors"
           >
             <ArrowLeft size={20} className="text-[var(--color-text-secondary)]" />
           </Link>
@@ -152,7 +152,7 @@ export default async function StorePage({
           </Link>
         </div>
         {/* Static map centred on store pin */}
-        <div className="mb-4 rounded-lg overflow-hidden border border-[var(--color-border)]">
+        <div className="mb-4 overflow-hidden border border-[var(--color-border)]">
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${store.lat},${store.lng}`}
             target="_blank"

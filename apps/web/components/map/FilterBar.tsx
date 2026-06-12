@@ -4,7 +4,14 @@
 import { useState, useEffect, useMemo } from "react";
 import { SlidersHorizontal, X, ChevronDown } from "lucide-react";
 import type { Store } from "@/lib/database.types";
-import { inputClass } from "@/lib/classNames";
+
+/** Zapp input idiom — sharp, warm input surface. */
+const inputClass =
+  "w-full px-3 py-2 text-body bg-[var(--color-surface-input)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-subtle)] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary";
+
+/** Micro-kicker label above each filter group. */
+const filterLabelClass =
+  "block text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)]";
 
 export interface FilterState {
   countries: string[];
@@ -84,7 +91,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
     <div className="flex flex-col gap-4">
       {/* City search */}
       <div>
-        <label className="block text-caption font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-1">
+        <label className={`${filterLabelClass} mb-1`}>
           City / Region
         </label>
         <input
@@ -98,12 +105,12 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
 
       {/* Country multi-select */}
       <div className="relative">
-        <label className="block text-caption font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-1">
+        <label className={`${filterLabelClass} mb-1`}>
           Country
         </label>
         <button
           onClick={() => setCountryOpen((o) => !o)}
-          className="w-full flex items-center justify-between border border-[var(--color-border)] rounded-md px-3 py-2 text-body bg-[var(--color-bg)] text-[var(--color-text-primary)]"
+          className="w-full flex items-center justify-between px-3 py-2 text-body bg-[var(--color-surface-input)] border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
         >
           <span>
             {filters.countries.length === 0
@@ -113,7 +120,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
           <ChevronDown size={16} />
         </button>
         {countryOpen && (
-          <div className="absolute z-50 mt-1 w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md shadow-lg max-h-48 overflow-y-auto">
+          <div className="absolute z-50 mt-1 w-full bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] max-h-48 overflow-y-auto">
             {countries.map((c) => (
               <label key={c} className="flex items-center gap-2 px-3 py-2 hover:bg-[var(--color-bg)] cursor-pointer">
                 <input
@@ -131,12 +138,12 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
 
       {/* Operator multi-select */}
       <div className="relative">
-        <label className="block text-caption font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-1">
+        <label className={`${filterLabelClass} mb-1`}>
           Operator
         </label>
         <button
           onClick={() => setOperatorOpen((o) => !o)}
-          className="w-full flex items-center justify-between border border-[var(--color-border)] rounded-md px-3 py-2 text-body bg-[var(--color-bg)] text-[var(--color-text-primary)]"
+          className="w-full flex items-center justify-between px-3 py-2 text-body bg-[var(--color-surface-input)] border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
         >
           <span>
             {filters.operators.length === 0
@@ -146,7 +153,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
           <ChevronDown size={16} />
         </button>
         {operatorOpen && (
-          <div className="absolute z-50 mt-1 w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md shadow-lg max-h-48 overflow-y-auto">
+          <div className="absolute z-50 mt-1 w-full bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] max-h-48 overflow-y-auto">
             {operators.map((op) => (
               <label key={op} className="flex items-center gap-2 px-3 py-2 hover:bg-[var(--color-bg)] cursor-pointer">
                 <input
@@ -164,7 +171,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
 
       {/* Status checkboxes */}
       <div>
-        <label className="block text-caption font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-2">
+        <label className={`${filterLabelClass} mb-2`}>
           Status
         </label>
         <div className="flex flex-wrap gap-2">
@@ -172,10 +179,10 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
             <button
               key={s.value}
               onClick={() => onChange({ ...filters, statuses: toggleArray(filters.statuses, s.value) })}
-              className={`px-3 py-1 rounded-sm text-caption border transition-colors ${
+              className={`px-3 py-1 text-caption font-extrabold border transition-colors ${
                 filters.statuses.includes(s.value)
                   ? "bg-primary border-primary text-white"
-                  : "border-[var(--color-border)] text-[var(--color-text-secondary)]"
+                  : "bg-[var(--color-chip)] border-[var(--color-border-strong)] text-[var(--color-text-secondary)]"
               }`}
             >
               {s.label}
@@ -186,7 +193,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
 
       {/* Crypto type chips */}
       <div>
-        <label className="block text-caption font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-2">
+        <label className={`${filterLabelClass} mb-2`}>
           Accepts Crypto
         </label>
         <div className="flex flex-wrap gap-2">
@@ -194,7 +201,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
             <button
               key={c}
               onClick={() => onChange({ ...filters, cryptoTypes: toggleArray(filters.cryptoTypes, c) })}
-              className={`px-3 py-1 rounded-sm text-caption border transition-colors ${
+              className={`px-3 py-1 text-caption font-extrabold border transition-colors ${
                 filters.cryptoTypes.includes(c)
                   ? "bg-primary border-primary text-white"
                   : "border-primary text-primary"
@@ -214,9 +221,9 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
             role="switch"
             aria-checked={filters.openNow}
             onClick={() => onChange({ ...filters, openNow: !filters.openNow })}
-            className={`w-10 h-6 rounded-full transition-colors relative ${filters.openNow ? "bg-primary" : "bg-[var(--color-border)]"}`}
+            className={`w-10 h-6 transition-colors relative ${filters.openNow ? "bg-primary" : "bg-[var(--color-border-strong)]"}`}
           >
-            <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform ${filters.openNow ? "translate-x-5" : "translate-x-1"}`} />
+            <div className={`absolute top-1 w-4 h-4 bg-white shadow-[1px_1px_0_rgba(0,0,0,0.15)] transition-transform ${filters.openNow ? "translate-x-5" : "translate-x-1"}`} />
           </button>
           <span className="text-body text-[var(--color-text-primary)]">Open now</span>
         </label>
@@ -226,9 +233,9 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
             role="switch"
             aria-checked={filters.showClosed}
             onClick={() => onChange({ ...filters, showClosed: !filters.showClosed })}
-            className={`w-10 h-6 rounded-full transition-colors relative ${filters.showClosed ? "bg-primary" : "bg-[var(--color-border)]"}`}
+            className={`w-10 h-6 transition-colors relative ${filters.showClosed ? "bg-primary" : "bg-[var(--color-border-strong)]"}`}
           >
-            <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform ${filters.showClosed ? "translate-x-5" : "translate-x-1"}`} />
+            <div className={`absolute top-1 w-4 h-4 bg-white shadow-[1px_1px_0_rgba(0,0,0,0.15)] transition-transform ${filters.showClosed ? "translate-x-5" : "translate-x-1"}`} />
           </button>
           <span className="text-body text-[var(--color-text-primary)]">Show closed stores</span>
         </label>
@@ -252,7 +259,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
       <div className="lg:hidden fixed bottom-6 right-4 z-30">
         <button
           onClick={() => setDrawerOpen(true)}
-          className="flex items-center gap-2 bg-primary text-white px-4 py-3 rounded-md shadow-lg font-semibold text-button"
+          className="flex items-center gap-2 bg-primary hover:bg-[#d97411] text-white px-4 py-3 shadow-[3px_3px_0_rgba(15,14,12,0.2)] font-extrabold tracking-wide text-button transition-colors"
         >
           <SlidersHorizontal size={18} />
           Filters
@@ -271,9 +278,9 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
             className="absolute inset-0 bg-black/40"
             onClick={() => setDrawerOpen(false)}
           />
-          <div className="relative bg-[var(--color-bg)] rounded-t-lg p-6 max-h-[85vh] overflow-y-auto">
+          <div className="relative bg-[var(--color-bg)] border-t-2 border-[var(--color-text-primary)] p-6 max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-title font-bold text-[var(--color-text-primary)]">Filters</h2>
+              <h2 className="text-title font-extrabold tracking-tight text-[var(--color-text-primary)]">Filters</h2>
               <button onClick={() => setDrawerOpen(false)} aria-label="Close filters">
                 <X size={22} className="text-[var(--color-text-secondary)]" />
               </button>
@@ -281,7 +288,7 @@ export default function FilterBar({ stores, filters, onChange }: FilterBarProps)
             {filterContent}
             <button
               onClick={() => setDrawerOpen(false)}
-              className="mt-6 w-full bg-primary text-white py-3 rounded-md font-semibold text-button"
+              className="mt-6 w-full bg-primary hover:bg-[#d97411] text-white py-3 font-extrabold tracking-wide text-button transition-colors"
             >
               Apply Filters
             </button>

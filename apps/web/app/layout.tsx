@@ -17,11 +17,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "JustZappIt — Private Messaging with Zcash Payments",
-    template: "%s — JustZappIt",
+    default: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
+    template: "%s | JustZappIt",
   },
   description:
-    "A private messaging app for iOS and Android with native Zcash payments. Send ZEC to any contact inside your conversation — no separate wallet, no KYC, no middlemen.",
+    "Zapp is a shielded Zcash wallet with decentralized, end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries. Android beta live.",
   keywords: [
     "zcash payments",
     "private messaging app",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "JustZappIt — Private Messaging with Zcash Payments",
+    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
     description:
-      "Send ZEC to any contact inside your conversation. Private, encrypted messaging with native Zcash payments. iOS and Android.",
+      "A decentralized messenger with a shielded Zcash wallet and no-KYC cash-out built in. Send ZEC to any contact inside the conversation. Android beta live; iOS coming soon.",
     url: "https://justzappit.xyz",
     siteName: "JustZappIt",
     locale: "en_US",
@@ -54,15 +54,15 @@ export const metadata: Metadata = {
         url: "/api/og?type=app",
         width: 1200,
         height: 630,
-        alt: "JustZappIt — Private Messaging with Zcash Payments",
+        alt: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JustZappIt — Private Messaging with Zcash Payments",
+    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
     description:
-      "Send ZEC to any contact inside your conversation. Private, encrypted messaging with native Zcash payments.",
+      "A decentralized messenger with a shielded Zcash wallet and no-KYC cash-out built in. Android beta live; iOS coming soon.",
     images: ["/api/og?type=app"],
     creator: "@JustZappIt",
     site: "@JustZappIt",

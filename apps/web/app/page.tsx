@@ -2,26 +2,25 @@
 import type { Metadata } from "next";
 import AppHero from "@/components/AppHero";
 import FeatureBlock from "@/components/FeatureBlock";
-import StatsBar from "@/components/StatsBar";
-import RoadmapSection from "@/components/RoadmapSection";
-import FacilitatorBlock from "@/components/FacilitatorBlock";
-import CommunityBlock from "@/components/CommunityBlock";
+import FoundationSection from "@/components/FoundationSection";
+import CashOutSection from "@/components/CashOutSection";
+import ClosingCta from "@/components/ClosingCta";
 
 export const metadata: Metadata = {
-  title: "JustZappIt — Private Messaging with Zcash Payments",
+  title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
   description:
-    "A private messaging app for iOS and Android with native Zcash payments. Send ZEC to any contact inside your conversation — no separate wallet, no KYC, no middlemen.",
+    "Zapp is a shielded Zcash wallet with decentralized, end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries. Android beta live.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "JustZappIt — Private Messaging with Zcash Payments",
+    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
     description:
-      "Send ZEC to any contact inside your conversation. Private, encrypted messaging with native Zcash payments. iOS and Android.",
+      "A shielded Zcash wallet, a serverless peer-to-peer messenger, and no-KYC cash-out, all in one app. Android beta live; iOS coming soon.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "JustZappIt — Private Messaging with Zcash Payments",
+    title: "JustZappIt | Private Messaging, Zcash Payments, No-KYC Cash-Out",
     description:
-      "Send ZEC to any contact inside your conversation. Private, encrypted messaging with native Zcash payments.",
+      "A shielded Zcash wallet, a serverless peer-to-peer messenger, and no-KYC cash-out, all in one app. Android beta live.",
     images: ["/api/og?type=app"],
   },
 };
@@ -36,7 +35,7 @@ export default function HomePage() {
     applicationCategory: "CommunicationApplication",
     operatingSystem: "iOS, Android",
     description:
-      "A private messaging app with native Zcash payments. Send ZEC to any contact inside a conversation — no separate wallet, no KYC.",
+      "A shielded Zcash wallet with decentralized end-to-end encrypted messaging and no-KYC cash-out to local currency in select countries.",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
 
@@ -48,10 +47,9 @@ export default function HomePage() {
       />
       <AppHero />
       <FeatureBlock />
-      <StatsBar />
-      <RoadmapSection />
-      <FacilitatorBlock />
-      <CommunityBlock />
+      <FoundationSection />
+      <CashOutSection />
+      <ClosingCta />
     </>
   );
 }

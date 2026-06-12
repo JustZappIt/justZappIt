@@ -10,31 +10,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Zapp app palette (design/Zapp-designs/components/tokens.jsx)
         primary: "#FF9417",
         accent: "#FFB866",
         background: {
           DEFAULT: "#FFFFFF",
-          dark: "#000000",
+          dark: "#0F0E0C",
         },
         surface: {
-          DEFAULT: "#F9F9F9",
-          dark: "#111111",
+          DEFAULT: "#F4F2EE",
+          dark: "#171512",
         },
         textPrimary: {
-          DEFAULT: "#0A0A0A",
-          dark: "#F5F5F5",
+          DEFAULT: "#15120D",
+          dark: "#F6F2EA",
         },
         textSecondary: {
-          DEFAULT: "#6B6B6B",
-          dark: "#A0A0A0",
+          DEFAULT: "#6B645A",
+          dark: "#A59C90",
         },
         border: {
-          DEFAULT: "#E5E5E5",
-          dark: "#2A2A2A",
+          DEFAULT: "#EBE7E0",
+          dark: "#2A2622",
         },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["var(--font-inter)", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "system-ui", "sans-serif"],
       },
       fontSize: {
         title: "var(--font-title)",
@@ -51,10 +52,16 @@ const config: Config = {
         lg: "var(--space-lg)",
         xl: "var(--space-xl)",
       },
+      // Zapp design rule: 0 border-radius on all UI (avatar circles stay round)
       borderRadius: {
-        sm: "6px",
-        md: "10px",
-        lg: "14px",
+        none: "0",
+        sm: "0",
+        DEFAULT: "0",
+        md: "0",
+        lg: "0",
+        xl: "0",
+        "2xl": "0",
+        "3xl": "0",
         full: "9999px",
       },
       keyframes: {

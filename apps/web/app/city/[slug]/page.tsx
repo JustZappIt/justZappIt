@@ -5,7 +5,18 @@ import type { Metadata } from "next";
 import { supabase } from "@/lib/supabase";
 import { citySlug } from "@/lib/slugify";
 import type { Store } from "@/lib/database.types";
-import { STATUS_CONFIG, DEFAULT_STATUS } from "@/lib/statusColors";
+import { STATUS_CONFIG, DEFAULT_STATUS, type VerificationStatus } from "@/lib/statusColors";
+
+/** Sharp semantic chip variants per verification status — Zapp tokens. */
+const STATUS_CHIP: Record<VerificationStatus, string> = {
+  seed_confirmed: "bg-[var(--color-success-soft)] text-[var(--color-success)]",
+  community_verified: "bg-[var(--color-success-soft)] text-[var(--color-success)]",
+  seed_partial: "bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]",
+  unverified: "bg-[var(--color-accent-soft)] text-[var(--color-accent-text)]",
+  flagged: "bg-[var(--color-danger-soft)] text-[var(--color-danger)]",
+  closed: "bg-[var(--color-chip)] text-[var(--color-text-subtle)]",
+};
+const DEFAULT_STATUS_CHIP = STATUS_CHIP.unverified;
 
 export const dynamicParams = true; // ISR: new cities added after deploy are SSR'd on first request
 export const revalidate = 3600; // Rebuild every hour
@@ -115,7 +126,7 @@ export default async function CityPage({ params }: { params: { slug: string } })
           <span className="text-[var(--color-text-primary)]">{city}, {country}</span>
         </nav>
 
-        <h1 className="text-3xl font-extrabold text-[var(--color-text-primary)] mb-2 tracking-tight">
+        <h1 className="text-4xl font-black text-[var(--color-text-primary)] mb-2 tracking-tight">
           Crypto exchange shops in {city}
         </h1>
         <p className="text-[var(--color-text-secondary)] mb-8">
@@ -125,15 +136,16 @@ export default async function CityPage({ params }: { params: { slug: string } })
         <div className="space-y-4">
           {stores.map((s) => {
             const statusCfg = STATUS_CONFIG[s.verification_status as keyof typeof STATUS_CONFIG] ?? DEFAULT_STATUS;
+            const chipClass = STATUS_CHIP[s.verification_status as VerificationStatus] ?? DEFAULT_STATUS_CHIP;
             return (
               <Link
                 key={s.id}
                 href={`/store/${s.id}`}
-                className="block bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-5 hover:border-primary transition-colors"
+                className="block bg-[var(--color-surface)] border border-[var(--color-border)] p-5 hover:border-primary transition-colors"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h2 className="font-bold text-[var(--color-text-primary)] truncate">{s.operator_name}</h2>
+                    <h2 className="font-extrabold tracking-tight text-[var(--color-text-primary)] truncate">{s.operator_name}</h2>
                     {s.street_address && (
                       <p className="text-sm text-[var(--color-text-secondary)] mt-0.5 truncate">{s.street_address}</p>
                     )}
@@ -144,9 +156,9 @@ export default async function CityPage({ params }: { params: { slug: string } })
                     )}
                   </div>
                   <span
-                    className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full flex-shrink-0 ${statusCfg.textColor} bg-[var(--color-bg)]`}
+                    className={`inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 flex-shrink-0 ${chipClass}`}
                   >
-                    <span className={`w-1.5 h-1.5 rounded-full ${statusCfg.dotColor}`} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-current" />
                     {statusCfg.label}
                   </span>
                 </div>
@@ -162,7 +174,7 @@ export default async function CityPage({ params }: { params: { slug: string } })
           <div className="flex gap-3">
             <Link
               href="/add"
-              className="text-sm bg-primary hover:bg-[#d97411] text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+              className="text-sm bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-4 py-2 transition-colors"
             >
               Add a store
             </Link>

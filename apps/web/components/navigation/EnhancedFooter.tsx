@@ -19,18 +19,18 @@ export default function EnhancedFooter() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-[var(--color-text-primary)] font-semibold mb-4">About JustZappIt</h3>
+            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-4">About JustZappIt</h3>
             <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-              A private messaging app for iOS and Android with native Zcash payments built in.
-              The facilitator network directory connects ZEC users with cash exchange points
-              worldwide.
+              Zapp is a decentralized, end-to-end encrypted messenger with a shielded Zcash
+              wallet and no-KYC cash-out built in. No servers, no phone number, no tracking.
+              Android beta live; iOS coming soon.
             </p>
             <div className="mt-4 flex items-center gap-4">
               <a
                 href="https://x.com/JustZappIt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors flex items-center gap-1.5 text-sm"
+                className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors flex items-center gap-1.5 text-sm font-semibold"
               >
                 <XIcon className="h-4 w-4" />
                 @JustZappIt
@@ -40,18 +40,17 @@ export default function EnhancedFooter() {
 
           {/* Resources Section */}
           <div>
-            <h3 className="text-[var(--color-text-primary)] font-semibold mb-4">Resources</h3>
+            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-4">Resources</h3>
             <ul className="space-y-2">
               {[
                 { href: "/app", label: "Mobile App" },
                 { href: "/faq", label: "FAQ" },
                 { href: "/about", label: "About Us" },
-                { href: "/verification", label: "Safety Guide" },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors"
+                    className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors"
                   >
                     {label}
                   </Link>
@@ -62,36 +61,31 @@ export default function EnhancedFooter() {
 
           {/* Legal & Community Section */}
           <div>
-            <h3 className="text-[var(--color-text-primary)] font-semibold mb-4">Legal & Community</h3>
+            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-4">Legal & Community</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/legal/content-policy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors">
+                <Link href="/legal/content-policy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors">
                   Content Policy
                 </Link>
               </li>
               <li>
-                <Link href="/legal/disclaimer" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors">
+                <Link href="/legal/disclaimer" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors">
                   Disclaimer
                 </Link>
               </li>
               <li>
-                <Link href="/legal/terms" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors">
+                <Link href="/legal/terms" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors">
                   Terms
                 </Link>
               </li>
               <li>
-                <Link href="/legal/privacy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors">
+                <Link href="/legal/privacy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors">
                   Privacy
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors">
+                <Link href="/privacy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors">
                   App Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/sitemap" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors">
-                  Sitemap
                 </Link>
               </li>
             </ul>
@@ -117,7 +111,7 @@ export default function EnhancedFooter() {
             <div className="flex items-center space-x-6 text-sm">
               <a
                 href={`mailto:${businessEmail}`}
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] font-semibold transition-colors"
               >
                 Contact Us
               </a>
@@ -126,13 +120,13 @@ export default function EnhancedFooter() {
         </div>
 
         {/* Additional Legal Notice */}
-        <div className="mt-6 p-4 bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg">
+        <div className="mt-6 p-4 bg-[var(--color-bg)] border border-[var(--color-border-strong)]">
           <p className="text-[var(--color-text-secondary)] text-xs leading-relaxed">
-            <strong>Important Notice:</strong> JustZappIt is a community-driven directory and does
-            not endorse, verify, or guarantee the accuracy of any listed information. All
-            cryptocurrency transactions are conducted at your own risk. This site is not financial,
-            legal, or investment advice. Please conduct your own research and exercise caution when
-            dealing with cryptocurrency exchanges.
+            <strong>Important Notice:</strong> JustZappIt builds non-custodial software. You
+            control your keys, your recovery phrase, and your transactions; we cannot access or
+            recover them. Swaps and cash-out are executed by third-party protocols under their
+            own terms. Cryptocurrency involves risk, and transactions cannot be reversed. Nothing
+            on this site is financial, legal, or investment advice.
           </p>
         </div>
       </div>
