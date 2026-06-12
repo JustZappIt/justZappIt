@@ -59,8 +59,8 @@ export default function HomePage() {
         url: `${appUrl}/app`,
         image: `${appUrl}/api/og?type=app`,
         screenshot: [
-          `${appUrl}/screens/zapp-wallet.png`,
-          `${appUrl}/screens/zapp-onboarding.png`,
+          `${appUrl}/screens/zapp-hero-framed.png`,
+          `${appUrl}/screens/zapp-wallet-framed.png`,
         ],
         applicationCategory: "FinanceApplication",
         operatingSystem: "Android",
