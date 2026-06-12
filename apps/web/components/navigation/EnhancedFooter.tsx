@@ -105,6 +105,11 @@ export default function EnhancedFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/privacy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm transition-colors">
+                  App Privacy
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://www.google.com/ads/preferences/"
                   target="_blank"
