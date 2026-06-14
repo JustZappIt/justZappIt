@@ -22,7 +22,15 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email.trim()) return;
+    const trimmed = email.trim();
+    if (!trimmed) return;
+    // Validate format client-side (the form is noValidate, so the browser won't).
+    // Mirrors the server-side zod .email() check so users get instant feedback.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed) || trimmed.length > 254) {
+      setErrorMsg("Please enter a valid email address.");
+      setState("error");
+      return;
+    }
     if (!siteKey) {
       // No captcha configured (e.g. local dev without .env.local): fail visibly instead of hanging
       setErrorMsg("Sign-ups are unavailable right now. Please email us instead.");
@@ -95,7 +103,10 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            if (state === "error") setState("idle");
+          }}
           placeholder="your@email.com"
           required
           disabled={state === "loading"}

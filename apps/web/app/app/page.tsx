@@ -58,7 +58,7 @@ export default function AppPage() {
       </section>
 
       {/* Platform waitlists */}
-      <section className="space-y-6">
+      <section>
         <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6">
           <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-3">
             Android beta is live
@@ -75,11 +75,6 @@ export default function AppPage() {
             and only work for the matching Google account.
           </p>
         </div>
-
-        <p className="text-xs text-[var(--color-text-secondary)] text-center">
-          On iPhone? The iOS app is coming soon. Leave your email above and we&apos;ll announce
-          the iOS launch to the same list.
-        </p>
       </section>
 
       {/* How it works */}
