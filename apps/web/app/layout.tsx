@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/api/og?type=app",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "JustZappIt | Encrypt the Messages and the Money",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "JustZappIt | Encrypt the Messages and the Money",
     description:
       "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Android beta live; iOS coming soon.",
-    images: ["/api/og?type=app"],
+    images: ["/og-image.jpg"],
     creator: "@JustZappIt",
     site: "@JustZappIt",
   },
