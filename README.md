@@ -1,126 +1,102 @@
 # JustZappIt
 
-A community-driven, open-source directory of physical crypto exchange shops worldwide. Find trusted locations to safely trade BTC, ETH, USDT, and other cryptocurrencies for cash near you.
+The marketing site for **Zapp** — a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and offramp to local currency when you need it.
 
 Live at: **[justzappit.xyz](https://justzappit.xyz)**
 
-**Part of the [Zapp](https://github.com/Zapp) ecosystem.**
+> **Android beta is live** (invite-only internal testing on Google Play) · **iOS coming soon** (email waitlist).
+
+**Part of the [Zapp](https://github.com/JustZappIt) ecosystem.**
 
 ---
 
-## The Mission
+## What is Zapp?
 
-While centralized and decentralized online exchanges dominate the crypto space, there remains a strong need for physical, in-person locations to trade crypto for fiat (and vice versa). Finding reliable, verified physical crypto desks, OTC counters, or teller shops is difficult. 
+Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. Conversations travel device to device over [Holepunch](https://holepunch.to/) (the P2P stack behind Keet), never through a server. Payments settle in shielded ZEC, never on a public ledger. One seed phrase holds your money and your chat identity, and it never leaves your device.
 
-**JustZappIt** solves this by crowdsourcing and verifying physical crypto locations globally. We prioritize privacy, accuracy, and community moderation.
+This repository contains the **web app** (`apps/web`) — the landing site, the Android beta waitlist, and supporting API routes. The native apps and the messaging SDK live in separate repositories (`zapp-android`, `zapp-ios`, `zappMessaging`).
 
-## Features
+## Features (the app)
 
-- **Interactive Global Map:** Built with Leaflet and OpenStreetMap for fast, privacy-respecting mapping.
-- **Community Verification:** Users can confirm or flag stores. Markers change color based on their verification score.
-- **Privacy-First Anti-Spam:** Honeypots, time-traps, and SHA-256 IP hashing. We never store raw IP addresses.
-- **Responsive Design:** Seamless experience across desktop and mobile devices.
+- **Messaging without middlemen:** Every message is end-to-end encrypted and travels directly between devices over Holepunch. No messaging server to breach, subpoena, or shut down. No phone number, email, or sign-up.
+- **Money that moves like a message:** A shielded Zcash wallet lives inside every conversation. Tap the payment icon, enter an amount, send — paying a friend feels like sending a text. Shielded by default.
+- **Built-in swaps & offramp:** Swap ZEC ↔ USDC in-app via [NEAR Intents](https://near.org/intents), or turn ZEC into local currency with no exchange account and no identity checks, settled peer-to-peer through the [P2P.me](https://p2p.me/) protocol with on-chain escrow. Live today in India (UPI), Brazil (PIX), and Indonesia (QRIS), with more corridors on the way.
+- **Self-custody, always:** Keys are generated on-device and never leave it. The wallet is built on Zodl, the flagship open-source Zcash wallet from the team that created the protocol.
 
-## High-Level Roadmap
+## Roadmap
 
-We are continuously evolving JustZappIt. Here is our high-level roadmap:
-
-- [x] **Phase 1: Core Directory & Map** — Initial dataset, interactive map, and basic filtering.
-- [x] **Phase 2: Community Moderation** — Ability for users to submit, confirm, and flag stores. Privacy-preserving anti-spam measures.
-- [ ] **Phase 3: Store Operator Claiming** — Allow shop owners to verify ownership, update operating hours, and list live rates.
-- [ ] **Phase 4: Ratings & Written Reviews** — Let users leave detailed feedback on their trading experience.
-- [ ] **Phase 5: Localized Store Chats** — "Join Store Chat" feature for real-time peer-to-peer discussions and OTC rate checking.
-- [ ] **Phase 6: Mobile Application** — Dedicated native iOS and Android apps.
+- [x] **Android beta** — Invite-only internal testing on Google Play.
+- [x] **In-chat shielded ZEC payments** — Pay inside any conversation.
+- [x] **No-KYC offramp** — Live in India (UPI), Brazil (PIX), and Indonesia (QRIS).
+- [ ] **iOS beta** — Collecting interest via the email waitlist now.
+- [ ] **More offramp corridors** — 🇦🇷 Argentina, 🇳🇬 Nigeria, 🇻🇪 Venezuela, 🇨🇴 Colombia, and 🇲🇽 Mexico next.
+- [ ] **Public release** — Open beta beyond invite-only testing.
 
 ---
 
 ## Tech Stack
 
 - **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
-- **Database & Auth:** [Supabase](https://supabase.com/) (PostgreSQL + Row Level Security)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Mapping:** [Leaflet](https://leafletjs.com/) + React-Leaflet
+- **Database:** [Supabase](https://supabase.com/) (PostgreSQL + Row Level Security)
+- **Transactional email:** [Resend](https://resend.com/) (beta/waitlist invites)
+- **Anti-abuse:** [hCaptcha](https://hcaptcha.com/) + SHA-256 IP hashing (raw IPs are never stored)
+- **Analytics:** [Vercel Analytics](https://vercel.com/analytics)
 - **Icons:** [Lucide React](https://lucide.dev/)
+
+> **Note:** This repo also contains an earlier crowdsourced crypto-shop directory (interactive Leaflet map, store submissions, community voting). That code still lives under `apps/web` and `packages/db` but is no longer the focus of the live site.
 
 ---
 
-## Database Setup
-
-JustZappIt uses [Supabase](https://supabase.com/) (hosted PostgreSQL) as its database.
-
-### 1. Create a Supabase Project
-
-1. Go to [supabase.com](https://supabase.com/) and create a free account.
-2. Create a new project. Note your **Project URL**, **anon (public) key**, and **service_role (secret) key** from **Project Settings → API**.
-
-### 2. Run Migrations
-
-Apply the SQL migrations in order using the Supabase SQL Editor (**SQL Editor → New Query**) or the Supabase CLI:
+## Local Development
 
 ```bash
-# If using the Supabase CLI:
-supabase db push
-```
+# From the repo root
+npm install --workspace=apps/web
 
-Or manually run each file in the SQL Editor:
-
-1. `supabase/migrations/001_schema.sql` — Core tables (stores, votes, submissions), indexes, triggers, RLS policies
-2. `supabase/migrations/002_split_contact.sql` — Splits `contact` column into `phone` and `email`
-3. `supabase/migrations/003_rate_limits.sql` — Rate limiting table
-4. `supabase/migrations/004_atomic_rate_limit.sql` — Atomic rate-limit RPC function
-
-### 3. Seed Data (Optional)
-
-To populate the database with the initial store dataset:
-
-```bash
-cp .env.example packages/db/.env
-# Fill in your Supabase URL and service role key
-npm run seed
-```
-
-This reads from the source spreadsheet, geocodes addresses via Nominatim, and inserts stores into your Supabase project.
-
-### 4. Environment Variables
-
-Copy the example env file and fill in your Supabase credentials:
-
-```bash
+# Configure environment variables
 cp .env.example apps/web/.env.local
+# Fill in your Supabase, Resend, and hCaptcha credentials
+
+# Run the dev server
+cd apps/web
+npm run dev
 ```
 
-See [`.env.example`](.env.example) for the full list of required variables.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+### Scripts (`apps/web`)
+
+```bash
+npm run dev      # Start the dev server
+npm run build    # Production build (run before opening a PR)
+npm run start    # Serve the production build
+npm run lint     # Lint
+npm test         # Run the Vitest suite
+```
+
+### Environment Variables
+
+Copy [`.env.example`](.env.example) and fill in your credentials. Key variables:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ | Supabase client |
+| `SUPABASE_SERVICE_ROLE_KEY` | ✅ | Server-side Supabase access |
+| `RESEND_API_KEY` / `RESEND_FROM_EMAIL` | ✅ | Sending waitlist/beta invite emails |
+| `NEXT_PUBLIC_HCAPTCHA_SITE_KEY` / `HCAPTCHA_SECRET_KEY` | ✅ | Anti-spam on forms |
+| `IP_HASH_SALT` | ✅ | Salt for privacy-preserving IP hashing |
+| `NEXT_PUBLIC_APP_URL` | ✅ | Canonical site URL |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | ✅ | Public contact address |
+| `NEXT_PUBLIC_ADSENSE_CLIENT_ID`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_GSC_VERIFICATION` | optional | Ads / analytics / Search Console |
+
+> For UI-only work you can run the app against mock data without database access. If you're building features that need Supabase, reach out to the core team via issues/discussions to coordinate.
 
 ---
 
 ## How to Contribute
 
-We welcome contributions of all sizes! Whether it's adding new features, fixing bugs, or improving documentation, your help is appreciated.
-
-### Getting Started
-
-1. **Fork & Clone**
-   ```bash
-   git clone https://github.com/your-username/justZappIt.git
-   cd justZappIt
-   npm install --workspace=apps/web
-   ```
-
-2. **Environment Variables**
-   For UI and frontend development, you can run the app using our public staging environment (if available) or mock data. Copy the example env file:
-   ```bash
-   cp .env.example apps/web/.env.local
-   ```
-   *Note: If you are working on features that require database access, please reach out to the core team via issues/discussions to coordinate.*
-
-3. **Run the Dev Server**
-   ```bash
-   cd apps/web
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) to view the app.
-
-### Contribution Workflow
+We welcome contributions of all sizes — features, bug fixes, and documentation improvements are all appreciated.
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature/amazing-feature`).
@@ -132,27 +108,12 @@ Please ensure your code follows the existing style and that the Next.js build su
 
 ---
 
-## Marker Legend Reference
-
-For developers working on the UI, here is how our map markers are color-coded based on community trust:
-
-| Marker | Status | Meaning |
-|---|---|---|
-| 🟢 Green | `seed_confirmed` | Verified in original research |
-| 🔵 Blue | `community_verified` | 3+ community confirmations |
-| 🟡 Yellow | `seed_partial` / `unverified` | Incomplete or newly added |
-| ⚫ Grey | Any + `is_approximate` | City-centre estimate (needs exact address) |
-| 🟠 Orange | `flagged` | 3+ issue reports |
-| *(hidden)* | `closed` | Toggle "Show closed" in filters to reveal |
-
----
-
 ## Disclaimer
 
-**JustZappIt is a community-driven, crowdsourced directory.** The information provided on this platform (including store locations, operating hours, and accepted cryptocurrencies) is submitted by users and is not independently verified by the core team. 
+**Zapp is non-custodial, self-custody software.** You alone control your keys and your funds.
 
-- **Use at your own risk:** Always conduct your own research and exercise extreme caution when visiting physical locations or executing peer-to-peer/over-the-counter (OTC) trades.
-- **No Liability:** The creators, contributors, and maintainers of JustZappIt are not responsible or liable for any lost funds, scams, physical harm, or inaccuracies related to the locations listed on this platform or the use of this software.
+- **Use at your own risk:** Cryptocurrency transactions are irreversible. Always conduct your own research and exercise caution, especially with peer-to-peer/over-the-counter (OTC) trades and offramp orders.
+- **No Liability:** The creators, contributors, and maintainers of JustZappIt are not responsible or liable for any lost funds, scams, or inaccuracies related to the use of this software.
 - **Not Financial Advice:** Nothing in this project constitutes financial, legal, or investment advice.
 
 ---
@@ -162,4 +123,3 @@ For developers working on the UI, here is how our map markers are color-coded ba
 This project is open-source and available under the [GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE).
 
 This means you are free to use, modify, and distribute the code. However, if you modify it and deploy it as a network service, you must make your modified source code available to users of that service under the same license.
-
