@@ -64,8 +64,8 @@ export default function EnhancedFooter() {
             <h3 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-4">Legal & Community</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/legal/content-policy" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors">
-                  Content Policy
+                <Link href="/legal/acceptable-use" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-semibold transition-colors">
+                  Acceptable Use
                 </Link>
               </li>
               <li>

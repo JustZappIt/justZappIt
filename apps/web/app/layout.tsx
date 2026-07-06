@@ -2,8 +2,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import AdSenseScript from "@/components/AdSenseScript";
-import CookieConsent from "@/components/CookieConsent";
 import EnhancedHeader from "@/components/navigation/EnhancedHeader";
 import EnhancedFooter from "@/components/navigation/EnhancedFooter";
 import WaitlistBar from "@/components/WaitlistBar";
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | JustZappIt",
   },
   description:
-    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and offramp to local currency when you need it. Android beta live.",
+    "A peer-to-peer encrypted messenger with a shielded Zcash wallet built in. Pay friends in chat, swap ZEC, and cash out with no KYC. Android beta live.",
   applicationName: "JustZappIt",
   category: "finance",
   keywords: [
@@ -46,9 +44,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "https://justzappit.xyz"
   ),
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "JustZappIt | Encrypt the Messages and the Money",
     description:
@@ -115,8 +110,6 @@ export default function RootLayout({
         <EnhancedHeader />
         <main className="flex-1">{children}</main>
         <EnhancedFooter />
-        <AdSenseScript />
-        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && <CookieConsent />}
         <Analytics />
       </body>
     </html>

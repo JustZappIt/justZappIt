@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import type { ReactNode } from "react";
-
-export const dynamic = "force-dynamic";
+import Link from "next/link";
 
 export const metadata = {
   title: "Frequently Asked Questions",
@@ -13,6 +12,7 @@ export const metadata = {
     description:
       "Answers to common questions about Zapp: the Android beta, encrypted messaging, shielded ZEC payments, swaps, and the no-KYC offramp.",
     url: "/faq",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -65,7 +65,7 @@ const faqData: FaqSection[] = [
         answer: "Zapp for Android is live in an invite-only beta through Google Play internal testing. The iOS app is in development. You can request an Android invite or join the iOS waitlist on the app page.",
         render: (
           <>
-            Zapp for Android is live in an invite-only beta through Google Play internal testing. The iOS app is in development. You can request an Android invite or join the iOS waitlist on the <a href="/app" className="text-primary hover:underline">app page</a>.
+            Zapp for Android is live in an invite-only beta through Google Play internal testing. The iOS app is in development. You can request an Android invite or join the iOS waitlist on the <Link href="/app" className="text-primary hover:underline">app page</Link>.
           </>
         )
       },
@@ -75,7 +75,7 @@ const faqData: FaqSection[] = [
         answer: "Enter your email on the app page. Use the same email address as your Google Play account. We send invites with a Google Play opt-in link in batches, and this phase of the beta is limited to 100 testers.",
         render: (
           <>
-            Enter your email on the <a href="/app" className="text-primary hover:underline">app page</a>. Use the same email address as your Google Play account. We send invites with a Google Play opt-in link in batches, and this phase of the beta is limited to 100 testers.
+            Enter your email on the <Link href="/app" className="text-primary hover:underline">app page</Link>. Use the same email address as your Google Play account. We send invites with a Google Play opt-in link in batches, and this phase of the beta is limited to 100 testers.
           </>
         )
       },
@@ -85,7 +85,7 @@ const faqData: FaqSection[] = [
         answer: "The iOS app is in development, but we haven't committed to a release date yet. Join the waitlist on the app page and we'll email you when it's ready.",
         render: (
           <>
-            The iOS app is in development, but we haven&apos;t committed to a release date yet. Join the waitlist on the <a href="/app" className="text-primary hover:underline">app page</a> and we&apos;ll email you when it&apos;s ready.
+            The iOS app is in development, but we haven&apos;t committed to a release date yet. Join the waitlist on the <Link href="/app" className="text-primary hover:underline">app page</Link> and we&apos;ll email you when it&apos;s ready.
           </>
         )
       },
@@ -140,7 +140,7 @@ const faqData: FaqSection[] = [
         answer: "No. The app contains no analytics, no advertising, and no tracking SDKs. We don't collect usage data, and we never sell data. There is essentially nothing to sell. The full details are in the Zapp app privacy policy; the website has its own separate privacy policy.",
         render: (
           <>
-            No. The app contains no analytics, no advertising, and no tracking SDKs. We don&apos;t collect usage data, and we never sell data. There is essentially nothing to sell. The full details are in the <a href="/privacy" className="text-primary hover:underline">Zapp app privacy policy</a>; the website has its own separate <a href="/legal/privacy" className="text-primary hover:underline">privacy policy</a>.
+            No. The app contains no analytics, no advertising, and no tracking SDKs. We don&apos;t collect usage data, and we never sell data. There is essentially nothing to sell. The full details are in the <Link href="/privacy" className="text-primary hover:underline">Zapp app privacy policy</Link>; the website has its own separate <Link href="/legal/privacy" className="text-primary hover:underline">privacy policy</Link>.
           </>
         )
       },
@@ -273,7 +273,7 @@ export default function FAQPage() {
               <strong>Email us:</strong> <a href={`mailto:${email}`} className="text-primary hover:underline">{email}</a>
             </li>
             <li>
-              <strong>Join the Android beta:</strong> Enter your email on the <a href="/app" className="text-primary hover:underline">app page</a>. Invites go out in batches
+              <strong>Join the Android beta:</strong> Enter your email on the <Link href="/app" className="text-primary hover:underline">app page</Link>. Invites go out in batches
             </li>
           </ul>
         </div>

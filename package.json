@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "license": "AGPL-3.0-only",
-  "description": "A community-driven, open-source directory of physical crypto exchange shops worldwide.",
+  "description": "Zapp: an open-source, peer-to-peer encrypted messenger with a shielded Zcash wallet built in.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/0xVampirot/justZappIt.git"
@@ -14,15 +14,14 @@
   "homepage": "https://justzappit.xyz",
   "author": "justZappIt Contributors",
   "keywords": [
-    "crypto",
-    "exchange",
-    "map",
-    "directory",
+    "zcash",
+    "encrypted-messenger",
+    "shielded-wallet",
+    "peer-to-peer",
     "web3"
   ],
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
     "dev": "npm run dev --workspace=apps/web",
@@ -31,11 +30,9 @@
     "test": "npm run test --workspace=apps/web",
     "type-check": "npx tsc --noEmit --project apps/web/tsconfig.json",
     "format": "npx prettier --write .",
-    "format:check": "npx prettier --check .",
-    "seed": "npm run seed --workspace=packages/db"
+    "format:check": "npx prettier --check ."
   },
   "devDependencies": {
-    "dotenv": "^17.3.1",
     "supabase": "^2.84.4"
   }
 }

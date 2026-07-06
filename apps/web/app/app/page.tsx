@@ -6,7 +6,7 @@ import WaitlistForm from "@/components/WaitlistForm";
 export const metadata: Metadata = {
   title: "Get the Zapp Android Beta",
   description:
-    "Zapp for Android is live in invite-only beta on Google Play: a peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and a no-KYC offramp built in. iOS coming soon.",
+    "Zapp for Android is in invite-only beta on Google Play: an encrypted messenger with a shielded Zcash wallet, in-chat ZEC payments, and a no-KYC offramp. iOS soon.",
   alternates: { canonical: "/app" },
   openGraph: {
     title: "JustZappIt | Zapp Android Beta Is Live",

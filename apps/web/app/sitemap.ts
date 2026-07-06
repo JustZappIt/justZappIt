@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import type { MetadataRoute } from "next";
 
-// App-positioning sitemap: only the pages we want ranking. The legacy
-// directory remnants (/add, /store, /city, /verification) are noindexed
-// and intentionally absent.
+// App-positioning sitemap: every canonical, indexable page on the site.
+// The legacy store-directory routes (/add, /store, /city, /verification) have
+// been removed entirely.
 export default function sitemap(): MetadataRoute.Sitemap {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://justzappit.xyz";
   const now = new Date();
@@ -17,6 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${appUrl}/legal/privacy`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
     { url: `${appUrl}/legal/terms`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
     { url: `${appUrl}/legal/disclaimer`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${appUrl}/legal/content-policy`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${appUrl}/legal/acceptable-use`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
   ];
 }
