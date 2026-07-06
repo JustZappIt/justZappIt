@@ -11,7 +11,7 @@ import ClosingCta from "@/components/ClosingCta";
 export const metadata: Metadata = {
   title: "JustZappIt | Encrypted Messenger with a Shielded Zcash Wallet",
   description:
-    "Zapp is a peer-to-peer encrypted messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Pay friends in chat, swap ZEC, and offramp to local currency when you need it. Android beta live.",
+    "A peer-to-peer encrypted messenger with a shielded Zcash wallet built in. Pay friends in chat, swap ZEC, and cash out with no KYC. Android beta live.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "JustZappIt | Encrypt the Messages and the Money",

@@ -3,30 +3,6 @@ import { getServiceClient } from "./supabase";
 
 const MAX_ACTIONS = 10;
 const WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
-const MAX_FLAGS_PER_HOUR = 3;
-
-/**
- * Mass-flag cooldown: >3 flags from the same IP in 1 hour → soft-ignore.
- * Returns true if the flag should be allowed, false if cooldown is active.
- */
-export async function checkFlagCooldown(ipHash: string): Promise<boolean> {
-  const supabase = getServiceClient();
-  const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-
-  const { count, error } = await supabase
-    .from("votes")
-    .select("*", { count: "exact", head: true })
-    .eq("ip_hash", ipHash)
-    .like("type", "flag_%")
-    .gte("created_at", oneHourAgo);
-
-  if (error) {
-    console.error("Flag cooldown check error:", error);
-    return false; // fail closed — deny the action on DB error
-  }
-
-  return (count ?? 0) < MAX_FLAGS_PER_HOUR;
-}
 
 /**
  * Atomic rate limit check via Postgres RPC.

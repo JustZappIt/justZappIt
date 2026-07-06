@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-export const dynamic = "force-dynamic";
+import Link from "next/link";
 
 export const metadata = {
   title: "About Us",
@@ -11,6 +11,7 @@ export const metadata = {
     description:
       "Who we are, what Zapp is built on (Zcash, Zodl, Holepunch, NEAR Intents, P2P.me), and the privacy principles we hold ourselves to.",
     url: "/about",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -143,9 +144,9 @@ export default function AboutPage() {
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
         Zapp for Android is live as an invite-only beta on Google Play, and iOS is in
         development. The fastest way in is the{" "}
-        <a href="/app" className="text-primary hover:underline">
+        <Link href="/app" className="text-primary hover:underline">
           app page
-        </a>
+        </Link>
         .
       </p>
 
@@ -255,9 +256,9 @@ export default function AboutPage() {
           </li>
           <li>
             <strong>Beta access:</strong>{" "}
-            <a href="/app" className="text-primary hover:underline">
+            <Link href="/app" className="text-primary hover:underline">
               request an Android invite
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

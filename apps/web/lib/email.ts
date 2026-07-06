@@ -10,40 +10,6 @@ function getResend(): Resend {
   return new Resend(process.env.RESEND_API_KEY);
 }
 
-export async function sendFacilitatorEmail(
-  to: string,
-  paymentSystems: string[]
-): Promise<void> {
-  if (!process.env.RESEND_API_KEY) {
-    console.warn("[email] RESEND_API_KEY not configured — skipping facilitator email");
-    return;
-  }
-
-  const systemsList =
-    paymentSystems.length > 0 ? paymentSystems.join(", ") : "None specified";
-
-  await getResend().emails.send({
-    from: FROM,
-    to,
-    subject: "Thanks for your facilitator interest - JustZappIt",
-    text: [
-      "Thanks for your interest in becoming a JustZappIt facilitator.",
-      "",
-      "We have recorded your interest and will be in touch when the facilitator programme opens.",
-      "",
-      `Payment systems you selected: ${systemsList}`,
-      "",
-      "Facilitators help users pay at shops by converting ZEC to fiat using their existing payment apps. When the network launches, facilitators earn fees for each transaction they process.",
-      "",
-      "In the meantime, explore the map: https://justzappit.xyz/",
-      "",
-      "Follow for updates: https://x.com/JustZappIt",
-      "",
-      "- JustZappIt",
-    ].join("\n"),
-  });
-}
-
 export type WelcomePlatform = "android" | "ios";
 
 export async function sendWelcomeEmail(

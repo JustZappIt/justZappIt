@@ -17,9 +17,7 @@ const waitlistSchema = z.object({
       "app-page-ios",
       "sticky-bar",
       "x-link",
-      "directory-page",
       "footer",
-      "facilitator-block",
     ])
     .default("app-page"),
 });
