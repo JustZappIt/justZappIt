@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 export const metadata = {
   title: "Frequently Asked Questions",
@@ -62,20 +63,20 @@ const faqData: FaqSection[] = [
       {
         id: "app-1",
         question: "Is Zapp available now?",
-        answer: "Zapp for Android is live in an invite-only beta through Google Play internal testing. The iOS app is in development. You can request an Android invite or join the iOS waitlist on the app page.",
+        answer: "Yes. Zapp for Android is live in open beta on Google Play, so anyone can install it, no invite needed. The iOS app is still in development. You can download Android from Google Play or join the iOS waitlist on the app page.",
         render: (
           <>
-            Zapp for Android is live in an invite-only beta through Google Play internal testing. The iOS app is in development. You can request an Android invite or join the iOS waitlist on the <Link href="/app" className="text-primary hover:underline">app page</Link>.
+            Yes. Zapp for Android is live in open beta on Google Play, so anyone can install it, no invite needed. The iOS app is still in development. You can <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">download it from Google Play</a> or join the iOS waitlist on the <Link href="/app" className="text-primary hover:underline">app page</Link>.
           </>
         )
       },
       {
         id: "app-2",
-        question: "How do I join the Android beta?",
-        answer: "Enter your email on the app page. Use the same email address as your Google Play account. We send invites with a Google Play opt-in link in batches, and this phase of the beta is limited to 100 testers.",
+        question: "How do I install the Android beta?",
+        answer: "It's an open beta, so there is no invite or waitlist. Open the Zapp listing on Google Play and install it like any other app. It runs on any Android phone.",
         render: (
           <>
-            Enter your email on the <Link href="/app" className="text-primary hover:underline">app page</Link>. Use the same email address as your Google Play account. We send invites with a Google Play opt-in link in batches, and this phase of the beta is limited to 100 testers.
+            It&apos;s an open beta, so there is no invite or waitlist. Open the <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Zapp listing on Google Play</a> and install it like any other app. It runs on any Android phone.
           </>
         )
       },
@@ -128,6 +129,11 @@ const faqData: FaqSection[] = [
         id: "payments-4",
         question: "Can I offramp ZEC to fiat?",
         answer: "Yes, with no KYC. Zapp's offramp pays Indian Rupees directly to a UPI ID through the P2P.me peer-to-peer protocol: no exchange account and no identity checks. Every order runs through a fresh wallet, so nothing links the payout back to your balance or history. The offramp is live in India today, with other countries coming soon."
+      },
+      {
+        id: "payments-5",
+        question: "What payment methods does the offramp support?",
+        answer: "Zapp's offramp settles over local payment rails. UPI in India is live today, with PIX in Brazil and QRIS in Indonesia on the way. Scan a QR code or enter an ID and a verified peer on the P2P.me protocol pays out in local currency, secured by on-chain escrow. Argentina, Mexico, and Venezuela are next."
       }
     ]
   },
@@ -273,7 +279,7 @@ export default function FAQPage() {
               <strong>Email us:</strong> <a href={`mailto:${email}`} className="text-primary hover:underline">{email}</a>
             </li>
             <li>
-              <strong>Join the Android beta:</strong> Enter your email on the <Link href="/app" className="text-primary hover:underline">app page</Link>. Invites go out in batches
+              <strong>Get the Android beta:</strong> download Zapp on <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Play</a>, no invite needed
             </li>
           </ul>
         </div>

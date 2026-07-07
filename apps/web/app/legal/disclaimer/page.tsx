@@ -34,7 +34,7 @@ export default function DisclaimerPage() {
 
       <h2 className="text-3xl font-black tracking-tight text-[var(--color-text-primary)] mt-12">2. Beta Software, Provided As Is</h2>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
-        Zapp is early-stage software currently offered as an invite-only beta. It is provided on an &quot;as is&quot;
+        Zapp is early-stage software currently offered as an open beta. It is provided on an &quot;as is&quot;
         and &quot;as available&quot; basis, without warranties of any kind. It may contain bugs, may change without
         notice, and may be unavailable at times. Use it at your own risk, and do not store more value in it than you
         are prepared to lose.

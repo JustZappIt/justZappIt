@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import Link from "next/link";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 export const metadata = {
   title: "About Us",
@@ -97,8 +98,8 @@ export default function AboutPage() {
 
       <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
         JustZappIt is the small, independent team behind Zapp: a peer-to-peer messenger with a
-        shielded Zcash wallet built in. The whole thesis fits in one line: encrypt the messages
-        and the money. This page is who we are, what we build on, and the rules we hold
+        shielded Zcash wallet built in. The whole thesis fits in one line: encrypt your messages
+        and your money. This page is who we are, what we build on, and the rules we hold
         ourselves to.
       </p>
 
@@ -142,8 +143,17 @@ export default function AboutPage() {
         </li>
       </ul>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
-        Zapp for Android is live as an invite-only beta on Google Play, and iOS is in
-        development. The fastest way in is the{" "}
+        Zapp for Android is live in open beta on Google Play, no invite needed, and iOS is in
+        development. Install it from{" "}
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline"
+        >
+          Google Play
+        </a>{" "}
+        or read more on the{" "}
         <Link href="/app" className="text-primary hover:underline">
           app page
         </Link>
@@ -255,10 +265,15 @@ export default function AboutPage() {
             </a>
           </li>
           <li>
-            <strong>Beta access:</strong>{" "}
-            <Link href="/app" className="text-primary hover:underline">
-              request an Android invite
-            </Link>
+            <strong>Get the app:</strong>{" "}
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              download on Google Play
+            </a>
           </li>
         </ul>
       </div>

@@ -8,6 +8,8 @@ const markets = [
   { currency: "reais", status: "Brazil · coming soon", live: false },
   { currency: "pesos", status: "Argentina · coming soon", live: false },
   { currency: "rupiah", status: "Indonesia · coming soon", live: false },
+  { currency: "pesos", status: "Mexico · coming soon", live: false },
+  { currency: "bolívares", status: "Venezuela · coming soon", live: false },
 ];
 
 /**
@@ -39,7 +41,8 @@ export default function CashOutHeading() {
 
       <p className="mt-4 flex justify-center">
         <span className="sr-only">
-          Live in India today. Brazil, Argentina, and Indonesia are coming soon.
+          Live in India today. Brazil, Argentina, Indonesia, Mexico, and Venezuela are coming
+          soon.
         </span>
         <span
           key={market.status}

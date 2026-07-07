@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "A peer-to-peer encrypted messenger with a shielded Zcash wallet built in. Pay friends in chat, swap ZEC, and cash out with no KYC. Android beta live.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "JustZappIt | Encrypt the Messages and the Money",
+    title: "JustZappIt | Encrypt Your Messages and Your Money",
     description:
       "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and a no-KYC offramp. Android beta live; iOS coming soon.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "JustZappIt | Encrypt the Messages and the Money",
+    title: "JustZappIt | Encrypt Your Messages and Your Money",
     description:
       "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in: in-chat ZEC payments, swaps, and a no-KYC offramp. Android beta live.",
     images: ["/api/og?type=app"],

@@ -43,8 +43,8 @@ export async function GET() {
               flexDirection: "column",
             }}
           >
-            <span>Encrypt the messages</span>
-            <span style={{ color: "#E8821A" }}>and the money.</span>
+            <span>Encrypt your messages</span>
+            <span style={{ color: "#E8821A" }}>and your money.</span>
           </div>
           <div
             style={{

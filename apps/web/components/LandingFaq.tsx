@@ -33,6 +33,11 @@ const faqs = [
       "Swap between ZEC and USDC in-app through NEAR Intents, or pay any UPI QR code in India directly from shielded ZEC: a verified peer on the P2P.me protocol settles the rupees, secured by on-chain escrow. No exchange account, no identity checks. Every order runs through a fresh wallet, so nothing links the payout back to your balance or history. More countries are on the way.",
   },
   {
+    question: "What payment methods does the offramp support?",
+    answer:
+      "Zapp's offramp pays out over local payment rails. UPI in India is live today, with PIX in Brazil and QRIS in Indonesia on the way. Scan a QR code or enter an ID, and a verified peer on the P2P.me protocol settles in local currency, secured by on-chain escrow. Argentina, Mexico, and Venezuela are next.",
+  },
+  {
     question: "What happens if I lose my phone?",
     answer:
       "Your money survives; your messages do not. The recovery phrase restores your wallet and your chat identity on a new device. Chat history lives only on the device it happened on, which is exactly what makes it private.",

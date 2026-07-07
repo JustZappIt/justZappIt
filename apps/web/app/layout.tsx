@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_APP_URL ?? "https://justzappit.xyz"
   ),
   openGraph: {
-    title: "JustZappIt | Encrypt the Messages and the Money",
+    title: "JustZappIt | Encrypt Your Messages and Your Money",
     description:
       "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Send ZEC to any contact inside the conversation. Android beta live; iOS coming soon.",
     url: "https://justzappit.xyz",
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "JustZappIt | Encrypt the Messages and the Money",
+        alt: "JustZappIt | Encrypt Your Messages and Your Money",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JustZappIt | Encrypt the Messages and the Money",
+    title: "JustZappIt | Encrypt Your Messages and Your Money",
     description:
       "Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. No servers, no phone number, no sign-up. Android beta live; iOS coming soon.",
     images: ["/og-image.jpg"],

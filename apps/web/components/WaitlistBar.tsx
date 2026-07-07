@@ -2,9 +2,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 const STORAGE_KEY = "jzi-bar-v1";
 
@@ -38,14 +38,16 @@ export default function WaitlistBar() {
       className="bg-primary text-white text-sm py-2.5 px-4 flex items-center justify-center gap-4 relative"
     >
       <span className="font-extrabold">
-        Zapp for Android is looking for beta testers. Sign up and we&apos;ll contact you. iOS coming soon.
+        Zapp for Android is live in open beta on Google Play. iOS coming soon.
       </span>
-      <Link
-        href="/app"
+      <a
+        href={PLAY_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="text-[11px] font-extrabold uppercase tracking-[0.1em] underline underline-offset-4 hover:no-underline whitespace-nowrap"
       >
-        Join the beta list
-      </Link>
+        Download now
+      </a>
       <button
         onClick={dismiss}
         aria-label="Dismiss announcement"

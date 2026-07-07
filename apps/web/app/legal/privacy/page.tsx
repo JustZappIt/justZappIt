@@ -26,15 +26,15 @@ export default function PrivacyPage() {
       </p>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
         The short version: the Site has no accounts and no advertising. The only personal information we collect
-        is the email address you choose to give us to join the beta or waitlist.
+        is the email address you choose to give us to join the iOS waitlist.
       </p>
 
       <h2 className="text-3xl font-black tracking-tight text-[var(--color-text-primary)] mt-12">1. Information We Collect</h2>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
-        <strong>Your email address.</strong> If you submit your email to request an Android beta invite or to join
-        the iOS waitlist, we store that email so we can send you an invite and product updates. We also record which
-        form you used (for example, Android beta or iOS waitlist) so we send the right message. Providing your email
-        is entirely optional; the rest of the Site works without it.
+        <strong>Your email address.</strong> If you submit your email to join the iOS waitlist, we store that email
+        so we can notify you when the iOS app is ready and send occasional product updates. We also record which
+        form you used so we send the right message. Providing your email is entirely optional; the rest of the Site
+        works without it. The Android app is a public beta on Google Play and needs no email to install.
       </p>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
         <strong>A hashed IP address, briefly.</strong> When you submit the form, we process your IP address only to
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
 
       <h2 className="text-3xl font-black tracking-tight text-[var(--color-text-primary)] mt-12">2. How We Use Your Email</h2>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
-        We use your email address solely to send you beta invites and occasional updates about Zapp. We do not use it
+        We use your email address solely to notify you when the iOS app is ready and to send occasional updates about Zapp. We do not use it
         for third-party advertising, and we never sell, rent, or trade it. You can ask us to delete your email at any
         time by emailing <a href={`mailto:${email}`} className="text-primary hover:underline">{email}</a>.
       </p>
@@ -58,10 +58,10 @@ export default function PrivacyPage() {
       </p>
       <ul className="mt-4 list-disc pl-5 space-y-2 text-[var(--color-text-secondary)] leading-relaxed">
         <li>
-          <strong>Supabase:</strong> hosts the database where your beta email is stored.
+          <strong>Supabase:</strong> hosts the database where your waitlist email is stored.
         </li>
         <li>
-          <strong>Resend:</strong> delivers the beta invite and update emails we send to you.
+          <strong>Resend:</strong> delivers the waitlist and update emails we send to you.
         </li>
         <li>
           <strong>hCaptcha:</strong> protects the signup form from bots and may collect device and browser
