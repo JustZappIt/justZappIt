@@ -7,14 +7,11 @@ export default function StatementBand() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-center">
           <div>
-            <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-6">
-              The gap
-            </p>
             <h2 className="text-[1.45rem] sm:text-3xl lg:text-[2.4rem] font-black tracking-tight leading-[1.15] text-[var(--color-text-primary)]">
               <span className="block">Your messages are encrypted.</span>
               <span className="block mt-[0.55em]">Your photos are encrypted.</span>
               <span className="block mt-[0.55em]">Your files are encrypted.</span>
-              <span className="block mt-[0.55em] text-primary">Encrypt your money.</span>
+              <span className="block mt-[0.55em] text-primary">Your money is encrypted.</span>
             </h2>
 
             <div className="h-[3px] w-24 bg-[var(--color-text-primary)] mt-10 mb-8" aria-hidden="true">
@@ -28,8 +25,8 @@ export default function StatementBand() {
             </p>
             <p className="text-[var(--color-text-secondary)] leading-relaxed max-w-xl">
               Zcash closed that gap with shielded transactions: encryption at the protocol level,
-              not obfuscation. Zapp finishes the thought by putting encrypted money and encrypted
-              conversations in the same app, behind the same seed phrase.
+              not obfuscation. Zapp brings that same protection to your messages, so your money
+              and your chats live in one app, secured by a single seed phrase.
             </p>
           </div>
 

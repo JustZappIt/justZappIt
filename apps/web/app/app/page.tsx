@@ -1,23 +1,24 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import type { Metadata } from "next";
 import Image from "next/image";
-import WaitlistForm from "@/components/WaitlistForm";
+import IosNotifyButton from "@/components/IosNotifyButton";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Get the Zapp Android Beta",
+  title: "Download Zapp for Android",
   description:
-    "Zapp for Android is in invite-only beta on Google Play: an encrypted messenger with a shielded Zcash wallet, in-chat ZEC payments, and a no-KYC offramp. iOS soon.",
+    "Zapp for Android is in open beta on Google Play: a mobile Zcash wallet with encrypted messaging, in-chat ZEC payments, and a no-KYC offramp built in. No invite needed. iOS soon.",
   alternates: { canonical: "/app" },
   openGraph: {
-    title: "JustZappIt | Zapp Android Beta Is Live",
+    title: "JustZappIt | Zapp for Android Is in Open Beta",
     description:
-      "A peer-to-peer encrypted messenger with a shielded Zcash wallet, in-chat payments, and a no-KYC offramp built in. The Android beta is live as invite-only internal testing on Google Play; iOS coming soon.",
+      "A mobile Zcash wallet with encrypted messaging, in-chat payments, and a no-KYC offramp built in. Now in open beta on Google Play, no invite needed; iOS coming soon.",
     images: [{ url: "/api/og?type=app", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "JustZappIt | Zapp Android Beta Is Live",
+    title: "JustZappIt | Zapp for Android Is in Open Beta",
     description:
-      "Zapp for Android: a peer-to-peer encrypted messenger with a shielded ZEC wallet, in-chat payments, and a no-KYC offramp built in, now in invite-only beta on Google Play. iOS coming soon.",
+      "Zapp for Android: a mobile Zcash wallet with encrypted messaging, in-chat payments, and a no-KYC offramp built in. Now in open beta on Google Play, no invite needed. iOS coming soon.",
     images: ["/api/og?type=app"],
   },
 };
@@ -30,17 +31,15 @@ export default function AppPage() {
       <section className="text-center md:text-left md:grid md:grid-cols-[1fr_auto] md:gap-12 md:items-center">
         <div>
           <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
-            Android beta live · iOS coming soon
+            Open beta on Android · iOS coming soon
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)] leading-tight tracking-tight mb-4">
-            The Zapp beta is live on{" "}
-            <span className="text-primary">Android</span>
+            A Zcash wallet with{" "}
+            <span className="text-primary">chat built in.</span>
           </h1>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto md:mx-0 leading-relaxed">
-            Zapp is a peer-to-peer encrypted messenger with a shielded, non-custodial Zcash
-            wallet built in: no servers, no phone number, no sign-up, plus a no-KYC offramp to
-            local currency in select countries. The Android beta is running as invite-only
-            internal testing on Google Play; iOS is on the way.
+            Shielded ZEC payments inside encrypted chats, plus a no-KYC offramp to local cash.
+            No phone number, no sign-up. Now in open beta on Google Play.
           </p>
         </div>
 
@@ -57,23 +56,31 @@ export default function AppPage() {
         </div>
       </section>
 
-      {/* Platform waitlists */}
+      {/* Download */}
       <section>
         <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6">
           <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-3">
-            Android beta is live
+            Android is in open beta
           </h2>
-          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
-            Zapp for Android is in invite-only internal testing on Google Play: a full shielded
-            ZEC wallet with end-to-end encrypted chat, in-chat payments, and a no-KYC offramp
-            built in. Share photos and your location in conversations, no phone number needed.
-            Enter your email and we&apos;ll send you a tester invite.
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-5">
+            No invite, no waitlist. Install Zapp straight from Google Play, a full shielded ZEC
+            wallet with end-to-end encrypted chat, in-chat payments, and a no-KYC offramp built
+            in.
           </p>
-          <WaitlistForm source="app-page-android" />
-          <p className="text-xs text-[var(--color-text-secondary)] mt-3">
-            Use the same email as your Google Play account. Invites are sent to that address
-            and only work for the matching Google account.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-8 h-[52px] transition-colors duration-200 text-[15px]"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
+                <path d="M3.18 23.76c.3.17.64.22.97.15l12.5-7.21-2.61-2.62-10.86 9.68zM.44 1.06C.17 1.38 0 1.84 0 2.44v19.12c0 .6.17 1.06.44 1.38l.07.07 10.7-10.7v-.26L.51.99l-.07.07zM20.13 10.3l-2.66-1.54-2.96 2.96 2.96 2.96 2.67-1.54c.76-.44.76-1.4-.01-1.84zM3.18.24L15.68 7.4 13.07 10 2.21.36A1.18 1.18 0 013.18.24z" />
+              </svg>
+              Download on Google Play
+            </a>
+            <IosNotifyButton />
+          </div>
         </div>
       </section>
 
@@ -140,18 +147,18 @@ export default function AppPage() {
       {/* Offramp */}
       <section>
         <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
-          Pay any UPI QR with ZEC
+          Turn ZEC into local cash
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
           The offramp is live in the beta today. Scan any UPI QR code or enter a UPI ID, and Zapp
-          turns shielded ZEC into rupees on the spot: the swap runs through NEAR Intents and a
+          turns shielded ZEC into rupees on the spot. The swap runs through NEAR Intents and a
           verified peer on the P2P.me protocol settles the payment over UPI, secured by on-chain
           escrow.
         </p>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
           No exchange account, no KYC, no paperwork. Every order runs through a fresh wallet, so
-          the payout carries no link to your balance or history. India today, with more
-          countries and payment rails on the way.
+          the payout carries no link to your balance or history. Live in India (UPI), Brazil
+          (PIX), and Indonesia (QRIS) today, with Argentina, Mexico, and Venezuela on the way.
         </p>
       </section>
 

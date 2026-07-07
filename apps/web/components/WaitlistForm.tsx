@@ -17,9 +17,6 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
   const captchaRef = useRef<HCaptcha>(null);
   const siteKey = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || "";
 
-  // The Android list grants beta access directly; everything else is a notify-me list.
-  const isAndroidBeta = source === "app-page-android";
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const trimmed = email.trim();
@@ -73,12 +70,10 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
     return (
       <div className="bg-[var(--color-success-soft)] border border-[var(--color-success)] p-5 text-center">
         <p className="text-[var(--color-success)] font-extrabold mb-1">
-          {isAndroidBeta ? "You're in." : "You're on the list."}
+          You&apos;re on the list.
         </p>
         <p className="text-[var(--color-text-secondary)] text-sm">
-          {isAndroidBeta
-            ? "Your beta invite email is on its way. Check your inbox for the Google Play opt-in steps."
-            : "We'll contact you when the app is ready for download."}
+          We&apos;ll email you the moment the iOS app is ready to install.
         </p>
       </div>
     );
@@ -89,9 +84,7 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
       <div className="bg-[var(--color-accent-soft)] border border-[var(--color-accent)] p-5 text-center">
         <p className="text-[var(--color-accent-text)] font-extrabold mb-1">Already signed up.</p>
         <p className="text-[var(--color-text-secondary)] text-sm">
-          {isAndroidBeta
-            ? "That email is already on the beta access list. Your invite is coming."
-            : "That email is already on the notification list."}
+          That email is already on the notification list.
         </p>
       </div>
     );
@@ -117,9 +110,7 @@ export default function WaitlistForm({ source = "app-page" }: WaitlistFormProps)
           disabled={state === "loading" || !email.trim()}
           className="bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-6 py-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
         >
-          {state === "loading"
-            ? isAndroidBeta ? "Requesting…" : "Joining…"
-            : isAndroidBeta ? "Get beta access" : "Join notification list"}
+          {state === "loading" ? "Joining…" : "Notify me"}
         </button>
       </div>
 

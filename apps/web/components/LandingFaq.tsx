@@ -30,7 +30,12 @@ const faqs = [
   {
     question: "How do I turn ZEC into cash?",
     answer:
-      "Swap between ZEC and USDC in-app through NEAR Intents, or pay any UPI QR code in India directly from shielded ZEC: a verified peer on the P2P.me protocol settles the rupees, secured by on-chain escrow. No exchange account, no identity checks. Every order runs through a fresh wallet, so nothing links the payout back to your balance or history. More countries are on the way.",
+      "Swap between ZEC and USDC in-app through NEAR Intents, or pay any UPI QR code in India directly from shielded ZEC. A verified peer on the P2P.me protocol settles the rupees, secured by on-chain escrow. No exchange account, no identity checks. Every order runs through a fresh wallet, so nothing links the payout back to your balance or history. More countries are on the way.",
+  },
+  {
+    question: "What payment methods does the offramp support?",
+    answer:
+      "Zapp's offramp pays out over local payment rails. UPI in India, PIX in Brazil, and QRIS in Indonesia are all live today. Scan a QR code or enter an ID, and a verified peer on the P2P.me protocol settles in local currency, secured by on-chain escrow. Argentina, Mexico, and Venezuela are next.",
   },
   {
     question: "What happens if I lose my phone?",

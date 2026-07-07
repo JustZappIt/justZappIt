@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import Image from "next/image";
-import Link from "next/link";
 import IosNotifyButton from "@/components/IosNotifyButton";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 const stack = [
   {
@@ -73,13 +73,13 @@ function HeroCopy() {
   return (
     <>
       <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-text)] mb-5">
-        Android beta live · iOS coming soon
+        Open beta on Android · iOS coming soon
       </p>
 
       <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl sm:leading-[1.02] font-black text-[var(--color-text-primary)] tracking-tight mb-6">
-        Encrypt the messages
+        Encrypt your messages
         <br />
-        <span className="text-primary">and the money.</span>
+        <span className="text-primary">and your money.</span>
       </h1>
 
       {/* Thick rule — orange as sharp graphic element */}
@@ -91,26 +91,26 @@ function HeroCopy() {
       </div>
 
       <p className="text-xl text-[var(--color-text-secondary)] mb-3 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-        Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. Conversations
-        travel device to device, never through a server. Payments settle in shielded ZEC, never
-        on a public ledger.
+        Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. No middlemen,
+        no centralized servers, and no compromise on your privacy.
       </p>
 
       <p className="text-base text-[var(--color-text-secondary)] mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-        No phone number. No email. No sign-up. One seed phrase holds your money and your chat
-        identity, and it never leaves your device.
+        No phone number. No email. No permissions.
       </p>
 
       <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-        <Link
-          href="/app"
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-8 h-[52px] transition-colors duration-200 text-[15px]"
         >
           <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
             <path d="M3.18 23.76c.3.17.64.22.97.15l12.5-7.21-2.61-2.62-10.86 9.68zM.44 1.06C.17 1.38 0 1.84 0 2.44v19.12c0 .6.17 1.06.44 1.38l.07.07 10.7-10.7v-.26L.51.99l-.07.07zM20.13 10.3l-2.66-1.54-2.96 2.96 2.96 2.96 2.67-1.54c.76-.44.76-1.4-.01-1.84zM3.18.24L15.68 7.4 13.07 10 2.21.36A1.18 1.18 0 013.18.24z" />
           </svg>
-          Get the Android beta
-        </Link>
+          Download on Google Play
+        </a>
 
         {/* iOS — not launched yet: opens an email dropdown to capture interest */}
         <IosNotifyButton />

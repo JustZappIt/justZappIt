@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 
 const markets = [
   { currency: "rupees", status: "Live in India today", live: true },
-  { currency: "reais", status: "Brazil · coming soon", live: false },
+  { currency: "reais", status: "Live in Brazil today", live: true },
+  { currency: "rupiah", status: "Live in Indonesia today", live: true },
   { currency: "pesos", status: "Argentina · coming soon", live: false },
-  { currency: "rupiah", status: "Indonesia · coming soon", live: false },
+  { currency: "pesos", status: "Mexico · coming soon", live: false },
+  { currency: "bolívares", status: "Venezuela · coming soon", live: false },
 ];
 
 /**
@@ -39,7 +41,8 @@ export default function CashOutHeading() {
 
       <p className="mt-4 flex justify-center">
         <span className="sr-only">
-          Live in India today. Brazil, Argentina, and Indonesia are coming soon.
+          Live in India, Brazil, and Indonesia today. Argentina, Mexico, and Venezuela are
+          coming soon.
         </span>
         <span
           key={market.status}

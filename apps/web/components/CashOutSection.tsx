@@ -31,8 +31,8 @@ export default function CashOutSection() {
           </p>
           <CashOutHeading />
           <p className="mt-4 text-[var(--color-text-secondary)] max-w-xl mx-auto">
-            Pay any UPI QR straight from shielded ZEC, with no exchange account and no identity
-            checks.
+            Pay any UPI, PIX, or QRIS code straight from shielded ZEC, with no exchange account
+            and no identity checks.
           </p>
         </div>
 
@@ -83,7 +83,8 @@ export default function CashOutSection() {
             ))}
           </div>
           <p className="text-sm text-[var(--color-text-subtle)]">
-            Rupees are live in India today. Brazil, Argentina, and Indonesia are on the way.
+            Live in India (UPI), Brazil (PIX), and Indonesia (QRIS) today. Argentina, Mexico,
+            and Venezuela are on the way.
           </p>
         </div>
       </div>

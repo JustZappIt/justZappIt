@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 // X (Twitter) icon — lucide-react doesn't ship one, using inline SVG
 function XIcon({ className }: { className?: string }) {
@@ -113,13 +114,15 @@ export default function EnhancedHeader() {
               <XIcon className="h-4 w-4" />
             </a>
 
-            {/* Download CTA */}
-            <Link
-              href="/app"
+            {/* Download CTA — straight to the Google Play open beta */}
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide text-sm px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow)]"
             >
               Download
-            </Link>
+            </a>
           </nav>
 
           {/* Mobile: X icon + hamburger */}
@@ -185,13 +188,15 @@ export default function EnhancedHeader() {
               </Link>
 
               <div className="pt-2 px-2">
-                <Link
-                  href="/app"
+                <a
+                  href={PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide text-sm px-4 py-2 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Download App
-                </Link>
+                </a>
               </div>
             </nav>
           </div>
