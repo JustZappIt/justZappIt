@@ -83,8 +83,8 @@ export default function CashOutSection() {
             ))}
           </div>
           <p className="text-sm text-[var(--color-text-subtle)]">
-            Live in India over UPI today. Brazil (PIX), Indonesia (QRIS), Argentina, Mexico, and
-            Venezuela are on the way.
+            Live in India (UPI), Brazil (PIX), and Indonesia (QRIS) today. Argentina, Mexico,
+            and Venezuela are on the way.
           </p>
         </div>
       </div>

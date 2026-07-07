@@ -11,7 +11,6 @@ const features = [
     ),
     paragraphs: [
       "Every message is end-to-end encrypted and travels directly between devices over Holepunch, the peer-to-peer stack behind Keet. There is no messaging server to breach, subpoena, or shut down.",
-      "No sign-up, no phone number, no email. Your identity lives in your seed phrase, on your device, and when you delete a conversation, it is gone.",
     ],
   },
   {
@@ -24,7 +23,6 @@ const features = [
     ),
     paragraphs: [
       "The shielded Zcash wallet lives inside every conversation. Tap the payment icon, enter an amount, send. Paying a friend feels like sending a text.",
-      "Shielded by default: zero-knowledge proofs keep amounts and counterparties off the public ledger entirely.",
     ],
   },
   {
@@ -39,7 +37,7 @@ const features = [
     ),
     paragraphs: [
       "Swap between ZEC and USDC in-app through NEAR Intents, or turn ZEC into local currency with no exchange account and no identity checks, settled peer-to-peer through the P2P.me protocol.",
-      "Live in India over UPI today. Brazil, Argentina, and Indonesia are next.",
+      "Live in India, Brazil, and Indonesia today, with more countries on the way.",
     ],
   },
 ];

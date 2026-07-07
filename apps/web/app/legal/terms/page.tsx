@@ -40,7 +40,7 @@ export default function TermsPage() {
 
       <h2 className="text-3xl font-black tracking-tight text-[var(--color-text-primary)] mt-12">3. The Beta and Waitlist</h2>
       <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
-        The Android app is a free open beta on Google Play: anyone can install it, with no email or invite
+        The Android app is a free open beta on Google Play, so anyone can install it with no email or invite
         required. The iOS app is still in development. Only the iOS waitlist asks for an email; if you submit yours,
         you agree that we may email you product updates about Zapp. You can ask us to remove your email at any
         time, as described in our{" "}

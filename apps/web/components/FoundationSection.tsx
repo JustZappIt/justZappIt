@@ -36,10 +36,9 @@ export default function FoundationSection() {
             </div>
             <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
               Zapp&apos;s wallet is built on Zodl, the flagship open-source Zcash wallet from the
-              team that created the protocol itself. We stand on their work with respect: every
-              release inherits Zodl&apos;s architecture, its shielded-by-default design, and
-              years of security hardening, and we track upstream to port improvements as they
-              ship.
+              team that created the protocol itself. Every release inherits Zodl&apos;s
+              architecture, its shielded-by-default design, and years of security hardening, and
+              we track upstream to port improvements as they ship.
             </p>
             <p className="text-[var(--color-text-secondary)] leading-relaxed">
               Everything we add on top, messaging, swaps, and the offramp, is built the same

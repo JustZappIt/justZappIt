@@ -62,9 +62,9 @@ export default function AppPage() {
             Android is in open beta
           </h2>
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-5">
-            No invite, no waitlist. Install Zapp straight from Google Play: a full shielded ZEC
+            No invite, no waitlist. Install Zapp straight from Google Play, a full shielded ZEC
             wallet with end-to-end encrypted chat, in-chat payments, and a no-KYC offramp built
-            in. Share photos and your location in conversations, no phone number needed.
+            in.
           </p>
           <a
             href={PLAY_STORE_URL}
@@ -150,14 +150,14 @@ export default function AppPage() {
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
           The offramp is live in the beta today. Scan any UPI QR code or enter a UPI ID, and Zapp
-          turns shielded ZEC into rupees on the spot: the swap runs through NEAR Intents and a
+          turns shielded ZEC into rupees on the spot. The swap runs through NEAR Intents and a
           verified peer on the P2P.me protocol settles the payment over UPI, secured by on-chain
           escrow.
         </p>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
           No exchange account, no KYC, no paperwork. Every order runs through a fresh wallet, so
-          the payout carries no link to your balance or history. Live in India over UPI today,
-          with PIX (Brazil), QRIS (Indonesia), and Argentina, Mexico, and Venezuela on the way.
+          the payout carries no link to your balance or history. Live in India (UPI), Brazil
+          (PIX), and Indonesia (QRIS) today, with Argentina, Mexico, and Venezuela on the way.
         </p>
       </section>
 

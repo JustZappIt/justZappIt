@@ -15,9 +15,9 @@ export default function ClosingCta() {
         </p>
 
         <h2 className="text-4xl sm:text-5xl font-black text-[var(--color-bg)] tracking-tight leading-[1.05] mb-6">
-          Private by architecture,
+          Your money and your messages.
           <br />
-          <span className="text-primary">not by policy.</span>
+          <span className="text-primary">Encrypted.</span>
         </h2>
 
         {/* Thick rule — inverted for the dark band */}
@@ -27,7 +27,7 @@ export default function ClosingCta() {
 
         <p className="text-lg text-[var(--color-bg)] opacity-75 max-w-xl mx-auto leading-relaxed mb-10">
           No server to breach. No account to mine. No custodian to trust. The beta is free and
-          open on Google Play: download it today, no invite needed. iOS is on the way.
+          open on Google Play.
         </p>
 
         <a
