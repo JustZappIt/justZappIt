@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import type { Metadata } from "next";
 import Image from "next/image";
+import IosNotifyButton from "@/components/IosNotifyButton";
 import { PLAY_STORE_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
@@ -66,20 +67,20 @@ export default function AppPage() {
             wallet with end-to-end encrypted chat, in-chat payments, and a no-KYC offramp built
             in.
           </p>
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-8 h-[52px] transition-colors duration-200 text-[15px]"
-          >
-            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
-              <path d="M3.18 23.76c.3.17.64.22.97.15l12.5-7.21-2.61-2.62-10.86 9.68zM.44 1.06C.17 1.38 0 1.84 0 2.44v19.12c0 .6.17 1.06.44 1.38l.07.07 10.7-10.7v-.26L.51.99l-.07.07zM20.13 10.3l-2.66-1.54-2.96 2.96 2.96 2.96 2.67-1.54c.76-.44.76-1.4-.01-1.84zM3.18.24L15.68 7.4 13.07 10 2.21.36A1.18 1.18 0 013.18.24z" />
-            </svg>
-            Download on Google Play
-          </a>
-          <p className="text-xs text-[var(--color-text-secondary)] mt-3">
-            Free and open beta, so anyone can install it. No invite and no opt-in step.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-[#d97411] text-white font-extrabold tracking-wide px-8 h-[52px] transition-colors duration-200 text-[15px]"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
+                <path d="M3.18 23.76c.3.17.64.22.97.15l12.5-7.21-2.61-2.62-10.86 9.68zM.44 1.06C.17 1.38 0 1.84 0 2.44v19.12c0 .6.17 1.06.44 1.38l.07.07 10.7-10.7v-.26L.51.99l-.07.07zM20.13 10.3l-2.66-1.54-2.96 2.96 2.96 2.96 2.67-1.54c.76-.44.76-1.4-.01-1.84zM3.18.24L15.68 7.4 13.07 10 2.21.36A1.18 1.18 0 013.18.24z" />
+              </svg>
+              Download on Google Play
+            </a>
+            <IosNotifyButton />
+          </div>
         </div>
       </section>
 
