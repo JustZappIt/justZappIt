@@ -15,7 +15,7 @@ export default function ClosingCta() {
         </p>
 
         <h2 className="text-4xl sm:text-5xl font-black text-[var(--color-bg)] tracking-tight leading-[1.05] mb-6">
-          Your money and your messages.
+          Your money and your messages
           <br />
           <span className="text-primary">Encrypted.</span>
         </h2>

@@ -4,7 +4,6 @@ import AppHero from "@/components/AppHero";
 import StatementBand from "@/components/StatementBand";
 import FeatureBlock from "@/components/FeatureBlock";
 import FoundationSection from "@/components/FoundationSection";
-import BarcodeBand from "@/components/BarcodeBand";
 import CashOutSection from "@/components/CashOutSection";
 import LandingFaq from "@/components/LandingFaq";
 import ClosingCta from "@/components/ClosingCta";
@@ -91,7 +90,6 @@ export default function HomePage() {
       <StatementBand />
       <FeatureBlock />
       <FoundationSection />
-      <BarcodeBand />
       <CashOutSection />
       <LandingFaq />
       <ClosingCta />

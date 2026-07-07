@@ -96,7 +96,7 @@ function HeroCopy() {
       </p>
 
       <p className="text-base text-[var(--color-text-secondary)] mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-        No phone number. No email. No sign-up.
+        No phone number. No email. No permissions.
       </p>
 
       <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
