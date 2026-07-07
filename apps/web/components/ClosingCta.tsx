@@ -1,17 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import Link from "next/link";
 import { PLAY_STORE_URL } from "@/lib/links";
-import BarcodeReveal from "@/components/BarcodeReveal";
 
 export default function ClosingCta() {
 
   return (
-    <section className="relative overflow-hidden bg-[var(--color-text-primary)] py-24">
-      {/* Privacy barcode: scans in behind the message. You are not a number to mine. */}
-      <BarcodeReveal className="inset-x-0 top-1/2 h-[58%] -translate-y-1/2 opacity-[0.18] mix-blend-screen" />
-
+    <section className="bg-[var(--color-text-primary)] py-24">
       <div
-        className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
         <p className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-primary mb-6">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />

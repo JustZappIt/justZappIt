@@ -38,7 +38,7 @@ export default function WaitlistBar() {
       className="bg-primary text-white text-sm py-2.5 px-4 flex items-center justify-center gap-4 relative"
     >
       <span className="font-extrabold">
-        Zapp for Android is live in open beta on Google Play. iOS coming soon.
+        Zapp for Android is live in open beta on Google Play.
       </span>
       <a
         href={PLAY_STORE_URL}
