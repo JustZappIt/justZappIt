@@ -5,8 +5,16 @@ const features = [
     index: "01",
     title: "Messaging without middlemen",
     icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current stroke-2" aria-hidden="true">
-        <path d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5v8a2.5 2.5 0 01-2.5 2.5H12l-4 3.5V17H6.5A2.5 2.5 0 014 14.5z" strokeLinecap="round" strokeLinejoin="round" />
+      <svg
+        viewBox="0 0 24 24"
+        className="w-5 h-5 fill-none stroke-current stroke-2"
+        aria-hidden="true"
+      >
+        <path
+          d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5v8a2.5 2.5 0 01-2.5 2.5H12l-4 3.5V17H6.5A2.5 2.5 0 014 14.5z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     ),
     paragraphs: [
@@ -17,7 +25,11 @@ const features = [
     index: "02",
     title: "Money that moves like a message",
     icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current stroke-2" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        className="w-5 h-5 fill-none stroke-current stroke-2"
+        aria-hidden="true"
+      >
         <path d="M4 12l16-8-6 16-2-6-6-2z" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
@@ -29,7 +41,11 @@ const features = [
     index: "03",
     title: "A built-in offramp",
     icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current stroke-2" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        className="w-5 h-5 fill-none stroke-current stroke-2"
+        aria-hidden="true"
+      >
         <rect x="3" y="6" width="18" height="12" />
         <circle cx="12" cy="12" r="2.5" />
         <path d="M6.5 9.5v.01M17.5 14.5v.01" strokeLinecap="round" />
@@ -43,7 +59,6 @@ const features = [
 ];
 
 export default function FeatureBlock() {
-
   return (
     <section className="bg-[var(--color-bg)] py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,16 +67,14 @@ export default function FeatureBlock() {
             What&apos;s inside
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--color-text-primary)] tracking-tight">
-            A messenger. A wallet. A way out.
+            Private money. Private messages. Local rails.
           </h2>
           <p className="mt-4 text-[var(--color-text-secondary)] max-w-xl mx-auto">
             A messenger and a wallet in one app, with no compromise on your privacy.
           </p>
         </div>
 
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature) => (
             <div
               key={feature.index}

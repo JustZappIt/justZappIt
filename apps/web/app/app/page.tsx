@@ -25,8 +25,7 @@ export const metadata: Metadata = {
 
 export default function AppPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
-
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
       {/* Hero */}
       <section className="text-center md:text-left md:grid md:grid-cols-[1fr_auto] md:gap-12 md:items-center">
         <div>
@@ -34,12 +33,12 @@ export default function AppPage() {
             Open beta on Android · iOS coming soon
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)] leading-tight tracking-tight mb-4">
-            A Zcash wallet with{" "}
-            <span className="text-primary">chat built in.</span>
+            Every other Zcash wallet lets you hold private money.
+            <br />
+            <span className="text-primary">Zapp lets you spend it.</span>
           </h1>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto md:mx-0 leading-relaxed">
-            Shielded ZEC payments inside encrypted chats, plus a no-KYC offramp to local cash.
-            No phone number, no sign-up. Now in open beta on Google Play.
+            Shielded ZEC payments using local rails. Now in open beta on Google Play.
           </p>
         </div>
 
@@ -64,8 +63,7 @@ export default function AppPage() {
           </h2>
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-5">
             No invite, no waitlist. Install Zapp straight from Google Play, a full shielded ZEC
-            wallet with end-to-end encrypted chat, in-chat payments, and a no-KYC offramp built
-            in.
+            wallet with end-to-end encrypted chat, in-chat payments, and a no-KYC offramp built in.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <a
@@ -90,8 +88,7 @@ export default function AppPage() {
           How in-chat ZEC payments work
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">
-          Payments run on the shielded ZEC wallet built into the app. No external wallet
-          to connect.
+          Payments run on the shielded ZEC wallet built into the app. No external wallet to connect.
         </p>
         <div className="space-y-6">
           {[
@@ -125,23 +122,39 @@ export default function AppPage() {
       </section>
 
       {/* Privacy */}
-      <section>
-        <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
-          Privacy by design
-        </h2>
-        <ul className="space-y-3">
-          {[
-            "End-to-end encrypted conversations",
-            "No phone number required to sign up",
-            "Shielded ZEC transactions by default: amount and recipient not on a public ledger",
-            "No message metadata sold or shared",
-          ].map((item) => (
-            <li key={item} className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
-              <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
-              {item}
-            </li>
-          ))}
-        </ul>
+      <section className="md:grid md:grid-cols-[1fr_auto] md:gap-12 md:items-center">
+        <div>
+          <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
+            Privacy by design
+          </h2>
+          <ul className="space-y-3">
+            {[
+              "End-to-end encrypted conversations",
+              "No phone number required to sign up",
+              "Shielded ZEC transactions by default: amount and recipient not on a public ledger",
+              "No message metadata sold or shared",
+            ].map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]"
+              >
+                <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Wallet screenshot in a hand-held device mockup (background removed, floats) */}
+        <div className="hidden md:block w-[340px] mt-10 md:mt-0">
+          <Image
+            src="/screens/zapp-wallet-hand.png"
+            alt="A hand holding a phone showing the Zapp shielded ZEC wallet with total balance and recent activity"
+            width={1500}
+            height={1125}
+            className="[filter:drop-shadow(0_18px_40px_rgba(15,14,12,0.18))]"
+          />
+        </div>
       </section>
 
       {/* Offramp */}
@@ -156,12 +169,11 @@ export default function AppPage() {
           escrow.
         </p>
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-          No exchange account, no KYC, no paperwork. Every order runs through a fresh wallet, so
-          the payout carries no link to your balance or history. Live in India (UPI), Brazil
-          (PIX), and Indonesia (QRIS) today, with Argentina, Mexico, and Venezuela on the way.
+          No exchange account, no KYC, no paperwork. Every order runs through a fresh wallet, so the
+          payout carries no link to your balance or history. Live in India (UPI), Brazil (PIX), and
+          Indonesia (QRIS) today, with Argentina, Mexico, and Venezuela on the way.
         </p>
       </section>
-
     </div>
   );
 }
