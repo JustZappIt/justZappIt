@@ -91,9 +91,8 @@ function HeroCopy() {
       </div>
 
       <p className="text-xl text-[var(--color-text-secondary)] mb-3 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-        Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. Conversations
-        travel device to device, never through a server. Payments settle in shielded ZEC, never
-        on a public ledger.
+        Zapp is a peer-to-peer messenger with a shielded Zcash wallet built in. No middlemen,
+        no centralized servers, and no compromise on your privacy.
       </p>
 
       <p className="text-base text-[var(--color-text-secondary)] mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">

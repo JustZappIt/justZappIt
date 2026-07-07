@@ -25,8 +25,8 @@ export default function StatementBand() {
             </p>
             <p className="text-[var(--color-text-secondary)] leading-relaxed max-w-xl">
               Zcash closed that gap with shielded transactions: encryption at the protocol level,
-              not obfuscation. Zapp finishes the thought by putting encrypted money and encrypted
-              conversations in the same app, behind the same seed phrase.
+              not obfuscation. Zapp brings that same protection to your messages, so your money
+              and your chats live in one app, secured by a single seed phrase.
             </p>
           </div>
 
