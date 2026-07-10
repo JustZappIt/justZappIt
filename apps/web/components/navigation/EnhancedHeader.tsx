@@ -73,7 +73,12 @@ export default function EnhancedHeader() {
               onMouseEnter={() => setResourcesDropdownOpen(true)}
               onMouseLeave={() => setResourcesDropdownOpen(false)}
             >
-              <button className="relative flex items-center text-[11px] font-extrabold uppercase tracking-[0.1em] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-2 group">
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={resourcesDropdownOpen}
+                className="relative flex items-center text-[11px] font-extrabold uppercase tracking-[0.1em] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-2 group"
+              >
                 Resources
                 <ChevronDown
                   className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
@@ -84,19 +89,28 @@ export default function EnhancedHeader() {
               </button>
 
               {resourcesDropdownOpen && (
-                <div className="absolute top-full left-0 w-48 bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] py-2 mt-1 animate-fade-up">
-                  {[
-                    { href: "/faq", label: "FAQ" },
-                    { href: "/about", label: "About Us" },
-                  ].map(({ href, label }) => (
-                    <Link
-                      key={href}
-                      href={href}
-                      className="block px-4 py-2 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-chip)] transition-colors"
-                    >
-                      {label}
-                    </Link>
-                  ))}
+                // top-full + pt-1 keeps the hover surface flush with the button:
+                // the 4px gap is transparent padding inside the tracked area, not a
+                // dead zone that would fire onMouseLeave before a menu item is clicked.
+                <div className="absolute top-full left-0 w-48 pt-1">
+                  <div
+                    role="menu"
+                    className="bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] py-2 animate-fade-up"
+                  >
+                    {[
+                      { href: "/faq", label: "FAQ" },
+                      { href: "/about", label: "About Us" },
+                    ].map(({ href, label }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        role="menuitem"
+                        className="block px-4 py-2 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-chip)] transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
