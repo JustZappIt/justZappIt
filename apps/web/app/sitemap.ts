@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: appUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${appUrl}/app`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${appUrl}/ironwood`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${appUrl}/faq`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${appUrl}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${appUrl}/privacy`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },

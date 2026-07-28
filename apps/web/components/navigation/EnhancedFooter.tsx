@@ -44,6 +44,7 @@ export default function EnhancedFooter() {
             <ul className="space-y-2">
               {[
                 { href: "/app", label: "Mobile App" },
+                { href: "/ironwood", label: "Ironwood Upgrade" },
                 { href: "/faq", label: "FAQ" },
                 { href: "/about", label: "About Us" },
               ].map(({ href, label }) => (
