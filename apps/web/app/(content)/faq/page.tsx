@@ -134,6 +134,16 @@ const faqData: FaqSection[] = [
         id: "payments-5",
         question: "What payment methods does the offramp support?",
         answer: "Zapp's offramp settles over local payment rails. UPI in India, PIX in Brazil, and QRIS in Indonesia are all live today. Scan a QR code or enter an ID and a verified peer on the P2P.me protocol pays out in local currency, secured by on-chain escrow. Argentina, Mexico, and Venezuela are next."
+      },
+      {
+        id: "payments-6",
+        question: "Zcash upgraded to Ironwood. Do I need to do anything?",
+        answer: "Update Zapp, and that's it for now. Ironwood is a new shielded pool; your funds are safe, your addresses still work, and there is no deadline to move anything. ZEC you already hold stays in Orchard until you move it, and a more private automated migration is coming in a later update, so we recommend waiting. If you'd rather move funds yourself, our Ironwood guide explains what becomes public and how to do it step by step.",
+        render: (
+          <>
+            Update Zapp, and that&apos;s it for now. Ironwood is a new shielded pool; your funds are safe, your addresses still work, and there is no deadline to move anything. ZEC you already hold stays in Orchard until you move it, and a more private automated migration is coming in a later update, so we recommend waiting. If you&apos;d rather move funds yourself, our <Link href="/ironwood" className="text-primary hover:underline">Ironwood guide</Link> explains what becomes public and how to do it step by step.
+          </>
+        )
       }
     ]
   },

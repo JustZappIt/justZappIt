@@ -98,6 +98,7 @@ export default function EnhancedHeader() {
                     className="bg-[var(--color-surface)] border border-[var(--color-border-strong)] shadow-[var(--shadow)] py-2 animate-fade-up"
                   >
                     {[
+                      { href: "/ironwood", label: "Ironwood Upgrade" },
                       { href: "/faq", label: "FAQ" },
                       { href: "/about", label: "About Us" },
                     ].map(({ href, label }) => (
@@ -178,6 +179,7 @@ export default function EnhancedHeader() {
                 </div>
                 <div className="pl-4 space-y-1">
                   {[
+                    { href: "/ironwood", label: "Ironwood Upgrade" },
                     { href: "/faq", label: "FAQ" },
                     { href: "/about", label: "About Us" },
                   ].map(({ href, label }) => (
