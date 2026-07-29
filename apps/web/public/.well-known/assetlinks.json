@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "xyz.justzappit.zapp",
+      "sha256_cert_fingerprints": [
+        "B7:80:75:87:64:D7:E4:AB:D5:83:8D:9E:59:3E:9B:EC:D5:E5:64:93:76:F0:14:13:C3:B6:75:BD:04:1E:3D:83",
+        "80:0C:61:A4:61:11:25:FB:F0:DD:C3:D1:AB:FE:22:CF:F7:EA:D7:65:E8:42:04:D6:DB:E5:62:39:08:02:DF:D4"
+      ]
+    }
+  }
+]
